@@ -12,7 +12,7 @@
 		</div>
 		<div class="bi_top">
 			<div class="bi_banner">
-				<img src="" alt="">
+				<img src="../../images/ban_03.png" alt="">
 			</div>
 			<div class="bi_tet">
 				<h3>马老四和将讲语文</h3>
@@ -175,7 +175,7 @@
 		width: 100%;
 		height: 160px;
 		margin: 10px 0;
-		background-image: url(../../dist/ban_03.png);
+		/* background-image: url(../../dist/ban_03.png); */
 		background-size: 100% 100%;
 	}
 
