@@ -64,6 +64,7 @@
 					user_token: localStorage.getItem('user_token'),
 					user_id: localStorage.getItem('user_id'), 
 				},
+				myPais:[],
 				// options:{},
 				myQians:[],
 				nowIndex: 1
@@ -75,9 +76,9 @@
 		methods: {
 			toggleTabs: function(index) {
 				this.nowIndex = index;
-				if(index==0){
-					this.getSignList()
-				}
+				// if(index==0){
+				// 	this.getSignList() 
+				// }
 			},
 
 			open() { 

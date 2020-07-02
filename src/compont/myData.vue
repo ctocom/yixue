@@ -4,10 +4,7 @@
 			<div style="float: left;">
 				<a href="#/no4">
 					<h4> < 我的数据</h4> 
-				</a> </div> 
-				<!-- <el-select v-model="value" placeholder="学科">
-					<el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
-				</el-select> -->
+				</a> </div>  
 			</div>
 
 			<!-- 内容了 -->
@@ -19,10 +16,10 @@
 				</div> -->
 				<div class="cont_top_atl">
 					<!-- <el-progress :percentage="80"></el-progress> -->
-					<p>学习时长</p>
-					<el-progress :percentage="20" :format="format"></el-progress>
+					<p>学习进度</p>
+					<el-progress :percentage="nam2" :format="format"></el-progress>
 					<p>正确率</p>
-					<el-progress :percentage="100" status="success"></el-progress>
+					<el-progress :percentage="nam1" :format="format"></el-progress>
 					<!-- <el-progress :percentage="100" status="warning"></el-progress>
 					<el-progress :percentage="50" status="exception"></el-progress> -->
 				</div>
@@ -65,7 +62,9 @@
 					user_token: localStorage.getItem('user_token'),
 					user_id: localStorage.getItem('user_id'),
 				},
-				myDatas: {}
+				myDatas: {},
+				nam1:'',
+				nam2:''
 			}
 		},
 
@@ -79,7 +78,9 @@
 			goHome() {
 				var myData = JSON.stringify(this.myData);
 				this.$http.post(this.href + '/statisticsStudent', myData).then(response => {
-					// console.log(response.data.data)
+					console.log(response.data.data)
+					this.nam1 = response.data.data.study_rate
+					this.nam2 = response.data.data.true_rate 
 					this.myDatas = response.data.data.student_rank
 					if (response.body.code == '300') {
 						this.$notify.error({

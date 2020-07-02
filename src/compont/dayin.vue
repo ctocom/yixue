@@ -1,9 +1,12 @@
 <template>
 	<div class="dayin_max">
 		<div class="xue_hears">
-			<span>
-				<a href="javascript:history.go(-3);"> <  </a>
-			</span> 
+			<router-link :to="{path:'/no3',query:{}}">
+				<p> < </p>
+			</router-link>
+			<!-- <span>
+				<a href="javascript:history.go(-2);"> <  </a>
+			</span> -->
 			<router-link :to="{path:'/xiaoxi',query:{id:$route.query.id,id2:this.$route.query.id}}">
 				<div class="ling_ri">
 					<!-- <img src="../../images/xld.png" alt=""> -->
@@ -52,7 +55,8 @@
 					type:''
 				},
 				zjData:{},
-				paperId:''
+				paperId:'',
+				unitId:this.$route.query.id
 			}
 		},
 		mounted() {
@@ -61,7 +65,7 @@
 		methods: {
 			goHome() {
 				this.daData.type = this.$route.query.type
-				this.daData.unit_id = this.$route.query.id
+				this.daData.unit_id = this.unitId
 				this.daData.unit_list_id = this.$route.query.id2 
 				var daData = JSON.stringify(this.daData);
 				this.$http.post(this.href + '/userPaperAction', daData).then(response => {

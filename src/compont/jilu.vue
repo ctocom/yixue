@@ -14,7 +14,7 @@
 				<div class="max" v-if="item.from_user_id == 1">
 					{{item.content}}
 				</div>
-				<div class="max" else style="float: right;">
+				<div class="max" else style="text-align: right;float: right;color: greenyellow;">
 					{{item.content}}
 				</div>
 			</div> 
@@ -56,7 +56,8 @@
 
 <style> 
 .max{
-	width: 80%;
+	width: 95%;
+	height: 70px;
 	overflow: hidden;
 }
 .xue_hears {

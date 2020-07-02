@@ -1,13 +1,16 @@
 <template>
 	<div class="bi_max">
 		<div class="xue_hears">
-			<router-link :to="{path:'/dangqian',query:{id:$route.query.id,id2:this.$route.query.id2}}">
+			<!-- <router-link :to="{path:'/dangqian',query:{id:$route.query.id,id2:this.$route.query.id2}}"> -->
 				<span>
-					< 
+					<a href="javascript:history.go(-2);"> < </a>
 			</span> 
-			</router-link> 作业笔记 <router-link :to="{path:'/xiaoxi',query:{id:$route.query.id,id2:this.$route.query.id}}">
+			<!-- </router-link> -->
+			作业笔记 
+			<router-link :to="{path:'/xiaoxi',query:{id:$route.query.id,id2:this.$route.query.id}}">
 			 <div class="ling_ri">  
-						</div>
+						
+			</div>
 			</router-link>
 		</div>
 		<div class="bi_top">

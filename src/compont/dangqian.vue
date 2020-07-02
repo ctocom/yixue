@@ -7,7 +7,7 @@
 						< 当前学习 
 					</div> 
 				</router-link>  
-				  <!-- {{$route.query.id}} -->
+				  {{$route.query.id}}
 			</p> 
 			<p style="float: right;color: black;"> {{navName}}</p>
 			<p id="cli_p" style=" font-size: 14px; text-align: center;" @click="newClick()">查看学习进度</p>
@@ -277,12 +277,14 @@
 			background-color: sandybrown;
 		}
 		.box{
-			height: 24px;
+			height: 20px;
 		    margin-top: 28px;
-			/* background-color: pink; */
+			background-color: pink;
+			border-radius: 10px; 
+			padding-top: 3px;
 		}
-		i{
-			 background-color: #8a8a8a;
+		.box i{
+			 /* background-color: #8a8a8a; */
 		}
 		.box i{
 			display: inline-block;

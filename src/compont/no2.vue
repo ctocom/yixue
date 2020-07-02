@@ -131,10 +131,8 @@
 	   .el-carousel__item:nth-child(2n+1) {
 	      background-color: #d3dce6;
 	   }
-	 .no2_max{
-		 height: 100%;
-		 /* background-color: #ebebeb; */
-		 /* padding-bottom: 60px; */
+	 .no2_max{ 
+		 
 	 }
 		.no2_top {
 			width: 100%;
