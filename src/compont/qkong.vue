@@ -13,7 +13,7 @@
 			<div class="top_thr">
 				<div class="sp_int" v-for=" (i,index) in haoDatas">  
 					<span>{{index+1}}</span>
-					<input id="int" type="checkbox" :value=i.question_id v-model="question_str">
+					<input id="int" type="checkbox" :value=i.question_id v-model="tiData.question_str">
 				</div>  
 			</div> 
 		</div> 
@@ -34,7 +34,7 @@
 				haoData:{
 					user_id: localStorage.getItem('user_id'),
 					user_token: localStorage.getItem('user_token'), 
-					paper_id:''
+					paper_id:localStorage.getItem('papId')
 				},
 				haoDatas:{},
 				tiData: {
@@ -49,25 +49,22 @@
 			this.goHome()
 		},
 		methods: { 
-			goHome(){
-				this.haoData.paper_id = this.$route.query.papId
+			goHome(){ 
 				var haoData = JSON.stringify(this.haoData);
 				this.$http.post(this.href + '/paperQuestionList', haoData).then(response => {
 					console.log(response.data.data )
 					this.haoDatas = response.data.data.paper_data
 				});
 			},
-			goClick(){
-				// var tiData = JSON.stringify(this.tiData.question_str);
-				console.log()
-				if(!this.tiData.length){
+			goClick(){ 
+				if(!this.tiData.question_str.length){
 					 this.$notify.info({
 					 	title: '提示',
 					 	message: '请选择错题', 
 					 });
 					  return
 				}   
-				// this.tiData = this.question_st  
+				var tiData = JSON.stringify(this.tiData);
 				this.$http.post(this.href + '/errorClear', tiData).then(response => { 
 					if (JSON.stringify(response.data.code, null, 4) == 200) {
 						 this.$notify.info({

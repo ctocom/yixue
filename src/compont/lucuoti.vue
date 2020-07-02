@@ -63,11 +63,10 @@
 					this.haoDatas = response.data.data.paper_data
 				});
 			},
-			luClick() {
-				
-				this.tiData.paper_id = this.$route.query.papId
+			luClick() {  
+				localStorage.setItem('papId',this.$route.query.papId)
 				this.tiData.question_str = this.names
-
+				
 				if (!this.tiData.question_str) {
 					this.$notify.info({
 						title: '提示',
