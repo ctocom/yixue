@@ -1,7 +1,7 @@
 <template>
 	<div class="dayin_max">
 		<div class="xue_hears">
-			<router-link :to="{path:'/jilei',query:{id:$route.query.id,id2:$route.query.id2}}">
+			<router-link :to="{path:'/jilei',query:{papId:$route.query.papId}}">
 				<span>
 					< </span> </router-link> <span style="float: right;">错题
 				</span>

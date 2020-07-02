@@ -36,7 +36,7 @@
 			</div>
 
 			<div class="cuo_null">
-				<router-link :to="{path:'/qkong',query:{id:'2',name:'历史错题'}}">
+				<router-link :to="{path:'/qkong',query:{id:'2',name:'历史错题',papId:$route.query.papId}}">
 					<p>当前错题清空</p>
 				</router-link>
 			</div>
@@ -161,9 +161,8 @@
 				this.$http.post(this.href + '/logout', usid).then(response => {
 					alert(response.body.msg)
 					localStorage.setItem('user_token', null)
-					localStorage.setItem('user_id', null)
-					// location.href = ""
-					this.$router.push("#/")
+					localStorage.setItem('user_id', null) 
+					location.href = "#/" 
 				});
 			},
 		},

@@ -30,6 +30,15 @@
 					{{i}}
 				</p>
 			</div>
+			<div class="jilu">
+				<div v-for="i in jilus">
+					<!-- {{i}} -->
+					<h3>{{i.username}}</h3>
+					<p>积分：{{i.integral}}</p>
+					<p>登陆时间：{{i.sign_in_time}}</p>
+					<p>电话：{{i.created_time}}</p>
+				</div>
+			</div>
 		</div>
 		<div class="divTab" v-show="nowIndex===1">
 			<div class="divTab_top">
@@ -58,16 +67,21 @@
 				href: gloal.userApi,
 				tabsParam: ['赚取积分', '积分排行'],
 				myPai: {
-					user_token: localStorage.getItem('user_token'),
+					user_token: localStorage.getItem('user_token')
 				},
 				myQian: {
 					user_token: localStorage.getItem('user_token'),
-					user_id: localStorage.getItem('user_id'), 
+					user_id: localStorage.getItem('user_id')
 				},
-				myPais:[],
+				myPais:{},
 				// options:{},
 				myQians:[],
-				nowIndex: 1
+				nowIndex: 0,
+				jilu:{
+					user_id: localStorage.getItem('user_id'), 
+					user_token: localStorage.getItem('user_token')
+				},
+				jilus:{}
 			}
 		},
 		mounted() {
@@ -110,9 +124,11 @@
 			goHome() {
 				var myPai = JSON.stringify(this.myPai);
 				this.$http.post(this.href + '/signRankList', myPai).then(response => { 
-					this.myPai = response.body.data 
-					
-					// console.log(rresponse.body.data esponse.body.code)
+					this.myPai = response.body.data  
+				});
+				var jilu = JSON.stringify(this.jilu);
+				this.$http.post(this.href + '/signList', jilu).then(response => { 
+					this.jilus = response.data.data
 				});
 			},
 			// qianClick() { 
@@ -131,6 +147,9 @@
 		height: 100%;
 	}
 
+.jilu{
+	line-height: 30px;
+}
 	.my_active {
 		border-bottom: 2px solid #f9d326;
 	}

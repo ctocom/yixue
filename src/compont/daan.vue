@@ -30,7 +30,7 @@
 				danData: {
 					user_token: localStorage.getItem('user_token'),
 					user_id: localStorage.getItem('user_id'),
-					paper_id: '15',
+					paper_id: '',
 					seconds_password: ''
 				},
 				danDatas: {}
@@ -47,15 +47,11 @@
 					// console.log(response.data.data.paper_question_list)
 					this.danDatas = response.data.data.paper_question_list
 					if (JSON.stringify(response.data.code, null, 4) == 200) {
-						// alert('登录成功')
-						localStorage.setItem('user_id', response.data.data.id)
-						localStorage.setItem('user_token', response.data.data.token)
-						localStorage.setItem('userName',response.data.data.name)
-						this.$router.push("/")
+						 
 					} else {
 						this.$notify.info({
 						  title: '提示',
-						  message: response.data.msg 
+						  message: '请输入密码' 
 						}); 
 					}
 					 

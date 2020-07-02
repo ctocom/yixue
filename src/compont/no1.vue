@@ -12,8 +12,8 @@
 				<input v-model="user.account" id="val1" type="text" placeholder="用户名 :"><br>
 				<input v-model="user.password" id="val2" type="password" placeholder="密码 :">
 			</div> 
-			<div>
-				<button class="log_but" @click="goHome">登录</button>
+			<div  class="log_but" @click="goHome">
+				<button>登录</button>
 			</div>
 		</div>
 		<div class="play_a">
@@ -137,7 +137,11 @@
 			width: 200px;
 			height: 50px;
 			display: block;
-			margin: 15px auto;
+			margin: 15px auto; 
+		}
+		.log_but button{
+			width: 100%;
+			height: 100%;
 			background: url(../../images/1.jpg);
 			background-size: 100% 100%;
 			border-radius: 50px;

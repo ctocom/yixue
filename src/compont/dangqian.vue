@@ -274,14 +274,14 @@
 <style>
 	@media screen and (max-width: 980px) {
 		.red{
-			background-color: sandybrown;
+			background-color: green;
 		}
 		.box{
 			height: 20px;
 		    margin-top: 28px;
-			background-color: pink;
+			background-color: #c3c3c3;
 			border-radius: 10px; 
-			padding-top: 3px;
+			padding: 3px 3px 0;
 		}
 		.box i{
 			 /* background-color: #8a8a8a; */

@@ -1,7 +1,7 @@
 <template>
 	<div class="dayin_max">
 		<div class="xue_hears">
-			<router-link :to="{path:'/no4',query:{id:'1'}}">
+			<router-link :to="{path:'/no4',query:{id:'1',papId:$route.query.papId}}">
 				<span>
 					< </span> </router-link> <router-link :to="{path:'',query:{id:$route.query.id,id2:this.$route.query.id}}"> 
 						<span style="float: right;">错题 </span>
@@ -11,13 +11,13 @@
 		<div class="topic">
 			<h3>请勾选回答错误的试题</h3>
 			<div class="top_thr">
-				<div class="sp_int" v-for=" i in tiDatas"> 
-					<!-- {{i}} -->
-					<input id="int" type="checkbox" :value=i v-model="tiData.question_arr">
-				</div> 
+				<div class="sp_int" v-for=" (i,index) in haoDatas">  
+					<span>{{index+1}}</span>
+					<input id="int" type="checkbox" :value=i.question_id v-model="question_str">
+				</div>  
 			</div> 
 		</div> 
-		<p>您想要清空的试题为{{question_arr}} </p>
+		<p>您想要清空的试题为{{this.tiData.question_str}} </p>
 		<div class="kongCli" @click="goClick()">
 			<p>清空试题</p>
 		</div>
@@ -31,43 +31,51 @@
 			return {
 				href: gloal.userApi,
 				names: [],
+				haoData:{
+					user_id: localStorage.getItem('user_id'),
+					user_token: localStorage.getItem('user_token'), 
+					paper_id:''
+				},
+				haoDatas:{},
 				tiData: {
 					user_id: localStorage.getItem('user_id'),
 					user_token: localStorage.getItem('user_token'), 
-					question_arr: []
+					question_str:[], 
 				},
-				tiDatas:{} 
+				
 			}
 		},
 		mounted() { 
+			this.goHome()
 		},
 		methods: { 
+			goHome(){
+				this.haoData.paper_id = this.$route.query.papId
+				var haoData = JSON.stringify(this.haoData);
+				this.$http.post(this.href + '/paperQuestionList', haoData).then(response => {
+					console.log(response.data.data )
+					this.haoDatas = response.data.data.paper_data
+				});
+			},
 			goClick(){
-				var tiData = JSON.stringify(this.tiData);
-				if(!this.tiData.question_arr.length){
-					this.$notify.info({
-						title: '提示',
-						message: '请选择错题'
-					}); 
-					return
-				}
-				this.$http.post(this.href + '/errorClear', tiData).then(response => {
-					console.log(response.data) 
-					this.tiDatas = response.data
-					
-					
+				// var tiData = JSON.stringify(this.tiData.question_str);
+				console.log()
+				if(!this.tiData.length){
+					 this.$notify.info({
+					 	title: '提示',
+					 	message: '请选择错题', 
+					 });
+					  return
+				}   
+				// this.tiData = this.question_st  
+				this.$http.post(this.href + '/errorClear', tiData).then(response => { 
 					if (JSON.stringify(response.data.code, null, 4) == 200) {
 						 this.$notify.info({
 						 	title: '提示',
 						 	message: '错题已清除'
 						 }); 
 						 location.href = "/no4";
-					}else{
-						this.$notify.info({
-							title: '提示',
-							message:response.data.msg
-						}); 
-					} 
+					}
 				});
 			}
 		}

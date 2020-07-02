@@ -59,11 +59,7 @@
 					this.cuoDatas = response.data.data
 					if (response.body.code == '300') {
 						alert('登录信息已失效，请重新登录')
-					}
-					// this.$notify.info({
-					//        title: '提示',
-					//        message: response.body.msg
-					//       });
+					} 
 				}); 
 			},
 		}
@@ -123,10 +119,10 @@
 
 	.cuo_max {
 		width: 100%;
-		/* height: 100vh; */
-		height: 100%;
+		height: 100vh;
+		/* height: 100%; */
 		background-color: #ffffff;
-		position: absolute;
+		position: position;
 		z-index: 3;
 		padding-bottom: 80px;
 	}

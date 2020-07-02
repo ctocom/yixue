@@ -19,7 +19,7 @@
 				</router-link>  
 			</div>   
 			<div class="cont_div">
-				<router-link :to="{path:'/no4',query:{id:''}}">
+				<router-link :to="{path:'/no4',query:{papId:$route.query.papId}}">
 					<li></li>
 					<p>打印错题</p> 
 				</router-link>  

@@ -17,7 +17,7 @@
 		</div> 
 		<div id="lisDan">
 			<div v-for="i in lisDatas">
-				{{i}}
+				{{i.keyword}}
 			</div>
 		</div>
 		
@@ -69,6 +69,9 @@
 </script>
 
 <style> 
+#lisDan{
+	line-height: 30px;
+}
 .paName{
 	width: 80%;
 	height: auto;
@@ -112,5 +115,7 @@
 	background-color: salmon;
 	border: 1px solid salmon;
 }
-
+.dan{
+	padding-bottom: 20px;
+}
 </style>
