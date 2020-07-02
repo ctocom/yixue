@@ -1,0 +1,242 @@
+<template>
+	<div class="my_max">
+		<div class="xue_hears">
+			<router-link :to="{path:'/no4',query:{id:'3'}}">
+				<span> < </span> 
+			</router-link> 
+		</div>
+		<div class="my_banner">
+			<p>当前积分：</p>
+		</div>
+
+		<div class="my_cont_tet">
+			<ul class="tabs">
+				<li class="li-tab" v-for="(item,index) in tabsParam" @click="toggleTabs(index)" :class="{my_active:index==nowIndex}">{{item}}</li>
+			</ul>
+		</div>
+
+		<div class="divTab" v-show="nowIndex===0">
+			<div class="divTab_btn">
+				<el-button type="text" @click="open()">
+					<p>签到</p>
+				</el-button>
+			</div>
+			<div class="qian_p">
+				<p>每月签到满勤，课额外在赠送25积分</p>
+			</div>
+			<div class="qian_h"> 
+				<h3>签到情况：</h3>
+				<p class="thtext" v-for="i in myQians">
+					{{i}}
+				</p>
+			</div>
+		</div>
+		<div class="divTab" v-show="nowIndex===1">
+			<div class="divTab_top">
+				<p>排行榜（ 前10名 ）</p>
+			</div>
+			<ul class="divTab_bot">
+				<li v-for="(j,index) in myPai">
+					<div style="float: left;">
+						<h3 style="float: left;margin-right:20px;">NO:{{index+1}}</h3>
+						{{j.name}}
+					</div>
+					<span class="jf_span">
+						{{j.score}}
+					</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</template>
+
+<script>
+	import gloal from '../cxf.vue'
+	export default {
+		data() {
+			return {
+				href: gloal.userApi,
+				tabsParam: ['赚取积分', '积分排行'],
+				myPai: {
+					user_token: localStorage.getItem('user_token'),
+				},
+				myQian: {
+					user_token: localStorage.getItem('user_token'),
+					user_id: localStorage.getItem('user_id'), 
+				},
+				// options:{},
+				myQians:[],
+				nowIndex: 1
+			}
+		},
+		mounted() {
+			this.goHome() 
+		},
+		methods: {
+			toggleTabs: function(index) {
+				this.nowIndex = index;
+				if(index==0){
+					this.getSignList()
+				}
+			},
+
+			open() { 
+				var myQian = JSON.stringify(this.myQian);
+				this.$http.post(this.href + '/signIn', myQian).then(response => {
+				this.myQians = response.body.msg
+				if (response.body.code == '300') {
+					alert('登录信息已失效，请重新登录')
+				}else{
+					this.$alert('已成功签到签到', '签到情况', {
+						confirmButtonText: '确定',
+						callback: action => {} 
+					});
+				} 
+				});
+				
+			},
+			getSignList(){
+				let options = {
+					user_id:localStorage.getItem('user_id'),
+					user_token: localStorage.getItem('user_token')
+				}
+				this.$http.post(this.href + '/signList', options).then(response => { 
+					this.myPai = response.body.data 
+					
+					// console.log(rresponse.body.data esponse.body.code)
+				});
+			},
+			goHome() {
+				var myPai = JSON.stringify(this.myPai);
+				this.$http.post(this.href + '/signRankList', myPai).then(response => { 
+					this.myPai = response.body.data 
+					
+					// console.log(rresponse.body.data esponse.body.code)
+				});
+			},
+			// qianClick() { 
+			// 	var myQian = JSON.stringify(this.myQian);
+			// 	this.$http.post(this.href + '/signIn', myQian).then(response => {
+			// 		console.log(response)  
+			// 	});
+			// }
+		}
+	}
+</script>
+
+<style>
+	.el-button {
+		width: 100%;
+		height: 100%;
+	}
+
+	.my_active {
+		border-bottom: 2px solid #f9d326;
+	}
+
+	.my_banner {
+		width: 100%;
+		height: 78px;
+		line-height: 78px;
+		font-size: 16px;
+		text-align: center;
+		background-color: #ffd052;
+	}
+
+	.my_cont_tet {
+		height: 45px;
+	}
+
+	.tabs {
+		width: 90%;
+		margin: 0 auto;
+		height: 100%;
+		display: flex;
+	}
+
+	.tabs .li-tab {
+		text-align: center;
+		;
+		line-height: 45px;
+		flex: 1;
+	}
+
+	.divTab {
+		width: 90%;
+		margin: 0 auto;
+	}
+
+	.divTab_top {}
+
+	.divTab_bot {
+		width: 100%;
+	}
+
+	.divTab_bot li {
+		height: 40px;
+		font-size: 16px;
+		margin: 5px 0;
+		line-height: 40px;
+	}
+
+	/* .divTab_bot p {
+		float: left;
+	} */
+
+	.divTab .jf_span {
+		float: right;
+		color: darksalmon; ;
+	}
+
+	.divTab_btn {
+		width: 40%;
+		height: 44px;
+		margin: 20px auto;
+		text-align: center;
+		line-height: 44px;
+		border: 0;
+		border-radius: 44px;
+		box-shadow: 0 5px 2px 0px #b2ceff;
+		background-image: url(../../images/btn_bag_03.jpg);
+	}
+
+	.divTab_cont {
+		display: flex;
+	}
+
+	.divTab_cont li {
+		padding: 10px 10px;
+		text-align: center;
+		/* background-color: sandybrown; */
+		flex: 1;
+	}
+ 
+	.el-button el-button--text{
+		width: 100%;
+	}
+
+	.el-button {
+		width: 46%;
+	}
+
+	.qian_p {
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		/* border: 1px dodgerblue solid; */
+		margin: 10px; 
+		font-size: 14px;
+	}
+	.qian_h{
+		width: 80%;
+		height: auto;
+		margin: 0 auto;
+	} 
+	.qian_h h3{
+		margin: 10px 0;
+	}
+	.qian_h p{
+		font-size: 14px;
+		float: left;
+	}
+</style>
