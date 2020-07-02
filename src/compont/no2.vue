@@ -1,7 +1,7 @@
 <template>
 	<div class="no2_max">
 		<!-- 头部搜索栏 -->
-		<div style="background-image: url(../../images/banner.png); background-size: 100% 125%;">
+		<div class="no2_ban">
 			<div class="no2_top">
 				<div style="float: left;width: 10%;line-height: 35px;font-size: 20px;" class="el-icon-cloudy"></div>
 				<div class="top_int">
@@ -118,6 +118,10 @@
 	     opacity: 0.75;
 	     line-height: 150px;
 	     margin: 0;
+	   }
+	   .no2_ban{
+		   background-image: url(../../images/banner.png); 
+		   background-size: 100% 125%;
 	   }
 	 
 	   .el-carousel__item:nth-child(2n) {

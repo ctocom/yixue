@@ -6,7 +6,7 @@
 		<div class="xue_cont" v-for="item in xuData">
 			<router-link :to="{path:'/jilu',query:{id:item.from_user_id}}">
 				<div class="xue_cont_img">
-					<img src="../../dist/tx2.png" alt="">
+					<!-- <img src="" alt=""> -->
 				</div>
 				<div class="xue_cont_tet">
 					<div class="cont_tet_name">
