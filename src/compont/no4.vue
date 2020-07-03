@@ -36,7 +36,7 @@
 			</div>
 
 			<div class="cuo_null">
-				<router-link :to="{path:'/qkong',query:{id:'2',name:'历史错题',papId:$route.query.papId}}">
+				<router-link :to="{path:'/qkong',query:{id:'1',name:'历史错题',papId:$route.query.papId}}">
 					<p>当前错题清空</p>
 				</router-link>
 			</div>

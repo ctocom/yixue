@@ -37,14 +37,7 @@
 					user_err: '1',
 					type: '1'
 				},
-				cuoDatas: {},
-				cuoDate: {
-					user_token: localStorage.getItem('user_token'),
-					user_id: localStorage.getItem('user_id'),
-					user_err: '1',
-					type: '1'
-				},
-				cuoDates: {},
+				cuoDatas: {}, 
 			}
 		},
 		mounted() {

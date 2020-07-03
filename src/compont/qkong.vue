@@ -11,9 +11,9 @@
 		<div class="topic">
 			<h3>请勾选回答错误的试题</h3>
 			<div class="top_thr">
-				<div class="sp_int" v-for=" (i,index) in haoDatas">  
+				<div class="sp_int" v-for=" (i,index) in cuoDatas">  
 					<span>{{index+1}}</span>
-					<input id="int" type="checkbox" :value=i.question_id v-model="tiData.question_str">
+					<input id="int" type="checkbox" :value=i.id v-model="tiData.question_str">
 				</div>  
 			</div> 
 		</div> 
@@ -37,6 +37,17 @@
 					paper_id:localStorage.getItem('papId')
 				},
 				haoDatas:{},
+				
+				cuoData: {
+					user_token: localStorage.getItem('user_token'),
+					user_id: localStorage.getItem('user_id'),
+					user_err: '1',
+					type: '1'
+				},
+				cuoDatas: {}, 
+				
+				
+				
 				tiData: {
 					user_id: localStorage.getItem('user_id'),
 					user_token: localStorage.getItem('user_token'), 
@@ -50,11 +61,21 @@
 		},
 		methods: { 
 			goHome(){ 
-				var haoData = JSON.stringify(this.haoData);
-				this.$http.post(this.href + '/paperQuestionList', haoData).then(response => {
-					console.log(response.data.data )
-					this.haoDatas = response.data.data.paper_data
-				});
+				// var haoData = JSON.stringify(this.haoData);
+				// this.$http.post(this.href + '/paperQuestionList', haoData).then(response => {
+				// 	console.log(response.data.data )
+				// 	this.haoDatas = response.data.data.paper_data
+				// });
+				
+				this.cuoData.user_err = this.$route.query.id
+				var cuoData = this.cuoData
+				this.$http.post(this.href + '/userErr', cuoData).then(response => {
+					// console.log(response.data.data)
+					this.cuoDatas = response.data.data
+					if (response.body.code == '300') {
+						alert('登录信息已失效，请重新登录')
+					} 
+				}); 
 			},
 			goClick(){ 
 				if(!this.tiData.question_str.length){
@@ -71,7 +92,7 @@
 						 	title: '提示',
 						 	message: '错题已清除'
 						 }); 
-						 location.href = "/no4";
+						 location.href = "#/no4";
 					}
 				});
 			}

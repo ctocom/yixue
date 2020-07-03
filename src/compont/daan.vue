@@ -31,7 +31,7 @@
 					user_token: localStorage.getItem('user_token'),
 					user_id: localStorage.getItem('user_id'),
 					paper_id: '',
-					seconds_password: ''
+					seconds_password: null
 				},
 				danDatas: {}
 			}
@@ -51,7 +51,7 @@
 					} else {
 						this.$notify.info({
 						  title: '提示',
-						  message: '请输入密码' 
+						  message: response.data.msg 
 						}); 
 					}
 					 
