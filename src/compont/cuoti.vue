@@ -11,14 +11,18 @@
 		<div id="cu_top" class="ti_an">
 			<div class="ti_an_a" v-for="(i,index) in cuoDatas">
 				({{index+1}})
-				<div v-html='i.title'>
-					{{i.title}}
+				<div v-html="i.title"> 
+					<!-- {{i.title}} -->
 				</div>
 			</div>
 		</div>
 
-		<div class="di_btn">
-			<button v-print="'#cu_top'">打印</button>
+		<div class="di_btn">   
+				<!-- <button v-print="'#cu_top'">打印</button> -->
+				<a :href="this.cuUrl">
+					<button >打印</button>
+				</a> 
+				 
 			<router-link :to="{path:'/lisDan',query:{name:$route.query.id}}">
 				<button>答案</button>
 			</router-link>
@@ -38,6 +42,7 @@
 					type: '1'
 				},
 				cuoDatas: {}, 
+				cuUrl:''
 			}
 		},
 		mounted() {
@@ -48,8 +53,9 @@
 				this.cuoData.user_err = this.$route.query.id
 				var cuoData = this.cuoData
 				this.$http.post(this.href + '/userErr', cuoData).then(response => {
-					// console.log(response.data.data)
-					this.cuoDatas = response.data.data
+					console.log(response.data.data.err_data)
+					this.cuoDatas = response.data.data.err_data
+					this.cuUrl = response.data.data.err_url
 					if (response.body.code == '300') {
 						alert('登录信息已失效，请重新登录')
 					} 

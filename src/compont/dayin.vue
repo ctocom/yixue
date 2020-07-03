@@ -33,7 +33,8 @@
 		<div class="yin_batn" @click="overAlt">  
 		<!-- !!!!!!! --> 
 			<a :href="this.papUrl">
-				<button v-print="'#printDiv'">打印</button>
+				{{papUrl}}
+				<button >打印</button>
 			</a> 
 		<!-- !!!!!!! -->
 		</div>

@@ -9,14 +9,19 @@
 			<!-- {{$route.query.papId}} -->
 		</div>
 		<div class="paName">
-			<p>提示：请输入二级密码，获取答案</p> 
+			<p>提示：请输入二级密码，获取答案</p>
 			密码： <input type="password" v-model="danData.seconds_password" value="请输入密码">
 		</div>
 		<div class="erJi" @click="goHome()">
 			确定
 		</div>
-		<div class="div_p" v-for="i in danDatas">
-			{{i.keyword}}
+		<div class="div_p" id="div-p" v-for="i in danDatas">
+			{{i.keyword}} 
+		</div>
+		<div class="erJi">
+			<a :href="da_fil">
+				<button >打印</button>
+			</a>
 		</div>
 	</div>
 </template>
@@ -46,15 +51,16 @@
 				this.$http.post(this.href + '/paperQuestion', danData).then(response => {
 					// console.log(response.data.data.paper_question_list)
 					this.danDatas = response.data.data.paper_question_list
+					this.da_fil = response.data.data.answer_url
 					if (JSON.stringify(response.data.code, null, 4) == 200) {
-						 
+
 					} else {
 						this.$notify.info({
-						  title: '提示',
-						  message: response.data.msg 
-						}); 
+							title: '提示',
+							message: response.data.msg
+						});
 					}
-					 
+
 				});
 			},
 		}
@@ -79,17 +85,26 @@
 	}
 
 	.erJi {
-		width: 60%;
-		height: 50px;
-		margin: 0 auto;
+		width: 45%;
+		height: 40px;
+		margin: 20px auto;
 		text-align: center;
 		background-color: sandybrown;
-		line-height: 50px;
-		font-size: 20px;
-		color: white;
+		line-height: 40px; 
+	}
+
+	.erJi button {
+		width: 100%;
+		height: 100%;
+		border: 1px solid lightblue;
+		background-color: sandybrown;
 	}
 
 	.div_p {
 		line-height: 30px;
+	}
+
+	.dan {
+		padding-bottom: 50px;
 	}
 </style>

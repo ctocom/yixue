@@ -111,10 +111,6 @@
 </script>
 
 <style>
-	.log_top{
-		width: 100%;
-	}
-	
 	@media screen and (max-width: 980px) { 
 	 .el-carousel__item h3 {
 	     color: #475669;

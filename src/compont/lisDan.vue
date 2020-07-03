@@ -16,16 +16,19 @@
 			确定
 		</div> 
 		<div id="lisDan">
-			<div v-for="i in lisDatas">
-				{{i.keyword}}
+			<div v-for="i in lisDatas" v-html="i.keyword">
+				<!-- {{i.keyword}} -->
 			</div>
 		</div>
 		
 		<div class="lisBtn">
-			<router-link :to="{path:'/no4',query:{id:'1'}}">
-				<button v-print="'#lisDan'">打印</button>
-			</router-link> 
+			<a :href="lisUrl">  
+				<button >打印</button>
+				<i>请输入密码后进行打印！</i>
+			</a>  
 		</div>
+		 
+		
 	 </div>
 </template>
 
@@ -42,7 +45,8 @@
 					user_err:'1',
 					seconds_password:''
 				},
-				lisDatas:{}
+				lisDatas:{},
+				lisUrl:''
 			}
 		},
 		mounted(){
@@ -53,15 +57,15 @@
 				this.lisData.user_err = this.$route.query.name
 				var lisData = JSON.stringify(this.lisData); 
 				this.$http.post(this.href + '/userErr', lisData).then(response => {
-					console.log(response.data.data)   
-					
-					this.lisDatas = response.data.data
+					console.log(response.data.data)     
+					this.lisDatas = response.data.data.err_data
 					if(response.data.code == '0'){
 						this.$notify.info({
 						  title: '提示',
 						  message: response.data.msg
 						});  
 					} 
+					this.lisUrl = response.data.data.err_url
 					if(response.body.code == '300'){
 						alert('登录信息已失效，请重新登录')
 					}
@@ -74,6 +78,9 @@
 <style> 
 #lisDan{
 	line-height: 30px;
+}
+.lisBtn i{
+	 font-size: 12px;color: #CCCCCC; 
 }
 .paName{
 	width: 80%;
