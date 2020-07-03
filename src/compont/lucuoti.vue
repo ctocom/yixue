@@ -22,9 +22,9 @@
 			<p>(错题选则完成后点击完成即可进行对错题的录入和积累)</p>
 		</div>
 		<div class="yin_btn" @click="luClick()">
-			<!-- <router-link :to="{path:'/no4',query:{id:$route.query.id,id2:this.$route.query.id}}"> -->
+			 
 				完成
-			<!-- </router-link> -->
+			 
 		</div>
 	</div>
 </template>
@@ -45,7 +45,7 @@
 				tiData: {
 					user_id: localStorage.getItem('user_id'),
 					user_token: localStorage.getItem('user_token'),
-					paper_id:this.$route.query.papId,
+					paper_id:'',
 					question_str: []
 				},
 				tiDatas: []
@@ -57,10 +57,10 @@
 		},
 		methods: {
 			goHome() {
-				// this.haoData.paper_id = this.$route.query.papId
+				 
 				var haoData = JSON.stringify(this.haoData);
 				this.$http.post(this.href + '/paperQuestionList', haoData).then(response => {
-					// console.log()
+					 
 					this.haoDatas = response.data.data.paper_data
 				});
 			},
@@ -75,12 +75,11 @@
 
 				console.log(this.tiData)
 				
-				// this.tiData.paper_id = this.$route.query.papId
+				this.tiData.paper_id = this.$route.query.papId
 				this.tiData.question_str = this.names  
 				var tiData = JSON.stringify(this.tiData);
 				this.$http.post(this.href + '/recordErrorQuestion', tiData).then(response => {
-					localStorage.setItem('papId',this.$route.query.papId)
-					// console.log(this.tiData.paper_id)
+					localStorage.setItem('papId',this.$route.query.papId) 
 					if (response.body.code == 200) {
 						this.$notify.info({
 							title: '提示',

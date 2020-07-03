@@ -8,14 +8,14 @@
 			{{$route.query.secTionId}} -->
 		</div> 
 		<div class="xue_cont" v-for="i in ptDatas">   
-			<router-link :to="{path:'/dayin',query:{id:1,type:$route.query.type}}">
+			<router-link :to="{path:'/dayin',query:{id:i.unit_id,type:$route.query.type}}">
 				 <div style="width: 20%;float: left;">
 				 	{{i.unit_id}}
 				 </div>
 				 <div style="width: 80%;float: right;">
 				 	{{i.name}}
 				 </div>
-			</router-link>  
+			</router-link> 
 		</div>
 		
 	</div>
@@ -49,16 +49,15 @@
 				this.$http.post(this.href + '/unitListBefore', ptData).then(response => {
 					console.log(response.data.data)
 					this.ptDatas = response.data.data
-					
-					
+					// this.unitIds = response.data.data.data.unit_id
+					// console.log(this.unitIds)
 					if (response.body.code == '300') {
 						this.$notify.info({
 							title: '提示',
 							message: '登陆信息已失效！'
 						});
 					}
-
-					// this.xuData = response.data.data
+ 
 				});
 			},
 		}
