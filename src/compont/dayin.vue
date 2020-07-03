@@ -33,7 +33,7 @@
 		<div class="yin_batn" @click="overAlt">  
 		<!-- !!!!!!! --> 
 			<a :href="this.papUrl">
-				{{papUrl}}
+				<!-- {{papUrl}} -->
 				<button >打印</button>
 			</a> 
 		<!-- !!!!!!! -->
@@ -97,7 +97,7 @@
 				});  
 			},
 			overAlt(){
-				// console.log(this.paperId)
+				console.log(this.paperId)
 				if(!this.paperId){ 
 				     this.$notify.error({
 				       title: '提示',

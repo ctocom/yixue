@@ -16,8 +16,7 @@
 					<input id="int" type="checkbox" :value=i.id v-model="tiData.question_str">
 				</div>  
 			</div> 
-		</div> 
-		<p>您想要清空的试题为{{this.tiData.question_str}} </p>
+		</div>  
 		<div class="kongCli" @click="goClick()">
 			<p>清空试题</p>
 		</div>
@@ -71,7 +70,7 @@
 				var cuoData = this.cuoData
 				this.$http.post(this.href + '/userErr', cuoData).then(response => {
 					// console.log(response.data.data)
-					this.cuoDatas = response.data.data
+					this.cuoDatas = response.data.data.err_data
 					if (response.body.code == '300') {
 						alert('登录信息已失效，请重新登录')
 					} 

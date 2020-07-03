@@ -5,6 +5,7 @@
 				<span>
 					< </span> </router-link> <span style="float: right;">错题
 				</span>
+				{{$route.query.papId}}
 		</div>
 
 		<div class="topic">
@@ -38,13 +39,13 @@
 				haoData: {
 					user_token: localStorage.getItem('user_token'),
 					user_id: localStorage.getItem('user_id'),
-					paper_id: '1'
+					paper_id: this.$route.query.papId
 				},
 				haoDatas: {},
 				tiData: {
 					user_id: localStorage.getItem('user_id'),
 					user_token: localStorage.getItem('user_token'),
-					paper_id: '1',
+					paper_id:this.$route.query.papId,
 					question_str: []
 				},
 				tiDatas: []
@@ -56,17 +57,14 @@
 		},
 		methods: {
 			goHome() {
-				this.haoData.paper_id = this.$route.query.papId
+				// this.haoData.paper_id = this.$route.query.papId
 				var haoData = JSON.stringify(this.haoData);
 				this.$http.post(this.href + '/paperQuestionList', haoData).then(response => {
 					// console.log()
 					this.haoDatas = response.data.data.paper_data
 				});
 			},
-			luClick() {  
-				localStorage.setItem('papId',this.$route.query.papId)
-				this.tiData.question_str = this.names
-				
+			luClick() {   
 				if (!this.tiData.question_str) {
 					this.$notify.info({
 						title: '提示',
@@ -76,9 +74,13 @@
 				}
 
 				console.log(this.tiData)
-
+				
+				// this.tiData.paper_id = this.$route.query.papId
+				this.tiData.question_str = this.names  
 				var tiData = JSON.stringify(this.tiData);
 				this.$http.post(this.href + '/recordErrorQuestion', tiData).then(response => {
+					localStorage.setItem('papId',this.$route.query.papId)
+					// console.log(this.tiData.paper_id)
 					if (response.body.code == 200) {
 						this.$notify.info({
 							title: '提示',

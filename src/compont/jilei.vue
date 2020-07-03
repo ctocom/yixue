@@ -2,12 +2,12 @@
 	<div class="jilei_max">
 		<div class="over_max_hear">
 			<div class="xue_hear"> 
-			<!-- {{$route.query.papId}} -->
+			0{{$route.query.papId}}0
 			</div>  
 		</div>
 		<div class="jilei_cont" > 
 			<div class="cont_div">
-				<router-link :to="{path:'/lucuo',query:{id:$route.query.id,id2:this.$route.query.id2,papId:$route.query.papId}}">
+				<router-link :to="{path:'/lucuo',query:{id:$route.query.id,id2:this.$route.query.id2,papId:this.$route.query.papId}}">
 					<li></li>
 					<p>录入错题</p> 
 				</router-link>  
