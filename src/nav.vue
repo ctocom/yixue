@@ -13,7 +13,7 @@
 					<i class="el-icon-s-management"></i>
 					<p>学习</p>  
 				</a> 
-				<a href="#/xiaoxi">
+				<a href="#/jilu">
 					<i class="el-icon-s-order"></i>
 					<p>消息</p> 
 				</a>

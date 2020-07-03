@@ -2,20 +2,33 @@
 	<div class="ji_max"> 
 		<!-- {{$route.query.id}} -->
 		<div class="xue_hears">
-			<router-link :to="{path:'/xiaoxi',query:{id:$route.query.id,id2:this.$route.query.id}}">
+			<!-- <router-link :to="{path:'/xiaoxi',query:{id:$route.query.id,id2:this.$route.query.id}}">
 				<span>
 					< 
 				</span>
-			</router-link> 
-			<p>消息</p>
+			</router-link> -->
+			<p>{{this.MyName}}</p>
 		</div>
 		<div class="ji_cont" > 
-			<div class="ji_dan" v-for="item in jiDatas" > 
-				<div class="max" v-if="item.from_user_id == 1">
-					{{item.content}}
-				</div>
-				<div class="max" else style="text-align: right;float: right;color: greenyellow;">
-					{{item.content}}
+			<div class="ji_dan" v-for="item in jiDatas" >   
+				<div class="max" v-if="openId != item.from_user_id">
+					<div class="max_img"> 
+						<img :src=item.head alt="">
+					</div>
+					<div class="max_tet"> 
+						<!-- <h3>{{item.user_name}} : </h3> -->
+						{{item.content}}
+					</div> 
+					<div class="clear"></div>
+				</div> 
+				<div class="min" v-if="openId == item.from_user_id">
+					<div class="min_img"> 
+						<img :src="item.head" alt="">
+					</div> 
+					<div class="min_tet">
+						<!-- <h3>{{item.user_name}} : </h3> -->
+						{{item.content}}
+					</div>  
 				</div>
 			</div> 
 		</div>
@@ -27,13 +40,15 @@
 	export default {
 		data() {
 			return {
+				openId: localStorage.getItem('openId'), 
 				href: gloal.userApi,
 				jiData:{
 					user_token: localStorage.getItem('user_token'),
 					user_id:localStorage.getItem('user_id'), 
 					from_user_id:'1'
 				},
-				jiDatas:{}
+				jiDatas:{},
+				MyName:''
 			}
 		},
 		mounted(){
@@ -44,22 +59,70 @@
 				var jiData = JSON.stringify(this.jiData);
 				this.jiData.from_user_id = this.$route.query.id
 				this.$http.post(this.href + '/systemInfo', jiData).then(response => {
-					// console.log(response.data.data)
-					 this.jiDatas = response.data.data   
-				});
-				 
-  
+					console.log(response.data.data.user_name) 
+					this.jiDatas = response.data.data.chat_list
+					this.MyName = response.data.data.user_name
+					// this.from_userId = response.data.data
+				}); 
 			},
 		}
 	}
 </script>
 
 <style> 
-.max{
+.clear{ clear:both} 
+.max,.min{
 	width: 95%;
-	height: 70px;
-	overflow: hidden;
+	height: auto; 
+	padding: 10px 0;
 }
+.min_tet{
+	background-image:  url(../../images/myic.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	color: #717171;
+}
+.max_tet{
+	background-image: url(../../images/youic.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	color: white;
+}
+.max_img,.min_img{
+	width: 7vh;
+	height: 7vh; 
+	margin: 10px 0; 
+} 
+.max_img img,.min_img img{
+	width: 100%;
+	height: 100%;
+}
+.max_tet{
+	max-width: 75%;
+	display: inline-block;
+	line-height: 20px;
+	padding: 10px 10px 10px;  
+}
+.min_tet{
+	max-width: 75%;
+	display: inline-block;
+	line-height: 20px;
+	padding: 10px 10px 10px ;
+}
+.max_img{
+	float: left;
+	margin-right: 3px;
+}
+.max_tet{ 
+	float: left; 
+}
+
+.min_img{
+	float: right;
+}
+.min_tet{ 
+	float: right;
+} 
 .xue_hears {
 		height: 60px;
 		padding: 0 20px;
@@ -74,17 +137,17 @@
 	}
 .ji_cont{
 	padding-top: 20px;
-	width: 90%;
+	width: 95%;
 	height: 100%;
 	margin: 0 auto;
-	position: relative;
-	z-index: 3;
+	/* position: relative; */
+	/* z-index: 3; */
 	background-color: white;
 	font-size: 14px; 
 }
 .ji_dan{
 	width: 100%;
-	height: 60px; 
+	/* height: 60px; */
 	overflow: hidden;
 }
 .le_img{

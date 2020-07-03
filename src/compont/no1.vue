@@ -48,6 +48,8 @@
 						localStorage.setItem('user_id', response.data.data.id)
 						localStorage.setItem('user_token', response.data.data.token)
 						localStorage.setItem('userName',response.data.data.name)
+						localStorage.setItem('userImg',response.data.data.head)
+						localStorage.setItem('openId',response.data.data.openid)
 						// this.$router.push("#/")
 						location.href = "#/"
 					} else {

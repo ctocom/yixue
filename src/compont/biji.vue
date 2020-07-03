@@ -2,16 +2,15 @@
 	<div class="bi_max">
 		<div class="xue_hears">
 			<!-- <router-link :to="{path:'/dangqian',query:{id:$route.query.id,id2:this.$route.query.id2}}"> -->
-				<span>
-					<a href="javascript:history.go(-2);"> < </a>
-			</span> 
-			<!-- </router-link> -->
-			作业笔记 
-			<router-link :to="{path:'/xiaoxi',query:{id:$route.query.id,id2:this.$route.query.id}}">
-			 <div class="ling_ri">  
-						
-			</div>
-			</router-link>
+			<span>
+				<a href="javascript:history.go(-2);">
+					< </a> </span> <!-- </router-link> -->
+						作业笔记
+						<router-link :to="{path:'/xiaoxi',query:{id:$route.query.id,id2:this.$route.query.id}}">
+							<div class="ling_ri">
+
+							</div>
+						</router-link>
 		</div>
 		<div class="bi_top">
 			<div class="bi_banner">
@@ -19,8 +18,7 @@
 			</div>
 			<div class="bi_tet">
 				<h3>马老四和将讲语文</h3>
-				<p>攘臂快乐的快熟及语文</p>
-				<!-- {{$route.query.id}} -->
+				<p>攘臂快乐的快熟及语文</p> 
 			</div>
 		</div>
 
@@ -33,15 +31,11 @@
 				<span style="background-color: royalblue;color: white;">
 					<a :href="i.file_url">下载</a>
 				</span>
-				<!-- <router-link :to="{path:'/biji',query:{material_id:i.id,id:$route.query.id}}"> -->
-					<span @click="spJang()">讲解</span>
-				<!-- </router-link> -->
-				<!-- http://api.yixueyouke.net/uploads/study_material/notice/20200629/7e909394d1abc3fd591eacb0fef1b4bb.docx -->
-				<!-- {{i.file_url}} -->
+				<span @click="spJang()">讲解</span>
 				<a target="_blank" :href="'https://view.officeapps.live.com/op/view.aspx?src='+i.file_url"><span>预览</span></a>
 
 			</div>
-		</div> 
+		</div>
 		<div class="foot_two">
 			<p @click="Cpte()">全部完成</p>
 			<router-link :to="{path:'/dayin',query:{id:$route.query.id,id2:this.$route.query.id2}}">
@@ -60,7 +54,7 @@
 				comData: {
 					user_id: localStorage.getItem('user_id'),
 					user_token: localStorage.getItem('user_token'),
-					type:'5',
+					type: '5',
 					unit_id: '5'
 				},
 				biData: {},
@@ -87,23 +81,23 @@
 				var comData = JSON.stringify(this.comData);
 				this.$http.post(this.href + '/studyMaterialList', comData).then(response => {
 					console.log(response.data.data)
-					this.biData = response.data.data 
-					if(response.body.code == '300'){
+					this.biData = response.data.data
+					if (response.body.code == '300') {
 						this.$notify.error({
-						  title: '提示',
-						  message: '请先登陆账号！'
+							title: '提示',
+							message: '请先登陆账号！'
 						});
-						location.href="#/no1"; 
+						location.href = "#/no1";
 					}
-					if(response.body.code == 200){ 
-						 
-					}else{
+					if (response.body.code == 200) {
+
+					} else {
 						this.$notify.info({
-						  title: '提示',
-						  message: response.body.msg
+							title: '提示',
+							message: response.body.msg
 						});
 					}
-					
+
 				});
 				this.$route.query.material_id = 1
 			},
@@ -214,7 +208,7 @@
 	}
 
 	.bi_cent_ri {
-		margin-left: 80px; 
+		margin-left: 80px;
 	}
 
 	.bi_cent_ri h3 {

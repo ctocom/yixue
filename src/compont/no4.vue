@@ -2,10 +2,12 @@
 	<div class="no4_max">
 		<div class="no4_top">
 			<div class="no4_tou">
-				<img src="" alt="">
+				<img :src=userImg alt="">
+				<!-- <img src="../assets/logo.png" alt=""> -->
 			</div> 
 			<p>易学优</p>
 			<p>{{userName}}</p>
+			<!-- {{userImg}} -->
 		</div> 
 		<!-- 内容 -->
 		<div class="no4_cont">
@@ -108,7 +110,8 @@
 		data() {
 			return {
 				href: gloal.userApi,
-				userName:localStorage.getItem('userName'), 
+				userName:localStorage.getItem('userName'),
+				userImg:localStorage.getItem('userImg'), 
 				usid: {
 					user_token: localStorage.getItem('user_token'),
 					user_id: localStorage.getItem('user_id')
@@ -250,8 +253,13 @@
 		border: 4px solid #fcefbb;
 		border-radius: 50%;
 		overflow: hidden;
-		background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1592460329120&di=b76e2a8671757ab18597cc83108f6294&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201807%2F31%2F20180731175723_vYFEK.jpeg');
+		background-image: url('https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=144939704,3087253252&fm=26&gp=0.jpg');
 		background-size: 100% 100%;
+	}
+	
+	.no4_tou img{
+		width: 100%;
+		height: 100%;
 	}
 
 	.no4_cont {

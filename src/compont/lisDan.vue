@@ -57,7 +57,10 @@
 					
 					this.lisDatas = response.data.data
 					if(response.data.code == '0'){
-						alert(response.data.msg)
+						this.$notify.info({
+						  title: '提示',
+						  message: response.data.msg
+						});  
 					} 
 					if(response.body.code == '300'){
 						alert('登录信息已失效，请重新登录')

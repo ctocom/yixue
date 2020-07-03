@@ -26,16 +26,16 @@
 				 <div class="tihao_ri" v-html="i.title">
 					 {{i.title}}
 					 
-					<!-- {{htmlspecialchars_decode(i.title)}} -->
 				 </div> 
 			 </div>
 		</div>  
 		
-		<div class="yin_batn" @click="overAlt"> 
-		<!-- <p>2132</p> -->
-			<!-- <router-link :to="{path:'/jilei',query:{id:$route.query.id,id2:this.$route.query.id,papId:this.paperId}}"> -->
-					<button v-print="'#printDiv'">打印</button>  
-			<!-- </router-link> -->
+		<div class="yin_batn" @click="overAlt">  
+		<!-- !!!!!!! --> 
+			<a :href="this.papUrl">
+				<button v-print="'#printDiv'">打印</button>
+			</a> 
+		<!-- !!!!!!! -->
 		</div>
 		 
 	</div>
@@ -56,6 +56,7 @@
 				},
 				zjData:{},
 				paperId:'',
+				papUrl:'',
 				unitId:this.$route.query.id
 			}
 		},
@@ -69,8 +70,9 @@
 				this.daData.unit_list_id = this.$route.query.id2 
 				var daData = JSON.stringify(this.daData);
 				this.$http.post(this.href + '/userPaperAction', daData).then(response => {
-					// console.log(response.data.data)
+					console.log(response.data.data)
 					this.paperId = response.data.data.paper_id
+					this.papUrl = response.data.data.paper_url 
 					
 					// this.zjData = response.data.data.paper_data
 					if(response.data && response.data.data.paper_id ){
