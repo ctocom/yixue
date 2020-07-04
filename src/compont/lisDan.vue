@@ -23,7 +23,7 @@
 		
 		<div class="lisBtn">
 			<a :href="lisUrl">  
-				<button >打印</button>
+				<button class="erJi">打印</button>
 				<i>请输入密码后进行打印！</i>
 			</a>  
 		</div>
@@ -122,7 +122,7 @@
 .lisBtn button{
 	width: 100%;
 	height: 100%;
-	background-color: salmon;
+	/* background-color: salmon; */
 	border: 1px solid salmon;
 }
 .dan{

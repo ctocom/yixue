@@ -2,7 +2,7 @@
 	<div class="dayin_max">
 		<div class="xue_hears">
 			<router-link :to="{path:'/no3',query:{}}">
-				<p> < </p>
+				<p style="float: left;"> < </p>
 			</router-link>
 			<!-- <span>
 				<a href="javascript:history.go(-2);"> <  </a>
@@ -146,8 +146,7 @@
 		}
 		.yin_batn{
 			width: 80%;
-			height: 50px;
-			background-color: darkcyan; 
+			height: 50px; 
 			margin:0px auto;
 			
 		}

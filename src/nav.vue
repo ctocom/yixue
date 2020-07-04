@@ -72,6 +72,9 @@
 		display: flex;
 		border-top: 1px solid #CCCCCC;
 	} 
+	.nav ul a{
+		flex:1;
+	}
 	@media screen and (max-width: 980px) {
 
 		.add{  

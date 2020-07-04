@@ -111,6 +111,19 @@
 </script>
 
 <style>
+	.no2_ban{
+		width: 100%;
+		/* height: 120px; */
+	}
+	.log_ban{
+		width: 100%;
+		height: 120px;
+		background-color: #000000;
+	}
+	.log_ban img{
+		width: 100%;
+		height: 100%;
+	}
 	@media screen and (max-width: 980px) { 
 	 .el-carousel__item h3 {
 	     color: #475669;

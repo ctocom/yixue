@@ -22,6 +22,13 @@
 			     // items:localStore.fetch(),
 			};
 		},
+		mounted() {
+			
+		},
+		methods:{
+			
+
+		}, 
 		watch:{
 			 items:{
 				  

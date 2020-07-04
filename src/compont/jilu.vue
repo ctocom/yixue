@@ -70,6 +70,9 @@
 </script>
 
 <style> 
+.ji_max{
+	padding-bottom: 70px;
+}
 .clear{ clear:both} 
 .max,.min{
 	width: 95%;

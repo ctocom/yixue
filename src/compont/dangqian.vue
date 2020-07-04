@@ -10,7 +10,6 @@
 				  {{$route.query.id}}
 			</p> 
 			<p style="float: right;color: black;"> {{navName}}</p>
-			<p id="cli_p" style=" font-size: 14px; text-align: center;" @click="newClick()">查看学习进度</p>
 		</div> 
 		<div class="dang_cont">
 			<div class="dang_banner" v-for="i in imgs1">
@@ -279,20 +278,17 @@
 		.box{
 			height: 20px;
 		    margin-top: 28px;
-			background-color: #c3c3c3;
+			/* background-color: #c3c3c3; */
 			border-radius: 10px; 
 			padding: 3px 3px 0;
-		}
-		.box i{
-			 /* background-color: #8a8a8a; */
-		}
+		} 
 		.box i{
 			display: inline-block;
 			width: 16px;
 			height: 16px;
 			color: white;
-			border-radius: 8px;
-			
+			border-radius: 9px;
+			border: 1px solid #c3c3c3;
 		}
 		.span_i i{
 			display: inline-block;
@@ -305,7 +301,7 @@
 			height: 60%;
 			line-height: 25px;
 			border-radius:15px ;
-			border: 1px solid black;
+			/* border: 1px solid black; */
 			flex: 1;
 			margin:0 10px;
 			text-align: center;

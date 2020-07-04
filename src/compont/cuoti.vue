@@ -51,6 +51,7 @@
 		methods: {
 			goHome() {
 				this.cuoData.user_err = this.$route.query.id
+				// this.cuoData.type = this.$route.query.id
 				var cuoData = this.cuoData
 				this.$http.post(this.href + '/userErr', cuoData).then(response => {
 					console.log(response.data.data.err_data)

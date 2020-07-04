@@ -1,6 +1,6 @@
 <template>
 	<div class="my_max">
-		<div class="xue_hears">
+		<div class="xue_hears" style="margin-bottom:10px ;">
 			<router-link :to="{path:'/no4',query:{id:'3'}}">
 				<span> < </span> 
 			</router-link> 
@@ -18,7 +18,7 @@
 		<div class="divTab" v-show="nowIndex===0">
 			<div class="divTab_btn">
 				<el-button type="text" @click="open()">
-					<p>签到</p>
+					<p style="color: white;">签到</p>
 				</el-button>
 			</div>
 			<div class="qian_p">
@@ -33,10 +33,9 @@
 			<div class="jilu">
 				<div v-for="i in jilus">
 					<!-- {{i}} -->
-					<h3>{{i.username}}</h3>
-					<p>积分：{{i.integral}}</p>
-					<p>登陆时间：{{i.sign_in_time}}</p>
-					<p>电话：{{i.created_time}}</p>
+					<h3>{{i.username}}</h3> 
+					<p>{{i.sign_in_time}}</p> 
+					<p style="float: right;"> +{{i.integral}}</p>
 				</div>
 			</div>
 		</div>
@@ -148,7 +147,18 @@
 	}
 
 .jilu{
+	padding: 20px 0;
 	line-height: 30px;
+	padding-bottom: 70px;
+}
+.jilu div{
+	border-bottom: 1px solid black;
+	padding-bottom: 5px;
+	height: 60px;
+	margin-bottom: 20px; 
+}
+.jilu div p{
+	float: left;
 }
 	.my_active {
 		border-bottom: 2px solid #f9d326;
@@ -156,11 +166,12 @@
 
 	.my_banner {
 		width: 100%;
-		height: 78px;
+		height: 90px;
 		line-height: 78px;
 		font-size: 16px;
 		text-align: center;
-		background-color: #ffd052;
+		background-image: url(../../images/date.jpg);
+		background-size: 100% 130% ;
 	}
 
 	.my_cont_tet {
@@ -213,11 +224,14 @@
 		height: 44px;
 		margin: 20px auto;
 		text-align: center;
-		line-height: 44px;
+		line-height: 44px; 
 		border: 0;
 		border-radius: 44px;
 		box-shadow: 0 5px 2px 0px #b2ceff;
 		background-image: url(../../images/btn_bag_03.jpg);
+	}
+	.divTab_btn button{
+		width: 100%;
 	}
 
 	.divTab_cont {

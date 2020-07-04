@@ -104,6 +104,9 @@
 		background-color: white;
 		padding-bottom: 20px;
 	}
+	.myd_foot{
+		background-color: white;
+	}
 
 	.myd_hear {
 		height: 60px;
