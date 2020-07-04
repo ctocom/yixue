@@ -53,6 +53,7 @@
 				this.cuoData.user_err = this.$route.query.id
 				// this.cuoData.type = this.$route.query.id
 				var cuoData = this.cuoData
+        cuoData.course_id = this.$route.query.course_id
 				this.$http.post(this.href + '/userErr', cuoData).then(response => {
 					console.log(response.data.data.err_data)
 					this.cuoDatas = response.data.data.err_data
@@ -88,7 +89,7 @@
 	}
 
 	.ti_an_a {
-		height: auto;
+		height: 120px;
 
 	}
 
@@ -99,8 +100,7 @@
 	.di_btn {
 		width: 90%;
 		height: 100px;
-		margin: 0px auto;
-		padding-bottom: 20px ;
+		margin: 20px auto;
 	}
 
 	button {

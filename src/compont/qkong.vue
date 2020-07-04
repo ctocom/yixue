@@ -41,6 +41,7 @@
 					user_token: localStorage.getItem('user_token'),
 					user_id: localStorage.getItem('user_id'),
 					user_err: '1',
+					course_id:'1',
 					type: '1'
 				},
 				cuoDatas: {}, 
@@ -59,14 +60,10 @@
 			this.goHome()
 		},
 		methods: { 
-			goHome(){ 
-				// var haoData = JSON.stringify(this.haoData);
-				// this.$http.post(this.href + '/paperQuestionList', haoData).then(response => {
-				// 	console.log(response.data.data )
-				// 	this.haoDatas = response.data.data.paper_data
-				// });
+			goHome(){  
 				
 				this.cuoData.user_err = this.$route.query.id
+				this.cuoData.course_id = this.$route.query.course_id
 				var cuoData = this.cuoData
 				this.$http.post(this.href + '/userErr', cuoData).then(response => {
 					// console.log(response.data.data)
@@ -83,7 +80,9 @@
 					 	message: '请选择错题', 
 					 });
 					  return
-				}   
+				}    
+				
+				this.tiData.course_id = this.$route.query.course_id
 				var tiData = JSON.stringify(this.tiData);
 				this.$http.post(this.href + '/errorClear', tiData).then(response => { 
 					if (JSON.stringify(response.data.code, null, 4) == 200) {

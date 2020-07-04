@@ -4,34 +4,30 @@
 			<div class="no4_tou">
 				<img :src=userImg alt="">
 				<!-- <img src="../assets/logo.png" alt=""> -->
-			</div> 
+			</div>
 			<p>易学优</p>
 			<p>{{userName}}</p>
 			<!-- {{userImg}} -->
-		</div> 
+		</div>
 		<!-- 内容 -->
 		<div class="no4_cont">
 			<div class="no4_cont_top">
 				<div class="cont_top_max">
 					<p>
 						我的错题本
-					</p> 
-				</div>
-				<div class="comt_link">
-					<template>
-					  <el-select v-model="value" placeholder="请选择">
+					</p>
+					<el-select v-model="course_id" placeholder="学科分类" @change="change">
 					    <el-option
 					      v-for="item in options"
-					      :key="item.value"
-					      :label="item.label"
-					      :value="item.value">
+					      :key="item.id"
+					      :label="item.name"
+					      :value="item.id">
 					    </el-option>
 					  </el-select>
-					</template>
 				</div>
- 
+
 				<div class="cont_top_min">
-					<router-link :to="{path:'/cuoti',query:{id:'1',name:'当前错题'}}">
+					<router-link :to="{path:'/cuoti',query:{id:'1',name:'当前错题',course_id:course_id}}">
 						<div class="top_min_le">
 							<div class="ic_clik">
 								<p class="nums">{{Numsin}}</p>
@@ -39,7 +35,7 @@
 							<p>当前错题</p>
 						</div>
 					</router-link>
-					<router-link :to="{path:'/cuoti',query:{id:'2',name:'历史错题'}}">
+					<router-link :to="{path:'/cuoti',query:{id:'2',name:'历史错题',course_id:course_id}}">
 						<div class="top_min_ri">
 							<div class="ic_clil">
 							</div>
@@ -50,7 +46,7 @@
 			</div>
 
 			<div class="cuo_null">
-				<router-link :to="{path:'/qkong',query:{id:'1',name:'历史错题',papId:$route.query.papId}}">
+				<router-link :to="{path:'/qkong',query:{id:'1',name:'历史错题',papId:$route.query.papId,course_id:course_id}}">
 					<p>当前错题清空</p>
 				</router-link>
 			</div>
@@ -110,7 +106,7 @@
 				<router-link :to="{path:'#/no1'}">
 				退出登录
 				</router-link>
-					
+
 			</div>
 		</div>
 
@@ -121,21 +117,11 @@
 	export default {
 		data() {
 			return {
-				 options: [{
-				          value: '1',
-				          label: '语文'
-				        }, {
-				          value: '2',
-				          label: '数学'
-				        }, {
-				          value: '3',
-				          label: '英语'
-				        }],
-				        value: '1' ,
-				
+				options: [],
+				course_id: '',
 				href: gloal.userApi,
 				userName:localStorage.getItem('userName'),
-				userImg:localStorage.getItem('userImg'), 
+				userImg:localStorage.getItem('userImg'),
 				usid: {
 					user_token: localStorage.getItem('user_token'),
 					user_id: localStorage.getItem('user_id')
@@ -154,19 +140,36 @@
 			}
 		},
 		mounted() {
-			this.goHome()
+      this.getCourse()
+			// this.goHome()
 		},
 		methods: {
-			goHome() { 
-				console.log(this.href) 
+      getCourse(){
+        let options = {
+          user_token: localStorage.getItem('user_token')
+        }
+        this.$http.post(this.href + '/course', options).then(response => {
+        	console.log(response)
+          this.options = response.data.data
+          if(this.options.length){
+            this.course_id = this.options[0].id
+            this.goHome(this.options[0].id)
+          }
+        });
+      },
+      change(id){
+        this.goHome(id)
+      },
+			goHome(id) {
+				console.log(this.href)
 				var cuoData = this.cuoData
-				this.$http.post(this.href + '/userErr', cuoData).then(response => {
-					console.log(response)
-					this.cuoDatas = response
-
-				});
+				// this.$http.post(this.href + '/userErr', cuoData).then(response => {
+				// 	console.log(response)
+				// 	this.cuoDatas = response
+				// });
 				// 获取错题数
 				var Numsan = this.Numsan
+        Numsan.course_id = id
 				this.$http.post(this.href + '/errCount', Numsan).then(response => {
 					console.log(response.body.data)
 					this.Numsin = response.body.data
@@ -178,7 +181,7 @@
 						// this.$router.push("#/no1")
 						location.href = "#/no1"
 					}
-				}); 
+				});
 			},
 			// 退出登陆
 			naOver() {
@@ -186,37 +189,25 @@
 				this.$http.post(this.href + '/logout', usid).then(response => {
 					alert(response.body.msg)
 					localStorage.setItem('user_token', null)
-					localStorage.setItem('user_id', null) 
-					location.href = "#/" 
+					localStorage.setItem('user_id', null)
+					location.href = "#/"
 				});
 			},
 		},
 	}
 </script>
 
-<style> 
+<style>
 	.cuo_null {
 		width: 60%;
 		height: 40px;
-		margin: 40px auto;
+		margin: 0 auto;
 		line-height: 40px;
 		text-align: center;
 		background-color: salmon;
 
-	}  
-	.comt_link{
-		    width: 40%;
-		    height: 45px;
-		    border-bottom: 1px solid #CCCCCC;
-		    /* margin: 0 auto; */
-		    float: left;
 	}
-	.el-select-dropdown el-popper{
-		width: 100px;
-	}
-	.el-scrollbar__view{
-		width: 100%;
-	}
+
 	.cuo_null p {
 		color: white;
 		font-size: 15px;
@@ -290,7 +281,7 @@
 		background-image: url('https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=144939704,3087253252&fm=26&gp=0.jpg');
 		background-size: 100% 100%;
 	}
-	
+
 	.no4_tou img{
 		width: 100%;
 		height: 100%;
@@ -323,11 +314,12 @@
 	}
 
 	.cont_top_max {
-		width: 50%;
+		width: 90%;
 		height: 45px;
 		border-bottom: 1px solid #CCCCCC;
-		/* margin: 0 auto; */
-		float: left;
+		margin: 0 auto;
+    display: flex;
+        justify-content: space-between;
 	}
 
 	.cont_top_min {
