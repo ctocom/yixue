@@ -3,17 +3,17 @@
 		<!-- 头部搜索栏 -->
 		<div class="no2_ban">
 			<div class="no2_top">
-				<div style="float: left;width: 10%;line-height: 35px;font-size: 20px;" class="el-icon-cloudy"></div>
+				<div style="float: left;width: 10%;line-height: 6vh; font-size: 4vh;" class="el-icon-cloudy"></div>
 				<div class="top_int">
 					<input type="text"> 
 				</div>
-				<div style=" width: 10%; font-size: 40px ; line-height: 35px;"> + </div>
+				<div style=" width: 10%; line-height: 6vh; font-size: 4vh;"> + </div>
 			</div>
 			<!-- 侧边导航栏 -->
 			<div class="log_lop">
 				<!-- <span class="demonstration">默认 Hover 指示器触发</span> -->
 				<div class="block"> 
-				    <el-carousel height="150px">
+				    <el-carousel >
 				      <el-carousel-item v-for="item in bannerList" :key="item">
 						  <img :src=item alt="">
 				        <h3 class="small">{{ item }}</h3>
@@ -144,12 +144,13 @@
 	   .el-carousel__item:nth-child(2n+1) {
 	      background-color: #d3dce6;
 	   }
-	 .no2_max{ 
-		 
-	 }
+	  
+	 .el-carousel__container{
+		 height: 25vh;
+	 } 
 		.no2_top {
 			width: 100%;
-			height: 55px;
+			height: 9vh;
 			/* background-color: #f8d14f; */
 		}
 
@@ -253,7 +254,7 @@
 			text-align: center;
 			margin: 15px auto;
 			display: flex;
-			color: white; 
+			color: white;  
 		}
 
 		.log_nav .no2_nav_max {
@@ -266,8 +267,8 @@
 		}
 
 		.color_icon {
-			width: 45px;
-			height: 45px;
+			    width: 7vh;
+			    height: 7vh;
 			border-radius: 35px; 
 			overflow: hidden;
 			margin: 0 auto;  
@@ -281,6 +282,7 @@
 			height: 30px;
 			width: 95%;
 			margin: 0 auto;
+			padding-top: 20px;
 		}
 
 		.no2_jing span {
@@ -305,13 +307,12 @@
 		.clear{ clear:both} 
 
 		.no2_four {
-			width: 98%;
-			/* height: 106px; */
+			width: 98%; 
 			margin: 0 auto; 
 		}
 
 		.no2_four_text {
-			height: 100px;
+			height: 14vh;
 			width: 48%; 
 			margin: 1%;
 			float: left; 

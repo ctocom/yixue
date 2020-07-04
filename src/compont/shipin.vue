@@ -3,7 +3,7 @@
 		<!-- 头部 -->
 		<div class="xue_hears">
 			<span>
-				<a href="javascript:history.go(-2);"> < </a>
+				<a href="javascript:history.go(-1);"> < </a>
 			</span> 
 			<span style="float: right;"> 英语
 				</span> 
@@ -123,7 +123,7 @@
 		data() {
 			return {
 				href: gloal.userApi,
-				tabsParam: ['视频', '音频', 'PPT'],
+				tabsParam: ['视频2', '音频', 'PPT'],
 				nowIndex: 0,
 				spData: {
 					user_token: localStorage.getItem('user_token'),

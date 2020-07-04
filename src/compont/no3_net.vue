@@ -8,7 +8,7 @@
 
 		<div class="no3_net_max_bot">
 			<div class="no3_net_max_text" v-for="(item,index) of noData">
-				<router-link :to="{path:'/dangqian',query:{it_id:item.id}}">
+				<router-link :to="{path:'/dangqian',query:{it_id:item.id,cu_id:item.course_id}}">
 					<div style="width: 100%;height: 100%;">
 						<p style="color: black;">{{item.name}}</p>
 						<div class="net_tet">

@@ -3,7 +3,7 @@
 		<div class="xue_hears">
 			<!-- <router-link :to="{path:'/dangqian',query:{id:$route.query.id,id2:this.$route.query.id2}}"> -->
 			<span>
-				<a href="javascript:history.go(-2);">
+				<a href="javascript:history.go(-1);">
 					< </a> </span> <!-- </router-link> -->
 						作业笔记
 						<router-link :to="{path:'/xiaoxi',query:{id:$route.query.id,id2:this.$route.query.id}}">

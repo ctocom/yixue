@@ -1,11 +1,7 @@
 <template>
 	<div class="login">
 		<div class="log_hear">
-			<div class="login_tap">
-				<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1592460329120&di=b76e2a8671757ab18597cc83108f6294&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201807%2F31%2F20180731175723_vYFEK.jpeg"
-				 alt="">
-			</div>
-			<p>{{userData.name}}</p>
+			
 		</div>
 		<div class="log_int">
 			<div class="int_mot">
@@ -71,20 +67,18 @@
 	}
 	.login {
 		width: 100%;
-		/* height: 100vh; */
-		height: 100%;
+		height: 100%; 
+		overflow: hidden;
 		background-image: url(../../images/ban_img.jpg);
 		background-size: 100% 100%;
 		background-repeat: no-repeat;
 		position: relative;
-		bottom: 0;
-		z-index: 4;
-		/* overflow: hidden; */
+		z-index: 4; 
 	}
 
 	.login_tap {
-		width: 320px;
-		height: 320px;
+		width: 200px;
+		height: 200px;
 		background-color: #494949;
 	}
 
@@ -111,14 +105,8 @@
 		}
 
 		.log_hear {
-			width: 80%;
-			/* height: 320px; */
-			height: auto;
-			margin: 0 auto;
-			overflow: hidden;
-			text-align: center;
-			font-size: 20px;
-			color: white;
+			width: 80%; 
+			height: 10vh; 
 		}
 
 		.log_hear p {

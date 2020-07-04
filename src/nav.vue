@@ -7,8 +7,7 @@
 				<a href="#/" class="add">
 					<i class="el-icon-s-home"></i>
 					<p>首页</p> 
-				</a>
-				
+				</a> 
 				<a href="#/no3">
 					<i class="el-icon-s-management"></i>
 					<p>学习</p>  
@@ -80,6 +79,10 @@
 		.add{  
 			color: #FFA305;
 			} 
+		.add i{
+			line-height: 3vh;
+			font-size: 4vh;
+		}
 		.nav_max {
 			width: 100%;  
 		}

@@ -8,7 +8,7 @@
 			{{$route.query.secTionId}} -->
 		</div> 
 		<div class="xue_cont" v-for="i in ptDatas">   
-			<router-link :to="{path:'/dayin',query:{id:i.unit_id,type:$route.query.type}}">
+			<router-link :to="{path:'/dayin',query:{unitId:i.unit_id,type:$route.query.type,}}">
 				 <div style="width: 20%;float: left;">
 				 	{{i.unit_id}}
 				 </div>
