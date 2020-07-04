@@ -14,8 +14,7 @@
 		<div class="pasBut" @click="goHome()">
 			确定修改
 		</div>
-		<div class="pasfot">
-			<i>000</i>
+		<div class="pasfot"> 
 			<p>修改密码时要输入当前密码</p>
 			<p>新密码长度要大于6位</p>
 			<p>建议您定期刚换密码，确保账号安全</p>

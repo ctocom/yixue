@@ -1,16 +1,9 @@
 <template>
 	<div class="dayin_max">
-		<div class="xue_hears">
-			<!-- <router-link :to="{path:'/no3',query:{}}"> -->
-				<p @click="$router.go(-1)"> < </p>
-			<!-- </router-link> -->
-
-			<!-- <span>
-				<a href="javascript:history.go(-2);"> <  </a>
-			</span> -->
+		<div class="xue_hears"> 
+				<span @click="$router.go(-1)"> < </span> 
 			<router-link :to="{path:'/xiaoxi',query:{id:$route.query.id,id2:this.$route.query.id}}">
-				<div class="ling_ri">
-					<!-- <img src="../../images/xld.png" alt=""> -->
+				<div class="ling_ri"> 
 				</div>
 			</router-link>
 		</div>

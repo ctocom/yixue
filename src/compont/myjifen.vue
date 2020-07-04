@@ -2,8 +2,8 @@
 	<div class="my_max">
 		<div class="xue_hears" style="margin-bottom:10px ;">
 			<router-link :to="{path:'/no4',query:{id:'3'}}">
-				<span> < </span> 
-			</router-link> 
+				<span> < </span>
+			</router-link>
 		</div>
 		<div class="my_banner">
 			<p>当前积分：</p>
@@ -17,24 +17,21 @@
 
 		<div class="divTab" v-show="nowIndex===0">
 			<div class="divTab_btn">
-				<el-button type="text" @click="open()">
-					<p style="color: white;">签到</p>
+				<el-button type="text"  @click="open()">
+					<p style="color: white;">{{sign_type}}</p>
 				</el-button>
 			</div>
 			<div class="qian_p">
 				<p>每月签到满勤，课额外在赠送25积分</p>
 			</div>
-			<div class="qian_h"> 
-				<h3>签到情况：</h3>
-				<p class="thtext" v-for="i in myQians">
-					{{i}}
-				</p>
+			<div class="qian_h">
+				<h3>签到情况：{{ myQians }}</h3> 
 			</div>
 			<div class="jilu">
 				<div v-for="i in jilus">
 					<!-- {{i}} -->
-					<h3>{{i.username}}</h3> 
-					<p>{{i.sign_in_time}}</p> 
+					<h3>{{i.username}}</h3>
+					<p>{{i.sign_in_time}}</p>
 					<p style="float: right;"> +{{i.integral}}</p>
 				</div>
 			</div>
@@ -74,27 +71,28 @@
 				},
 				myPais:{},
 				// options:{},
-				myQians:[],
+				myQians:'',
 				nowIndex: 0,
 				jilu:{
-					user_id: localStorage.getItem('user_id'), 
+					user_id: localStorage.getItem('user_id'),
 					user_token: localStorage.getItem('user_token')
 				},
 				jilus:{}
 			}
 		},
 		mounted() {
-			this.goHome() 
+			this.goHome()
+      this.getSignList()
 		},
 		methods: {
 			toggleTabs: function(index) {
 				this.nowIndex = index;
-				// if(index==0){
-				// 	this.getSignList() 
-				// }
+				if(index==0){
+					this.getSignList()
+				}
 			},
 
-			open() { 
+			open() {
 				var myQian = JSON.stringify(this.myQian);
 				this.$http.post(this.href + '/signIn', myQian).then(response => {
 				this.myQians = response.body.msg
@@ -103,37 +101,38 @@
 				}else{
 					this.$alert('已成功签到签到', '签到情况', {
 						confirmButtonText: '确定',
-						callback: action => {} 
+						callback: action => {}
 					});
-				} 
+				}
 				});
-				
+
 			},
 			getSignList(){
 				let options = {
 					user_id:localStorage.getItem('user_id'),
 					user_token: localStorage.getItem('user_token')
 				}
-				this.$http.post(this.href + '/signList', options).then(response => { 
-					this.myPai = response.body.data 
-					
+				this.$http.post(this.href + '/signList', options).then(response => {
+					this.jilus = response.body.data.user_sign
+          this.myQians = response.body.data.type =='已签到' ? '今天已经签到过啦!' :'';
 					// console.log(rresponse.body.data esponse.body.code)
 				});
 			},
 			goHome() {
 				var myPai = JSON.stringify(this.myPai);
-				this.$http.post(this.href + '/signRankList', myPai).then(response => { 
-					this.myPai = response.body.data  
+				this.$http.post(this.href + '/signRankList', myPai).then(response => {
+					this.myPai = response.body.data
 				});
 				var jilu = JSON.stringify(this.jilu);
-				this.$http.post(this.href + '/signList', jilu).then(response => { 
-					this.jilus = response.data.data
+				this.$http.post(this.href + '/signList', jilu).then(response => {
+					this.jilus = response.data.data.user_sign
+					this.sign_type = response.data.data.type
 				});
 			},
-			// qianClick() { 
+			// qianClick() {
 			// 	var myQian = JSON.stringify(this.myQian);
 			// 	this.$http.post(this.href + '/signIn', myQian).then(response => {
-			// 		console.log(response)  
+			// 		console.log(response)
 			// 	});
 			// }
 		}
@@ -155,7 +154,7 @@
 	border-bottom: 1px solid black;
 	padding-bottom: 5px;
 	height: 60px;
-	margin-bottom: 20px; 
+	margin-bottom: 20px;
 }
 .jilu div p{
 	float: left;
@@ -224,7 +223,7 @@
 		height: 44px;
 		margin: 20px auto;
 		text-align: center;
-		line-height: 44px; 
+		line-height: 44px;
 		border: 0;
 		border-radius: 44px;
 		box-shadow: 0 5px 2px 0px #b2ceff;
@@ -244,7 +243,7 @@
 		/* background-color: sandybrown; */
 		flex: 1;
 	}
- 
+
 	.el-button el-button--text{
 		width: 100%;
 	}
@@ -258,14 +257,14 @@
 		line-height: 40px;
 		text-align: center;
 		/* border: 1px dodgerblue solid; */
-		margin: 10px; 
+		margin: 10px;
 		font-size: 14px;
 	}
 	.qian_h{
 		width: 80%;
 		height: auto;
 		margin: 0 auto;
-	} 
+	}
 	.qian_h h3{
 		margin: 10px 0;
 	}

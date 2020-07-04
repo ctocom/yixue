@@ -38,7 +38,7 @@
 		</div>
 		<div class="foot_two">
 			<p @click="Cpte()">全部完成</p>
-			<router-link :to="{path:'/dayin',query:{id:$route.query.id,id2:this.$route.query.id2}}">
+			<router-link :to="{path:'/dayin',query:{id:$route.query.id,id2:this.$route.query.id2,unitId:this.$route.query.unitId}}">
 				<p> 打印试题 </p>
 			</router-link>
 		</div>

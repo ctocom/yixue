@@ -111,7 +111,7 @@
 		</div>
 		<div class="foot_two">
 			<p @click="Comp()">全部完成</p>
-			<router-link :to="{path:'/dayin',query:{id:$route.query.id,id2:this.$route.query.id2}}">
+			<router-link :to="{path:'/dayin',query:{id:$route.query.id,id2:this.$route.query.id2,unitId:this.$route.query.unitId}}">
 				<p> 打印试题 </p>
 			</router-link>
 		</div>
@@ -123,7 +123,7 @@
 		data() {
 			return {
 				href: gloal.userApi,
-				tabsParam: ['视频2', '音频', 'PPT'],
+				tabsParam: ['视频', '音频', 'PPT'],
 				nowIndex: 0,
 				spData: {
 					user_token: localStorage.getItem('user_token'),
@@ -339,9 +339,10 @@
 			width: 100%;
 			height: 100%;
 			height: 100vh;
-			position: position;
+			position: relative;
 			padding-bottom: 50px;
-			/* background-color: cornsilk; */
+			z-index: 3;
+			background-color: white;
 		}
 
 		.xue_hear {

@@ -17,6 +17,18 @@
 						我的错题本
 					</p> 
 				</div>
+				<div class="comt_link">
+					<template>
+					  <el-select v-model="value" placeholder="请选择">
+					    <el-option
+					      v-for="item in options"
+					      :key="item.value"
+					      :label="item.label"
+					      :value="item.value">
+					    </el-option>
+					  </el-select>
+					</template>
+				</div>
  
 				<div class="cont_top_min">
 					<router-link :to="{path:'/cuoti',query:{id:'1',name:'当前错题'}}">
@@ -109,6 +121,18 @@
 	export default {
 		data() {
 			return {
+				 options: [{
+				          value: '1',
+				          label: '语文'
+				        }, {
+				          value: '2',
+				          label: '数学'
+				        }, {
+				          value: '3',
+				          label: '英语'
+				        }],
+				        value: '1' ,
+				
 				href: gloal.userApi,
 				userName:localStorage.getItem('userName'),
 				userImg:localStorage.getItem('userImg'), 
@@ -134,9 +158,7 @@
 		},
 		methods: {
 			goHome() { 
-				console.log(this.href)
-				
-				
+				console.log(this.href) 
 				var cuoData = this.cuoData
 				this.$http.post(this.href + '/userErr', cuoData).then(response => {
 					console.log(response)
@@ -176,13 +198,25 @@
 	.cuo_null {
 		width: 60%;
 		height: 40px;
-		margin: 0 auto;
+		margin: 40px auto;
 		line-height: 40px;
 		text-align: center;
 		background-color: salmon;
 
+	}  
+	.comt_link{
+		    width: 40%;
+		    height: 45px;
+		    border-bottom: 1px solid #CCCCCC;
+		    /* margin: 0 auto; */
+		    float: left;
 	}
-
+	.el-select-dropdown el-popper{
+		width: 100px;
+	}
+	.el-scrollbar__view{
+		width: 100%;
+	}
 	.cuo_null p {
 		color: white;
 		font-size: 15px;
@@ -289,10 +323,11 @@
 	}
 
 	.cont_top_max {
-		width: 90%;
+		width: 50%;
 		height: 45px;
 		border-bottom: 1px solid #CCCCCC;
-		margin: 0 auto;
+		/* margin: 0 auto; */
+		float: left;
 	}
 
 	.cont_top_min {

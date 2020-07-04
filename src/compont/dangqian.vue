@@ -263,11 +263,9 @@
 					this.$router.push({
 						name: '/dayin',
 						query: {
-							// id: this.$route.query.unitid,
-							// id2: this.$route.query.id2,
-              id: this.$route.query.it_id,
-              id2: index.unit_list_id,
-              unitId: this.unitId
+							id: this.$route.query.it_id,
+							id2: index.unit_list_id,
+							unitId: this.unitId
 						}
 					})
 				}

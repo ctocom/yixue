@@ -69,7 +69,6 @@
 		text-align: center;
 		line-height: 60px; 
 		display: flex;
-		border-top: 1px solid #CCCCCC;
 	} 
 	.nav ul a{
 		flex:1;
@@ -79,9 +78,11 @@
 		.add{  
 			color: #FFA305;
 			} 
-		.add i{
-			line-height: 3vh;
-			font-size: 4vh;
+		.add i{ 
+			font-size: 5vh;
+		}
+		.add p{ 
+			font-size: 2vh;
 		}
 		.nav_max {
 			width: 100%;  
@@ -94,11 +95,11 @@
 
 		.nav {
 			width: 100%;  
-			height: 60px;
+			height: 10vh;
 			position: fixed;
 			bottom: 0;
 			left: 0;
-			background-color: white;
+			background-color: #eeeeee;
 			z-index: 1;
 		}
 		.nav .nav_ul{
@@ -111,9 +112,12 @@
 			flex: 1;
 			padding-top: 10px; 
 		}
-		i{
-			font-size: 24px;
+		.nav_ul a p{
+			font-size: 2vh;
 		}
+		.nav_ul a i{ 
+			font-size: 5vh;
+		} 
 		a{
 			display: inline-block;
 			width: 100%;

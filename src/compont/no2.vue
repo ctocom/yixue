@@ -301,7 +301,7 @@
 		}
 		.for_max{
 			height: 100%;
-			padding-bottom: 70px;
+			padding-bottom: 13vh;
 		}
 		
 		.clear{ clear:both} 

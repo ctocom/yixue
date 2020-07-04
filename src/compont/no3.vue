@@ -51,7 +51,7 @@
 					user_id: localStorage.getItem('user_id'),
 					user_token: localStorage.getItem('user_token'),
 				},
-				fromData: [],
+				fromData: {},
 				cur: '0',
 				img1:{ type:'2' },
 				imgs1:{},
@@ -63,13 +63,13 @@
 		mounted() {
 			this.goHome()
 		},
-		watch:{
-		    $route(to,from){
-		   this.goHome()
-		   // console.log('123')
-		    }
+		// watch:{
+		//     $route(to,from){
+		//    this.goHome()
+		//    // console.log('123')
+		//     }
 			
-		  },
+		//   },
 		methods: {
 			goHome() {
 				// console.log('000')
@@ -81,6 +81,8 @@
 				this.$http.post(this.href + '/section', fromData).then(response => { 
 					this.fromData = response.data.data  
 				})
+				
+				
 				
 				var img1 = JSON.stringify(this.img1);
 				this.$http.post(this.href+'/imagesInfo',img1).then(response => {  
@@ -102,7 +104,9 @@
 				// console.log(this.zjData.course_id)
 				var fromData = JSON.stringify(this.zjData);
 				this.$http.post(this.href + '/section', fromData).then(response => { 
-					this.fromData = response.data.data  
+					// this.fromData = response.data.data  
+					this.$set(this,'fromData',response.data.data)
+					console.log(this.fromData)
 				})
 			}
 		},

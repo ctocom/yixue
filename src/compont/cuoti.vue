@@ -88,7 +88,7 @@
 	}
 
 	.ti_an_a {
-		height: 120px;
+		height: auto;
 
 	}
 
@@ -99,7 +99,8 @@
 	.di_btn {
 		width: 90%;
 		height: 100px;
-		margin: 20px auto;
+		margin: 0px auto;
+		padding-bottom: 20px ;
 	}
 
 	button {

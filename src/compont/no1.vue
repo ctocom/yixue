@@ -12,6 +12,7 @@
 				<button>登录</button>
 			</div>
 		</div>
+		<br/>
 		<div class="play_a">
 			<a href="#/">非会员登陆 -></a>
 		</div>
