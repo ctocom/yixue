@@ -6,7 +6,7 @@
 			</router-link>
 		</div>
 		<div class="my_banner">
-			<p>当前积分：</p>
+			<!-- <p>当前积分：</p> -->
 		</div>
 
 		<div class="my_cont_tet">

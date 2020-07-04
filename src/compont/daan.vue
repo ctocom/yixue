@@ -90,12 +90,16 @@
 		margin: 20px auto;
 		text-align: center;
 		background-color: sandybrown;
-		line-height: 40px; 
+		line-height: 40px;  
+		color: white;
+		font-size: 20px;
 	}
 
 	.erJi button {
 		width: 100%;
 		height: 100%;
+		color: white;
+		font-size: 20px;
 		border: 1px solid lightblue;
 		background-color: sandybrown;
 	}

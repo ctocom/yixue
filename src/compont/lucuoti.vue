@@ -5,7 +5,7 @@
 				<span>
 					< </span> </router-link> <span style="float: right;">错题
 				</span>
-				{{$route.query.papId}}
+				<!-- {{$route.query.papId}} -->
 		</div>
 
 		<div class="topic">
@@ -17,7 +17,7 @@
 				</div>
 			</div>
 		</div>
-		<p>您选中的题号有：{{names}}</p>
+		<!-- <p>您选中的题号有：{{names}}</p> -->
 		<div class="tishi">
 			<p>(错题选则完成后点击完成即可进行对错题的录入和积累)</p>
 		</div>

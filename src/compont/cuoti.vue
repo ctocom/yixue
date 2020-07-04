@@ -23,7 +23,7 @@
 					<button >打印</button>
 				</a> 
 				 
-			<router-link :to="{path:'/lisDan',query:{name:$route.query.id}}">
+			<router-link :to="{path:'/lisDan',query:{name:$route.query.id,courseId:this.$route.query.course_id}}">
 				<button>答案</button>
 			</router-link>
 		</div>

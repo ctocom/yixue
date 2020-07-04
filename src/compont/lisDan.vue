@@ -43,7 +43,8 @@
 					user_id:localStorage.getItem('user_id'),  
 					type:'2',
 					user_err:'1',
-					seconds_password:''
+					seconds_password:'',
+					course_id:''
 				},
 				lisDatas:{},
 				lisUrl:''
@@ -54,6 +55,7 @@
 		},
 		methods:{
 			goHome() { 
+				this.lisData.course_id = this.$route.query.courseId
 				this.lisData.user_err = this.$route.query.name
 				var lisData = JSON.stringify(this.lisData); 
 				this.$http.post(this.href + '/userErr', lisData).then(response => {
