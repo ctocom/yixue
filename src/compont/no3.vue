@@ -25,8 +25,8 @@
 			<div class="no3_cont_nav">
 				<div class="cont_nav_str" v-for="(item,index) of fromData " :key="index" @click="toNo3(item)">
 					<!-- <router-link :to="{path:'/dangqian',query:{it_id:item.id,cu_id:item.course_id}}"> -->
-						<div class="cont_nav_str_icon" v-for="i in imgs2">
-							<img :src=i alt="">
+						<div class="cont_nav_str_icon">
+							<img :src=item.icon alt="">
 						</div>
 						<p style="text-align: center;">{{item.name}}</p>
 					<!-- </router-link> -->
@@ -115,7 +115,7 @@
 </script>
 
 <style>
-	@media screen and (max-width: 980px) {
+	/* @media screen and (max-width: 980px) { */
 
 		.no3_max {
 			width: 100%;
@@ -126,7 +126,7 @@
 
 		.no3_top {
 			width: 100%;
-			height: 35px;
+			height: 5vh;
 			padding: 10px 0;
 			margin-bottom: 10px;
 			background-color: #f8d14f;
@@ -134,12 +134,13 @@
 
 		.no3_top input {
 			width: 94%;
-			height: 80%;
+			height: 95%;
 			border: none;
 			border-radius: 35px;
 			background-color: #fff7cf;
 			padding-left: 6%;
 			outline: none; 
+			font-size: 2vh;
 		}
 
 		.no3_top_sou {
@@ -161,8 +162,8 @@
 		}
 
 		.no3_nav_ul li {
-			height: 60px;
-			line-height: 60px;
+			height: 8vh;
+			line-height: 8vh;
 			text-align: center;
 		}
 
@@ -174,9 +175,8 @@
 
 		.no3_cont_ban {
 			width: 95%;
-			height: 113px;
-			margin: 0px auto;
-			margin-bottom: 20px; 
+			height: 18vh;
+			margin: 0px auto; 
 		}
 		img{
 			width: 100%;
@@ -193,12 +193,12 @@
 		.cont_nav_str {
 			width: 48%;
 			float: left;
-			height: 92px;
+			height: 14vh;
 			margin: 1%;
 		}
 
 		.cont_nav_str p {
-			font-size: 14px;
+			font-size: 2vh;
 			line-height: 20px;
 			color: black;
 		}
@@ -213,24 +213,26 @@
 			display: block;
 			width: 100%;
 			color: black;
-			font-size: 14px;
+			font-size: 2vh;
 			letter-spacing: 8px;
 			text-align: center;
+			
 		} 
 
 		.cont_nav_str_icon {
 			height: 80%;
-			background-color: darkblue;
+			/* background-color: darkblue; */
+			margin-bottom: 3px;
 		}
 
 		.cont_nav_str_icon img {
 			width: 100%;
-			height: 100%;
+			height: 90%;
 		}
 
 		.cont_nav_str_icon p {
 			height: 20%;
 			background-color: saddlebrown;
 		}
-	}
+	/* } */
 </style>

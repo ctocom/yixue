@@ -59,14 +59,15 @@
 </script>
 
 <style>
-	@media screen and (max-width: 980px) {
+	/* @media screen and (max-width: 980px) { */
 	.xue_hears {
-		height: 60px;
+		height: 8vh;
 		padding: 0 20px;
-		line-height: 60px;
+		line-height: 8vh;
 		background: #f8d14f;  
 		 background-size: 100% 150%; 
 		text-align: center;
+		font-size: 2vh;
 		} 
 	.xue_hears span {
 		float: left;
@@ -109,13 +110,14 @@
 
 		.no3_net_max_text {
 			width: 85%;
-			height: 100px;
+			height: 11vh;
 			line-height: 40px;
 			background: white;
 			margin: 10px auto;
 			border-radius: 10px;
 			box-shadow: 0 0 5px 1px #cacaca;
 			padding: 15px 17px 15px;
+			font-size: 2vh;
 		}
 
 		.net_tet {}
@@ -143,5 +145,5 @@
 			float: left;
 			margin-right: 10px;
 		}
-	}
+	/* } */
 </style>

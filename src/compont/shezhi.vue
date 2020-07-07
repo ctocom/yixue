@@ -2,7 +2,7 @@
 	<div class="shu_max">
 		<div class="shu_max_top">
 			<router-link :to="{path:'/no4',query:{name:''}}">
-				<p> < 返回详情页面 </p>
+				<p> <  </p>
 			</router-link>
 		</div>
 		<div class="biaodan">
@@ -93,12 +93,13 @@
 	}
 
 	.shu_max_top {
-		width: 90%;
-		height: 20px;
+		width: 100%;
+		height: 4vh;
 		margin: 0 auto;
 		padding: 10px;
 		font-size: 16px;
 		line-height: 30px;
+		background-color: #f8d14f;
 	}
 
 	.she_cuo {
@@ -110,7 +111,7 @@
 	.shu_max_top span {
 		float: left;
 		font-size: 16px;
-		color: #000000;
+		color: #000000; 
 	}
 
 	.shu_max_top span p {

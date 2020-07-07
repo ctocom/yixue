@@ -77,6 +77,7 @@
 					user_id: localStorage.getItem('user_id'),
 					user_token: localStorage.getItem('user_token')
 				},
+				sign_type:'',
 				jilus:{}
 			}
 		},
@@ -124,7 +125,7 @@
 					this.myPai = response.body.data
 				});
 				var jilu = JSON.stringify(this.jilu);
-				this.$http.post(this.href + '/signList', jilu).then(response => {
+				this.$http.post(this.href + '/signList',jilu).then(response => {
 					this.jilus = response.data.data.user_sign
 					this.sign_type = response.data.data.type
 				});

@@ -64,7 +64,7 @@
 		background-color: white;
 	}
 
-	@media screen and (max-width: 980px) {
+	/* @media screen and (max-width: 980px) { */
 
 		.pasHear {
 			height: 50px;
@@ -79,7 +79,7 @@
 		}
 
 		.pasHear p {}
-	}
+	/* } */
 
 	.pasInt input {
 		width: 96%;

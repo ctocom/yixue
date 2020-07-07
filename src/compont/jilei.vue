@@ -52,7 +52,7 @@
 </script>
 
 <style>
-	@media screen and (max-width: 980px) {
+	/* @media screen and (max-width: 980px) { */
 		.jilei_max{
 			height: 100vh;
 			background-color: white;
@@ -120,5 +120,5 @@
 			font-size: 13px;
 			color: black;
 		} 
-	}
+	/* } */
 </style>

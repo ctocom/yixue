@@ -40,7 +40,9 @@
 
 <style>
 	#app{
+		max-width: 1024px;
 		height: 100vh;
+		margin: 0 auto;
 	}
 * {
   margin: 0;

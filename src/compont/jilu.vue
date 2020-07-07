@@ -78,18 +78,16 @@
 	width: 95%;
 	height: auto; 
 	padding: 10px 0;
-}
-.min_tet{
-	background-image:  url(../../images/myic.png);
-	background-size: 100% 100%;
-	background-repeat: no-repeat;
-	color: #717171;
-}
+} 
 .max_tet{
-	background-image: url(../../images/youic.png);
-	background-size: 100% 100%;
-	background-repeat: no-repeat;
+	background-image: url(../../images/youic.png); 
 	color: white;
+	max-width: 75%;
+	display: inline-block;
+	line-height: 3vh;
+	padding: 10px 10px 10px;  
+	background-size: 100% 100%;  
+	background-repeat: no-repeat; 
 }
 .max_img,.min_img{
 	width: 7vh;
@@ -99,18 +97,16 @@
 .max_img img,.min_img img{
 	width: 100%;
 	height: 100%;
-}
-.max_tet{
-	max-width: 75%;
-	display: inline-block;
-	line-height: 20px;
-	padding: 10px 10px 10px;  
-}
+} 
 .min_tet{
 	max-width: 75%;
 	display: inline-block;
-	line-height: 20px;
+	line-height: 3vh;
 	padding: 10px 10px 10px ;
+	background-image:  url(../../images/myic.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	color: #717171;
 }
 .max_img{
 	float: left;

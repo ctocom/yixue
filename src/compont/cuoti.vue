@@ -11,18 +11,18 @@
 		<div id="cu_top" class="ti_an">
 			<div class="ti_an_a" v-for="(i,index) in cuoDatas">
 				({{index+1}})
-				<div v-html="i.title"> 
-					<!-- {{i.title}} -->
-				</div>
-			</div>
-		</div>
-
-		<div class="di_btn">   
-				<!-- <button v-print="'#cu_top'">打印</button> -->
-				<a :href="this.cuUrl">
-					<button >打印</button>
-				</a> 
-				 
+				<div style="text-align: left;line-height: 22px;" v-html="i.title"> </div>  
+				
+				<div @click="cuJan(index)" class="btn">讲解</div>
+				<div class="mask" v-if="showModal" @click="showModal=false"></div>
+				<div class="pop" v-if="showModal"> 
+					<div @click="showModal=false" class="btns"><span style="float: left;">[视频播放]</span> × </div> 
+					<video autoplay controls style="width: 100%; height: auto;" :src="teUrl"></video> 
+				</div> 
+			</div> 
+		</div> 
+		<div class="di_btn"> 
+			<a :href="this.cuUrl"> <button >打印</button> </a>  
 			<router-link :to="{path:'/lisDan',query:{name:$route.query.id,courseId:this.$route.query.course_id}}">
 				<button>答案</button>
 			</router-link>
@@ -41,8 +41,10 @@
 					user_err: '1',
 					type: '1'
 				},
-				cuoDatas: {}, 
-				cuUrl:''
+				cuoDatas: {},  
+				showModal: false,
+				cuUrl:'',
+				teUrl:''
 			}
 		},
 		mounted() {
@@ -53,7 +55,7 @@
 				this.cuoData.user_err = this.$route.query.id
 				// this.cuoData.type = this.$route.query.id
 				var cuoData = this.cuoData
-        cuoData.course_id = this.$route.query.course_id
+				cuoData.course_id = this.$route.query.course_id
 				this.$http.post(this.href + '/userErr', cuoData).then(response => {
 					console.log(response.data.data.err_data)
 					this.cuoDatas = response.data.data.err_data
@@ -63,11 +65,71 @@
 					} 
 				}); 
 			},
+			cuJan:function(int){
+				this.showModal = true
+				console.log(int)
+				this.teUrl = this.cuoDatas[int].teach_url
+				console.log(this.teUrl)
+			}
 		}
 	};
 </script>
 
-<style>
+<style> 
+.mask {
+	  background-color: #000;
+	  opacity: 0.3;
+	  position: fixed;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  z-index: 1
+	}
+	.pop {
+	  background-color: #fff; 
+	  position: fixed;
+	  top: 100px;
+	  left: 5%;
+	  width: 90%; 
+	  height: auto;
+	  /* height:calc(100% - 300px); */
+	  z-index: 2
+	}
+	.pop video{
+		width: 100%;
+		height: 80%;
+	}
+	.btn {
+		width: 45px;
+		text-align: center;
+		color: white;
+		background-color: #55aaff; 
+		border: 1px solid #5555ff; 
+		border-radius: 4px;
+		padding: 2px 5px;
+		position: absolute;
+		right: 10px;
+		bottom: 10px; 
+	} 
+	.btns{
+		width: 90%;
+		height: 35px;
+		padding: 1% 5%;
+		text-align: right;
+		line-height: 35px;
+		font-size: 18px;
+		font-weight: bold; 
+		background: #ccc;
+		margin-bottom: 10px;
+	}
+	.cu_jan{
+		float: right;
+		color: seagreen;
+		border: 1px solid #000000;
+		padding: 3px 5px;
+		border-radius: 10px;
+	}
 	.cuo_hears {
 		height: 60px;
 		padding: 0 20px;
@@ -89,13 +151,9 @@
 	}
 
 	.ti_an_a {
-		height: 120px;
-
-	}
-
-	.ti_an_a div {
-		text-align: left;
-	}
+		height: auto; 
+		position: relative;
+	} 
 
 	.di_btn {
 		width: 90%;
@@ -190,4 +248,6 @@
 	.cuo_cont_p span {
 		margin: 30px 20px 0 0;
 	}
+	
+		
 </style>

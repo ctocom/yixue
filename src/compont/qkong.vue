@@ -99,7 +99,7 @@
 </script>
 
 <style>
-	@media screen and (max-width: 980px) {
+	/* @media screen and (max-width: 980px) { */
 		.kongCli{
 			width: 70%; 
 			height: 50px;
@@ -191,8 +191,6 @@
 			color: #CCCCCC;
 			text-align: center;
 			
-		}
-
-
-	}
+		} 
+	/* } */
 </style>

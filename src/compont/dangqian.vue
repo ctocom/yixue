@@ -7,7 +7,7 @@
 						< 当前学习
 					</div>
 				</router-link>
-				  {{$route.query.id}}
+				  <!-- {{$route.query.id}} -->
 			</p>
 			<p style="float: right;color: black;"> {{navName}}</p>
 		</div>
@@ -91,13 +91,13 @@
 
 			<!-- 内容 -->
 			<div class="neirong">
-				<div class="nei_top" style="height: 20px;">
-					<p style="color: red;font-size: 16px;float: left;">全部内容</p>
-					<span style="float: right; color: red;">{{navName}}</span>
+				<div class="nei_top" style="height: 4vh;">
+					<p style="color: red;font-size: 2vh;float: left;">全部内容</p>
+					<span style="float: right; color: red;font-size: 2vh;">{{navName}}</span>
 				</div>
 				<div class="nei_bot" v-for="i in unit_info">
 					<div class="nei_bot_tet">
-						 <p style="float: left;">{{i.name}}</p>
+						 <p style="float: left;font-size: 2vh;">{{i.name}}</p>
 
 						<span class="box" style="float: right;">
 						<!-- {{i.complete_num}} -->
@@ -277,7 +277,7 @@
 </script>
 
 <style>
-	@media screen and (max-width: 980px) {
+	/* @media screen and (max-width: 980px) { */
 		.red{
 			background-color: green;
 		}
@@ -304,15 +304,16 @@
 			background-color: #CCCCCC;
 		}
 		.gu_tet div{
-			height: 60%;
-			line-height: 25px;
-			border-radius:15px ;
+			height:5vh;
+			line-height: 5vh;
+			border-radius:3vh;
 			/* border: 1px solid black; */
 			flex: 1;
 			margin:0 10px;
 			text-align: center;
 			background-color: #9c9c9c;
 			color: white;
+			font-size: 2vh;
 		}
 		.gu_tet div a{
 			color: white;
@@ -322,7 +323,7 @@
 			display: flex;
 		 }
 		.my_le {
-			line-height: 55px;
+			line-height: 7vh;
 			color: black;
 		}
 
@@ -344,16 +345,17 @@
 			/* height: 100vh; */
 			background-color: white;
 			position: relative;
-			margin-bottom: 80px;
+			margin-bottom: 11vh;
 		}
 
 		.dang_hear {
 			width: 96%;
-			height: 55px;
+			height: 7vh;
 			padding: 0 2%;
 			background-image: url(../../images/1.jpg);
 			background-size: 100% 130%;
-			line-height: 55px;
+			line-height: 7vh;
+			font-size: 2vh;
 		}
 
 		.dang_cont {
@@ -363,7 +365,7 @@
 		}
 
 		.dang_banner {
-			height: 88px;
+			height: 12vh;
 			width: 100%;
 			border-radius: 10px;
 			margin: 10px auto;
@@ -384,7 +386,7 @@
 
 		.xun_cont {
 			width: 100%;
-			height: 102px;
+			height: 13vh;
 			border-radius: 30px;
 			background-color: #f3faff;
 			margin: 10px 0;
@@ -392,25 +394,26 @@
 		}
 
 		.xun_cont_top {
-			height: 40px;
+			height: 5vh;
 			margin: 10px 0;
-			line-height: 30px;
+			line-height: 3 	vh;
 			/* text-align: center; */
 		}
 
 		.xun_cont_top_p {
 			padding: 10px 0 0 20px;
 			float: left;
+			font-size: 2vh;
 		}
 
 		.xun_cont_bot {
 			width: 100%;
-			height: 35%;
+			height: 5vh;
 			display: flex;
 		}
 
 		.xun_cont_bot .xun_cont_data {
-			margin: 0 10px;
+			margin: 0 5px;
 			flex: 1;
 			float: left;
 			font-size: 14px;
@@ -472,27 +475,30 @@
 		}
 
 		.nei_jindu p {
-			color: red;
+			color: white;
 			height: 18px;
-			width: 20px;
-			font-size: 12px;
+			width: 15px;
+			font-size: 10px;
 			text-align: center;
-			line-height: 20px;
-			border-radius: 50%;
-			background-color: #C8C9CC;
+			line-height: 15px;
+			border-radius: 50%; 
+			background-image: url(../../images/ic_top.png);
+			background-size: 100% 100%;
 			position: absolute;
-			right: -10px;
+			right: -6px;
 			bottom: 6px;
 		}
 
 		.nei_top {
 			border-bottom: 1px dashed #C0C0C0;
 			margin: 0 0 25px;
+			height: 4vh;
+			font-size: 2vh;
 		}
 
 		.nei_bot {
-			height: 71px;
-			line-height: 70px;
+			height: 9vh;
+			line-height: 9vh;
 			border-radius: 30px;
 			background-color: #f3faff;
 			margin: 10px 0;
@@ -506,22 +512,23 @@
 		.cont_bot_img,
 		.cont_bot_tet {
 			width: 45%;
-			height: 100%;
-			line-height: 35.7px;
+			height: 5vh;
+			line-height: 5vh;
 			float: left;
 			color: white;
+			font-size: 2vh;
 		}
 
 		.icon_img {
-			width: 20px;
-			height: 60%;
-			margin: 0 auto;
-			padding: 5px;
+			width: 3vh;
+			height: 3vh;
+			margin: 0 auto;  
+			padding-top: 0.6vh;
 		}
 
 		.icon_img img {
 			width: 100%;
 			height: 100%;
 		}
-	}
+	/* } */
 </style>

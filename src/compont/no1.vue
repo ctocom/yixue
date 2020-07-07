@@ -1,20 +1,18 @@
 <template>
 	<div class="login">
-		<div class="log_hear">
-			
-		</div>
-		<div class="log_int">
-			<div class="int_mot">
-				<input v-model="user.account" id="val1" type="text" placeholder="用户名 :"><br>
-				<input v-model="user.password" id="val2" type="password" placeholder="密码 :">
+		<div class="spet">
+			<div class="log_int">
+				<div class="int_mot">
+					<input v-model="user.account" id="val1" type="text" placeholder="用户名 :"><br>
+					<input v-model="user.password" id="val2" type="password" placeholder="密码 :">
+				</div> 
+				<div  class="log_but" @click="goHome">
+					<button>登录</button>
+				</div>
 			</div> 
-			<div  class="log_but" @click="goHome">
-				<button>登录</button>
+			<div class="play_a">
+				<a href="#/">非会员登陆 -></a>
 			</div>
-		</div>
-		<br/>
-		<div class="play_a">
-			<a href="#/">非会员登陆 -></a>
 		</div>
 	</div>
 </template>
@@ -76,6 +74,12 @@
 		position: relative;
 		z-index: 4; 
 	}
+	.spet{
+		width: 100%;
+		height: auto;
+		position: absolute;
+		top: 20%;
+	}
 
 	.login_tap {
 		width: 200px;
@@ -117,7 +121,7 @@
 
 		.log_int {
 			width: 81%;
-			height: 35%;
+			height: 220px;
 			margin: 0 auto;
 			border: 1px solid #BCBCBC;
 			border-radius: 20px;
@@ -148,6 +152,7 @@
 			border: none;
 			margin: 10px 0 0 0;
 			padding-left: 10%;
+			outline: medium;
 		} 
 	/* } */
 </style>

@@ -107,7 +107,7 @@
 </script>
 
 <style>
-	@media screen and (max-width: 980px) {
+	/* @media screen and (max-width: 980px) { */
 		.dang_max{
 			width: 100%;
 			height: 100vh;
@@ -228,5 +228,5 @@
 			text-align: center;
 			line-height: 25px; 
 		}
-	}
+	/* } */
 </style>

@@ -114,7 +114,7 @@
 </script>
 
 <style>
-	@media screen and (max-width: 980px) {
+	/* @media screen and (max-width: 980px) { */
 		.xue_hears {
 		height: 60px;
 		padding: 0 20px;
@@ -163,5 +163,5 @@
 		.tihao_le{
 			padding-top:10px ;
 		}
-	}
+	/* } */
 </style>

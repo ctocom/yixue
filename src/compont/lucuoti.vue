@@ -100,7 +100,7 @@
 </script>
 
 <style>
-	@media screen and (max-width: 980px) {
+	/* @media screen and (max-width: 980px) { */
 		.dayin_max {
 			height: auto;
 			position: relative;
@@ -185,7 +185,5 @@
 			text-align: center;
 
 		}
-
-
-	}
+	/* } */
 </style>

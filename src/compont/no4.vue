@@ -130,7 +130,7 @@
 					user_token: localStorage.getItem('user_token'),
 					user_id: localStorage.getItem('user_id')
 				},
-				Numsin: [],
+				Numsin: '',
 				cuoData: {
 					user_token: localStorage.getItem('user_token'),
 					user_id: localStorage.getItem('user_id')
@@ -200,17 +200,16 @@
 <style>
 	.cuo_null {
 		width: 60%;
-		height: 40px;
+		height: 6vh;
 		margin: 0 auto;
-		line-height: 40px;
+		line-height: 6vh;
 		text-align: center;
-		background-color: salmon;
-
+		background-color: salmon; 
 	}
 
 	.cuo_null p {
 		color: white;
-		font-size: 15px;
+		font-size: 2vh;
 	}
 
 	.el-dropdown-link {
@@ -261,19 +260,20 @@
 
 	.no4_top {
 		width: 100%;
-		height: 200px;
+		height: 30vh;
 		padding-top: 40px;
 		background-image: url(../../images/003.png);
 		background-size: 100% 100%;
 		text-align: center;
 		line-height: 30px;
-		font-size: 16px;
+		font-size: 2vh;
 		color: white;
 	}
 
 	.no4_tou {
-		width: 76px;
-		height: 76px;
+		width: 12vh;
+		height: 12vh;
+		font-size: 2vh;
 		margin: 10px auto;
 		border: 4px solid #fcefbb;
 		border-radius: 50%;
@@ -300,6 +300,7 @@
 
 	.el-select .el-input__inner {
 		border: none;
+		font-size: 2vh;
 	}
 
 	.no4_cont_top {
@@ -315,15 +316,16 @@
 
 	.cont_top_max {
 		width: 90%;
-		height: 45px;
+		height: 7vh;
 		border-bottom: 1px solid #CCCCCC;
 		margin: 0 auto;
     display: flex;
         justify-content: space-between;
+		font-size: 2vh;
 	}
 
 	.cont_top_min {
-		height: 135px;
+		height: 20vh;
 	}
 
 	.top_min_le,
@@ -331,12 +333,13 @@
 		width: 30%;
 		height: 90%;
 		text-align: center;
+		font-size: 2vh;
 	}
 
 	.top_min_le div,
 	.top_min_ri div {
-		width: 80px;
-		height: 80px;
+		width: 12vh;
+		height: 12vh;
 		border-radius: 50%;
 		/* background-color: #ffaa00; */
 		margin: 10px auto;
@@ -370,8 +373,8 @@
 
 	.bot_cont_img {
 		float: left;
-		width: 22px;
-		height: 22px;
+		width: 3vh;
+		height: 3vh;
 		position: relative;
 		left: -10px;
 		top: 5px;
@@ -383,17 +386,18 @@
 	}
 
 	.cont_bot_cont {
-		height: 60px;
+		height: 9vh;
 		/* background-color: cadetblue; */
 		margin: 2px 0;
-		line-height: 60px;
+		line-height: 9vh;
 		border-bottom: 1px solid #CCCCCC;
 		overflow: hidden;
 		padding-left: 35px;
+		font-size: 2vh;
 	}
 
 	.cont_bot_cont p {
-		font-size: 16px;
+		font-size: 2vh;
 		float: left;
 		color: black;
 	}
@@ -412,10 +416,11 @@
 
 	.no4_username {
 		width: 70%;
+		height: 6vh;
 		margin: 20px auto;
-		line-height: 50px;
+		line-height: 6vh;
 		color: #fff;
-		font-size: 20px;
+		font-size: 2vh;
 		border-radius: 8px;
 		text-align: center;
 
@@ -430,7 +435,7 @@
 
 	.tui_btn a {
 		color: white;
-		font-size: 16px;
+		font-size: 2vh;
 	}
 
 	.deng_btn {

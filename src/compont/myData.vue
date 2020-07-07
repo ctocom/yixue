@@ -18,7 +18,7 @@
 					<!-- <el-progress :percentage="80"></el-progress> -->
 					<p>学习进度</p>
 					<el-progress :percentage="nam2" :format="format"></el-progress>
-					<p>正确率</p>
+					<p>错误率</p>
 					<el-progress :percentage="nam1" :format="format"></el-progress>
 					<!-- <el-progress :percentage="100" status="warning"></el-progress>
 					<el-progress :percentage="50" status="exception"></el-progress> -->
@@ -109,9 +109,9 @@
 	}
 
 	.myd_hear {
-		height: 60px;
+		height: 7vh;
 		padding: 0 20px;
-		line-height: 60px;
+		line-height: 7vh;
 		background-image: url('../../images/no3_net_03.jpg');
 	}
 
@@ -183,8 +183,8 @@
 	}
 
 	.myd_foot_bner {
-		height: 120px;
-		margin: 5px 0;
+		    height: 15vh;
+		    margin: 2vh 0;
 		background-color: salmon;
 	}
 
