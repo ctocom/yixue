@@ -176,7 +176,8 @@
 	}
 	.el-carousel__container{
 		/* width: 80%; */
-		height: 337px;
+		height: 56vh;
+		/* height: 337px; */
 		margin: 0 auto;
 	}  
 	.tanbar{

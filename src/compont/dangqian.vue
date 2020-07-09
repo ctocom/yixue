@@ -400,7 +400,7 @@
 		height: 100%;
 	}
 	.el-carousel__container{
-		height: 66vh;
+		height: 56vh;
 	}
 	.xunhuan,
 	.neirong {

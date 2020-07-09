@@ -77,6 +77,10 @@
 </script>
 
 <style>
+	.img{
+		width: 100%;
+		height: 100%;
+	}
 	.log_lops{
 		height:auto;
 		margin-bottom: 30px;
@@ -133,7 +137,7 @@
 			line-height: 32px;
 	}  
 	.el-carousel__container{
-		height: 66vh;
+		height: 56vh;
 	}
 	
 	@media screen and (max-width: 980px) {
