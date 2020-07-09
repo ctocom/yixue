@@ -21,18 +21,17 @@
 				<p class="max_p">视频教程</p>
 				<div class="divTat">
 					<div class="video-wrap">
-						<video width="100%" height="100%" controls autoplay :src="Myauto"> </video>
+						<video width="100%" height="100%" controls  :src="Myauto"> </video>
 						<!-- {{Myauto}} -->
 					</div>
 				</div>
-				<div class="divTab_one" v-for="(i,index) in spDatas" >
-
-					<div style="width: 95%;margin: 0 auto;">
+				<div class="divTab_one" v-for="(i,index) in spDatas" > 
+					<div style="width: 90%;margin: 0 auto;">
 						<div class="tab_one_le">
 							<img :src=i.banner alt="">
 						</div>
 						<div class="tab_bot_ri">
-							<h3>{{i.title}}</h3>
+							<h4>{{i.title}}</h4>
 							<p>时间：{{i.create_time}}</p>
 						</div> 
 					</div> 
@@ -67,7 +66,7 @@
 							<h4 style="color: #000000;">{{i.title}}</h4> 
 							<p>时间：{{i.create_time}}</p>
 							<div class="span-sp">
-								<span @click="guankan(index)">点击观看</span> 
+								<span @click="guankan(index)">点击播放</span> 
 								<router-link :to="{path:'/shipin',query:{material_id:i.id,id:$route.query.id,id2:$route.query.id2,unitId:$route.query.unitId}}">
 									<span @click="spJang()">讲解</span>
 								</router-link>
@@ -79,13 +78,12 @@
 			<!-- PPT -->
 			<div class="divTab" v-if="nowIndex===2">
 				<p class="max_p">PPT教程</p>
-				<div class="ppt_bner">
-					<div class="bner_img"> 
+				<div class="divTat">
+					<div class="video-wrap">
+						<div class="aud_imgs"  >
+							<img src="../../images/ban_03.png" alt="">
+						</div> 
 					</div>
-				</div>
-				<div class="bner_tet">
-					<h4>马老师教程</h4>
-					<p>让你快乐学习</p>
 				</div>
 				<div class="divTab_one" v-for="(i,index) in spDatas" >
 					<div style="width: 90%;margin: 0 auto;">
@@ -96,10 +94,8 @@
 							<h4 style="color: #000000;">{{i.title}}</h4>
 							<!-- <p>{{i.introduction}}</p> -->
 							<p>时间：{{i.create_time}}</p>
-							<div class="span-sp"> 
-								<span>
-									<a target="_blank" :href="'https://view.officeapps.live.com/op/view.aspx?src='+i.file_url">点击观看</a>
-								</span> 
+							<div class="span-sp">  
+								<a target="_blank" :href="'https://view.officeapps.live.com/op/view.aspx?src='+i.file_url"><span>点击观看</span></a> 
 								<router-link :to="{path:'/shipin',query:{material_id:i.id,id:$route.query.id,id2:$route.query.id2,unitId:$route.query.unitId}}">
 									<span @click="spJang()">讲解</span>
 								</router-link> 
@@ -108,6 +104,7 @@
 					</div>
 				</div>
 			</div>
+			<div class="clear"></div>
 		</div>
 		<div class="foot_two">
 			<p @click="Comp()">全部完成</p>
@@ -193,11 +190,7 @@
 				});
 				this.$route.query.material_id = 1
 
-			},
-			// Click() {
-			// 	this.Myauto = this.$route.query.nameId
-			// },
-			// 讲解
+			}, 
 			spJang() {
 				this.jangData.material_id = this.$route.query.material_id
 				var jangData = this.jangData
@@ -253,8 +246,120 @@
 </script>
 
 <style>
-	/* @media screen and (max-width: 980px) { */
+	img{
+		width: 100%;
+		height: 100%;
+	}
+	audio{
+		width: 100%;
+		height: 100%;
+	}
+	.conter{
+		padding-top: 0;
+	}
+	.divTat{
+		width: 60%;
+		height: 50vh;
+		float: left;
+	}
+	.video-wrap{
+		width: 100%;
+		height: 100%;
+	}
+	.cont_max{
+		margin-top: 30px;
+	}
+	.cont_max_hear{
+		width: 41%;
+		float: right;
+	}
+	.tabs{
+		width: 100%;
+		height: 100%;
+		display: flex;
+		padding: 10px 0;
+	}
+	.tabs li{
+		flex: 1;
+		margin: 0 20px;
+		text-align: center;
+		padding-bottom: 10px;
+	}
+	.my_active{
+		border-bottom:2px solid skyblue ;
+	}
+	.tab_one_le{
+		display: none;
+	}
+	.xue_max{
+		height: 100vh;
+	}
+	.tab_bot_ri p{
+		display: none;
+	}
+	.tab_bot_ri h4{
+		font-size: 14px;
+		font-weight: bold;
+		line-height: 38px;
+	}
+	.divTab{
+		height: 53vh;
+	}
+	.divTab_one{
+		width: 38%;
+		height: 5vh;
+		float: right; 
+		position: relative;
+	}
+	.span-sp{
+		position: absolute;
+		right: 0;
+		top: 7px;
+	}
+	.span-sp span{
+		 margin: 0 3px;
+		padding: 3px 5px;
+		background:rgba(255,188,32,1);
+		border-radius:5px;
+		color: white;
+		font-size: 14.5px;
+	} 
+	.foot_two{
+		width: 30%;
+		height: 7vh;
+		position: absolute;
+		right: 10px;
+		font-size: 16px;
+		font-weight: bold;
+		/* background-color: black; */
+		color: cornflowerblue;
+		
+	}
+	.foot_two p{
+		padding: 3px 10px;
+		border : 1px solid skyblue;
+		border-radius: 10px;
+		float: left;
+		margin-right: 10px;
+	}
+	
+	
+	.foot_two a{    
+		color: cornflowerblue;
+	}
+	.xue_hears{
+		display: none;
+	}
+	.xue_max{
+		height: auto;
+	}
+	.clear{clear: both;}
+	
+	
+	
+	@media screen and (max-width: 980px) {
 		.xue_hears {
+			display: block;
 			height: 7vh;
 			padding: 0 3vh;
 			line-height: 7vh;
@@ -288,21 +393,7 @@
 			border: 1px solid black;
 			padding: 5px 15px;
 			border-radius: 15px;
-		}
-
-		.span-sp {
-			margin-top: 10px;
-			font-size: 2vh;
-			padding: 1vh 0;
-		}
-
-		.span-sp span {
-			padding: 5px 15px;
-			border: 1px solid black;
-			border-radius: 15px;
-			color: black;
-		}
-
+		} 
 		.cont_le {
 			width: 80px;
 			height: 80px;
@@ -358,15 +449,18 @@
 
 		.cont_max {
 			height: auto;
+			margin: 0;
 		}
 		.video-wrap{
 			height: 100%;
 			width: 100%;
 		}
 		.cont_max_hear {
-			background-color: #ededed;
-			height: 7vh;
-		}
+			width: 100%;
+			/* background-color: #ededed; */
+			height: auto; 
+			float: none;
+		} 
 
 		.tabs {
 			width: 100%;
@@ -389,6 +483,7 @@
 			height: 60px;
 			/* margin: 50px auto; */
 			position: fixed;
+			right: 0;
 			bottom: 0px;
 			z-index: 3;
 			background-color: #ebebeb;
@@ -401,16 +496,20 @@
 			color: coral;
 			line-height: 60px;
 			text-align: center;
+			border: none;
+			padding: 0;
+			margin: 0;
 		}
 
 		/* 视频类css */
 		.divTab_one {
 			width: 100%;
-			height: 13vh;
-			margin: 0px auto;
-			border-bottom: 1px solid salmon;
+			height: auto; 	
+			margin: 0px auto;  
 			padding-top: 15px;
 			font-size: 2vh;
+			padding-bottom: 10px;
+			position: relative;
 		}
 
 		.tab_one_le,
@@ -420,6 +519,7 @@
 			float: left;
 			margin-right: 20px;
 			color: black;
+			display: block;
 		}
 
 		.tab_one_le img {
@@ -438,25 +538,39 @@
 
 		.tab_bot_ri h4 {
 			font-size: 2vh;
-			color: darkblue;
+			/* color: darkblue; */
 			padding-top: 5px;
 			overflow:hidden;
 			height: 24px;
+			line-height: 28px;
 		}
 
 		.tab_bot_ri p {
 			font-size: 2vh;
-			color: #9e9e9e;
-			margin: 5px 0px;
+			color: #9e9e9e; 
 		}
 
-		.tab_bot_ri span,
-			{
-			background-color: #3a91e7;
+		.tab_bot_ri span{ 
 			margin: 0 10px 0 0;
 			border-radius: 10px;
 			padding: 6px 10px;
 			font-size: 12px;
+		} 
+		.span-sp {
+			width: 163px;
+			height: 50px;
+			padding: 0;  
+			position: absolute; 
+			top: 60px;
+			right: 50px;
+		}
+		
+		.span-sp span {
+			padding: 5px 15px;
+			border: 1px solid black;
+			border-radius: 15px;
+			color: black;
+			background-color: transparent;
 		}
 
 		/* 音频 */
@@ -536,9 +650,10 @@
 
 		.max_p {
 			width: 100px;
+			font-size: 14px;
 			position: absolute;
 			text-align: center;
-			top: 20px;
+			top: 2vh;
 			left: 50%;
 			margin-left: -50px;
 			/* left: 50%; */
@@ -593,9 +708,12 @@
 		.aud_img {
 			width: 100%;
 			height: 70%;
+		} 
+		.aud_imgs {
+			width: 100%;
+			height: 90%;
 		}
-
-		.aud_img img {
+		img {
 			width: 100%;
 			height: 100%;
 		}
@@ -606,5 +724,5 @@
 		.audio audio {
 			width: 100%; 
 		}
-	/* } */
+	}
 </style>

@@ -1,14 +1,13 @@
-// import cxf from './cxf.vue'
+// import foot from './foot.vue'
 import navs from './nav.vue'
 // import login from './compont/login.vue'
 
 // const href = 'http://api.bxst.net'
 
 var index = {
-	install(Vue){
-		// Vue.component('cxf',cxf)
+	install(Vue){ 
 		Vue.component('navs',navs)
-		// Vue.component('login',login) 
+		// Vue.component('foot',foot) 
 	}
 	
 }

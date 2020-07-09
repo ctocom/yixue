@@ -2,11 +2,9 @@
 </template>
 
 <script> 
-const userApi="http://api.yixueyouke.net/index";
-// const  userTp5= "http://tp5.abc.com/index"; 
+const userApi="http://api.yixueyouke.net/index"; 
   export default
-  {
-    // userTp5,//用户地址
+  { 
     userApi, 
   }
 	

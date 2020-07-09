@@ -60,15 +60,16 @@
 		},
 	}
 </script>
-<style>
-	.pasMax {
-		background-color: white;
-	}
-
-	/* @media screen and (max-width: 980px) { */
-
+<style> 
+		.pasMax {
+			width: 100%;
+			margin: 0 auto;
+			background-color: white;
+		}
 		.pasHear {
+			width: 80%;
 			height: 50px;
+			margin: 0 auto;
 			line-height: 50px;
 			text-align: center;
 			font-size: 16px;
@@ -81,7 +82,10 @@
 
 		.pasHear p {}
 	/* } */
-
+	.pasInt{
+		width: 80%;
+		margin: 0 auto;
+	}
 	.pasInt input {
 		width: 96%;
 		height: 40px;
@@ -112,5 +116,24 @@
 		font-size: 12px;
 		color: #CACACA;
 		line-height: 20px;
+	}
+	.pasMax{
+		width: 70%;
+		margin: 0 auto;
+	}
+	
+	@media screen and (max-width: 980px) {
+		.pasMax {
+			width: 100%;
+			margin: 0 auto;
+			background-color: white;
+		}
+		.pasHear {
+			width: 100vw;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			font-size: 16px;
+		}
 	}
 </style>

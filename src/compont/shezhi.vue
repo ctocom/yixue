@@ -2,7 +2,7 @@
 	<div class="shu_max">
 		<div class="shu_max_top">
 			<router-link :to="{path:'/no4',query:{name:''}}">
-				<p> <  </p>
+				<p> < 我的设置 </p>
 			</router-link>
 		</div>
 		<div class="biaodan">
@@ -120,5 +120,17 @@
 
 	a {
 		color: black;
+	}
+	
+	
+	.shu_max{
+		width: 70%;
+		margin: 0 auto;
+	}
+	
+	@media screen and (max-width: 980px) {
+		.shu_max{
+			width: 100%;
+		}
 	}
 </style>

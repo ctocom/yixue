@@ -3,17 +3,14 @@
 		<div class="myd_hear">
 			<div style="float: left;">
 				<a href="#/no4">
-					<h4> < 我的数据</h4> 
+					<h4 style="color: black;"> < 我的数据</h4> 
 				</a> </div>  
 			</div>
 
 			<!-- 内容了 -->
 
 			<div class="cont_top">
-				<h3>数据曲线</h3>
-				<!-- <div class="cont_top_map">
-					<li v-for="i in map"><i></i> {{i}}</li>
-				</div> -->
+				<h3>数据曲线</h3> 
 				<div class="cont_top_atl">
 					<!-- <el-progress :percentage="80"></el-progress> -->
 					<p>学习进度</p>
@@ -227,5 +224,18 @@
 
 	.el-select {
 		float: right;
+	}
+	
+	
+	.myd_max{
+		width: 70%;
+		margin: 0 auto;
+	}
+	
+	@media screen and (max-width: 980px) {
+		.myd_max{
+			width: 100%;
+			margin: 0 auto;
+		}
 	}
 </style>

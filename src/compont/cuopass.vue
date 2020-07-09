@@ -112,4 +112,13 @@
 		color: #CACACA;
 		line-height: 20px;
 	}
+	
+	.pasMax{
+		width: 70%;margin: 0 auto;
+	}
+	@media screen and (max-width: 980px) {
+		.shu_max{
+			width: 100%;
+		}
+	}
 </style>

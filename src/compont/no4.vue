@@ -197,7 +197,7 @@
 	}
 </script>
 
-<style>
+<style> 
 	.cuo_null {
 		width: 60%;
 		height: 6vh;
@@ -255,12 +255,13 @@
 
 	.no4_max {
 		width: 100%;
+		margin: 20px auto;
 		margin-bottom: 103px;
 	}
 
 	.no4_top {
 		width: 100%;
-		height: 30vh;
+		height: 35vh;
 		padding-top: 40px;
 		background-image: url(../../images/003.png);
 		background-size: 100% 100%;
@@ -288,7 +289,7 @@
 	}
 
 	.no4_cont {
-		width: 100%;
+		width: 80%;
 		margin: 0 auto;
 	}
 
@@ -447,5 +448,21 @@
 	.deng_btn a {
 		color: white;
 		font-size: 16px;
+	}
+	@media screen and (max-width: 980px) {
+		.no4_cont {
+			width: 100%; 
+		}
+		.no4_top {
+			width: 100%;
+			height: 28vh;
+			padding-top: 40px;
+			background-image: url(../../images/003.png);
+			background-size: 100% 100%;
+			text-align: center;
+			line-height: 30px;
+			font-size: 2vh;
+			color: white;
+		}
 	}
 </style>

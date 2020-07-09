@@ -135,13 +135,13 @@
 			z-index: 3;
 		}
 		#printDiv{
-			width: 90%;
+			width: 85%;
 			height: auto;
 			margin: 0 auto;
 			margin-bottom: 30px;
 		}
 		.yin_batn{
-			width: 80%;
+			width: 73%;
 			height: 50px;
 			margin:0px auto;
 

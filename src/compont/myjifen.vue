@@ -2,7 +2,7 @@
 	<div class="my_max">
 		<div class="xue_hears" style="margin-bottom:10px ;">
 			<router-link :to="{path:'/no4',query:{id:'3'}}">
-				<span> < </span>
+				<span> < 我的积分 </span>
 			</router-link>
 		</div>
 		<div class="my_banner">
@@ -141,6 +141,9 @@
 </script>
 
 <style>
+	.xue_hears{
+		display: block;
+	}
 	.el-button {
 		width: 100%;
 		height: 100%;
@@ -272,5 +275,16 @@
 	.qian_h p{
 		font-size: 14px;
 		float: left;
+	}
+	
+	.my_max{
+		width: 70%;
+		margin: 0 auto;
+	}
+	
+	@media screen and (max-width: 980px) {
+		.my_max{
+			width: 100%;
+		}
 	}
 </style>

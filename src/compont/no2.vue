@@ -11,13 +11,10 @@
 			</div>
 			<!-- 侧边导航栏 -->
 			<div class="log_lop">
-				<!-- <span class="demonstration">默认 Hover 指示器触发</span> -->
 				<div class="block"> 
 				    <el-carousel >
 				      <el-carousel-item v-for="item in bannerList" :key="item">
 						  <img :src=item alt="">
-				        <h3 class="small">{{ item }}</h3>
-						<img :src=item alt="">
 				      </el-carousel-item>
 				    </el-carousel>
 				</div>
@@ -41,15 +38,15 @@
 		<!-- 精品 -->
 		<div class="no2_jing">
 			<span></span>
-			<p>精品课堂</p>
+			<p>热门课程</p>
 		</div>
 		<!-- 四大类科目 -->
 		<div class="for_max">
 			<div class="no2_four">
 				<div class="no2_four_text"  v-for="i in imgs3">
-					  <img :src=i alt="">
-				</div>  
-				<div class="clear"></div>
+					<img :src=i alt="">
+				</div>
+				 <div class="clear"></div> 
 			</div> 
 			 
 		</div>
@@ -65,8 +62,7 @@
 				href:gloal.userApi,   
 				bannerList: {},
 				twoData:{ 
-					user_token: localStorage.getItem('user_token'),
-					
+					user_token: localStorage.getItem('user_token')
 				},
 				img1:{ type:'1' },
 				img2:{type:'2'}, 
@@ -111,20 +107,119 @@
 </script>
 
 <style>
+	
+	*{
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
 	.no2_ban{
-		width: 100%;
-		/* height: 120px; */
+		height:auto; 
 	}
-	.log_ban{
-		width: 100%;
-		height: 120px;
-		background-color: #000000;
+	.no2_top,.log_ban{
+		display: none;
 	}
-	.log_ban img{
+	.block{
+			border-radius: 0px;
+			overflow: hidden;
+		}
+	.log_nav{
+		height: 180px;
+		width: 80%;
+		margin: 0 auto;
+		display: flex;
+		padding-top: 20px;
+	}
+	.no2_nav_max{ 
+		flex: 1; 
+		text-align: center;
+		font-size:18px;
+	}
+	.color_icon{
+		width:97px;
+		height:97px;
+		margin: 20px auto;
+	}
+	.no2_four_text{
+		/* width:124px; */
+		flex: 1;
+		height:130px; 
+		border-radius:3px 3px 3px 3px;
+		margin: 0 10px;
+	}
+	.for_max{
+		width: 100%;
+		height:auto ;
+	}
+	.no2_four{
+		width: 80%;
+		height: 100%;
+		margin: 0 auto;
+		display: flex;
+	} 
+	.no2_jing{
+		width: 80%;
+		margin: 20px auto;
+	}  
+	img{
 		width: 100%;
 		height: 100%;
+	} 
+	.no2_p{
+		width:115px;
+		height:37px;
+		font-size:9px;
+		font-family:Adobe Heiti Std;
+		font-weight:normal;
+		color:rgba(24,40,55,1);
+		line-height:14px;;
 	}
-	/* @media screen and (max-width: 980px) { */
+	.el-carousel__container{
+		/* width: 80%; */
+		height: 337px;
+		margin: 0 auto;
+	}  
+	.tanbar{
+		display: block;
+	}
+	.footer{
+		display: block;
+	}
+	 .no2_max{
+		 margin: 20px 0;
+	 }
+	
+@media screen and (max-width: 980px) {
+	.no2_max{
+			 margin: 0px ;
+	}
+	.tanbar{
+		width:100%;
+		position: absolute;
+		bottom: 0; 
+		height: 50px;
+		display: block;
+	}
+	
+	.log_lop{ 
+		display: block;
+	}
+	.conter{
+		height: auto;
+		padding-top: 0;
+	}
+	.clear{
+		clear: both;
+	}
+	.no2_p{
+		display: none;
+	}
+	.no2_top,.log_ban{
+		display: block;
+	}
+	.footer{
+		display: none;
+	}   
 	 .el-carousel__item h3 {
 	     color: #475669;
 	     font-size: 14px;
@@ -133,6 +228,8 @@
 	     margin: 0;
 	   }
 	   .no2_ban{
+		   width: 100%;
+		   height: 37vh;
 		   background-image: url(../../images/banner.png); 
 		   background-size: 100% 125%;
 	   }
@@ -150,8 +247,7 @@
 	 } 
 		.no2_top {
 			width: 100%;
-			height: 9vh;
-			/* background-color: #f8d14f; */
+			height: 9vh; 
 		}
 
 		.no2_top div {
@@ -180,9 +276,17 @@
 
 		.log_lop {
 			width: 95%;
+			height: 68%;
 			margin: 0 auto; 
 			padding:0 0 14px ;
 			overflow: hidden;
+		}
+		.log_lop div{
+			height: 100%;
+		}
+		.el-carousel__item is-active is-animating{
+			width: 100%;
+			height: 100%;
 		}
 
 		.lop_thre {
@@ -237,9 +341,7 @@
 		.log_ban {
 			width: 95%;
 			height: 13vh;
-			margin: 0 auto; 
-			/* background-image: url(../../dist/ban_03.jpg); */
-			/* background-size: 100%; */
+			margin: 0 auto;  
 			border-radius: 7vh;
 			overflow: hidden;
 		}
@@ -252,9 +354,9 @@
 			height: 87px;
 			line-height: 50px;
 			text-align: center;
-			margin: 15px auto;
+			margin: 0px auto;
 			display: flex;
-			color: white;  
+			color: white;   
 		}
 
 		.log_nav .no2_nav_max {
@@ -300,8 +402,9 @@
 			line-height: 15px;
 		}
 		.for_max{
-			height: 100%;
-			padding-bottom: 13vh;
+			width: 100%;
+			height: auto;
+			padding-bottom: 5vh;
 		}
 		
 		.clear{ clear:both} 
@@ -309,6 +412,7 @@
 		.no2_four {
 			width: 98%; 
 			margin: 0 auto; 
+			display: block;
 		}
 
 		.no2_four_text {
@@ -321,6 +425,6 @@
 		.no2_four_text img{
 			width: 100%;
 			height: 100%;
-		}
-	/* } */
+		} 
+	}
 </style>

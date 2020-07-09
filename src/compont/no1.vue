@@ -17,7 +17,7 @@
 	</div>
 </template>
 
-<script type="text/javascript" src="http://www.sz886.com/js/jquery-1.9.1.min.js"></script>
+<!-- <script type="text/javascript" src="http://www.sz886.com/js/jquery-1.9.1.min.js"></script> -->
 <script>
 	import gloal from '../cxf.vue'
 	export default {
@@ -57,7 +57,7 @@
 	} 
 </script>
 
-<style>
+<style>    
 	.play_a{
 		width: 100%;
 		text-align: center;
@@ -66,13 +66,14 @@
 	}
 	.login {
 		width: 100%;
-		height: 100%; 
+		height: 100vh; 
 		overflow: hidden;
 		background-image: url(../../images/ban_img.jpg);
 		background-size: 100% 100%;
 		background-repeat: no-repeat;
-		position: relative;
-		z-index: 4; 
+		position: fixed;
+		top: 0;
+		z-index: 4;
 	}
 	.spet{
 		width: 100%;
@@ -91,9 +92,7 @@
 		width: 81%;
 		margin: 0 auto;
 		padding-top: 20px;
-	}
-
-	/* @media screen and (max-width: 980px) { */
+	} 
 		.login_tap {
 			width: 176px;
 			height: 176px;
@@ -120,7 +119,7 @@
 		}
 
 		.log_int {
-			width: 81%;
+			width: 26%;
 			height: 220px;
 			margin: 0 auto;
 			border: 1px solid #BCBCBC;
@@ -154,5 +153,9 @@
 			padding-left: 10%;
 			outline: medium;
 		} 
-	/* } */
+		@media screen and (max-width: 980px) {
+			.log_int{
+				width: 80%;
+			}
+		} 
 </style>

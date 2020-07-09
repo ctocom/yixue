@@ -16,10 +16,10 @@
 			<div class="bi_banner">
 				<img src="../../images/ban_03.png" alt="">
 			</div>
-			<div class="bi_tet">
+			<!-- <div class="bi_tet">
 				<h3>马老四和将讲语文</h3>
 				<p>攘臂快乐的快熟及语文</p> 
-			</div>
+			</div> -->
 		</div>
 
 		<div class="bi_cent" v-for="i in biData">
@@ -36,6 +36,7 @@
 
 			</div>
 		</div>
+		<div class="clear"></div>
 		<div class="foot_two">
 			<p @click="Cpte()">全部完成</p>
 			<router-link :to="{path:'/dayin',query:{id:$route.query.id,id2:this.$route.query.id2,unitId:this.$route.query.unitId}}">
@@ -140,6 +141,89 @@
 </script>
 
 <style>
+	img{
+		width: 100%;
+		height: 100%;
+	}
+	.clear{clear: both;}
+	.bi_top{
+		width: 60%;
+		float: left;
+	}
+	.xue_hears{
+		display: none;
+	}
+	.bi_cent{
+		width: 35%;
+		float: right;
+	}
+	.bi_max{
+		height: auto;
+		position: relative;
+		padding-top: 40px;
+	}
+	
+	.bi_cent_img{
+		width: 110px;
+		height: 80px;
+		float: left;
+		margin-right:10px ;
+	}
+	.bi_cent_ri h3{
+		font-size: 16px;
+		font-weight: normal;
+	}
+	.bi_cent_ri span {
+		font-size: 14px;
+		color: royalblue;
+		padding: 3px 20px;
+		border-radius: 15px;
+		border: 1px solid royalblue;
+		line-height: 40px;
+	}
+	
+	.bi_cent_ri span a {
+		color: white;
+	}
+	.foot_two{
+		width: 30%;
+		height: 7vh;
+		position: absolute;
+		right: 10px;
+		font-size: 16px;
+		font-weight: bold; 
+		color: cornflowerblue;
+		
+	}
+	.foot_two p{
+		padding: 3px 10px;
+		border : 1px solid skyblue;
+		border-radius: 10px;
+		float: left;
+		color: cornflowerblue;
+		margin-right: 10px;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@media screen and (max-width: 980px) {
+		 
+		.xue_hears{
+			display: block;
+		}
+	
 	.bi_max {
 		width: 100%;
 		height: 100%;
@@ -149,8 +233,8 @@
 	}
 
 	.bi_top {
-		height: 220px;
-		/* background-color: red; */
+		width: 100%;
+		height: 22vh; 
 	}
 
 	.bi_tet {
@@ -171,8 +255,7 @@
 	.bi_banner {
 		width: 100%;
 		height: 160px;
-		margin: 10px 0;
-		/* background-image: url(../../dist/ban_03.png); */
+		margin: 10px 0; 
 		background-size: 100% 100%;
 	}
 
@@ -187,7 +270,7 @@
 		padding: 10px 10px;
 		margin: 10px auto;
 		border-radius: 10px;
-		border: 1px solid skyblue;
+		border-bottom: 1px solid skyblue;
 		position: relative;
 	}
 
@@ -215,7 +298,6 @@
 		font-size: 16px;
 		margin-bottom: 10px;
 		overflow: hidden;
-		/* background-color: #000000; */
 	}
 
 	.bi_cent_ri span {
@@ -230,18 +312,18 @@
 	.bi_cent_ri span a {
 		color: white;
 	}
-
-	/*打印  */
+ 
 	.foot_two {
 		width: 100%;
 		height: 60px;
 		/* margin: 50px auto; */
 		position: fixed;
+		right: 0;
 		bottom: 0px;
 		z-index: 3;
 		background-color: #ebebeb;
-	}
-
+	} 
+	
 	.foot_two p {
 		width: 50%;
 		float: left;
@@ -249,6 +331,9 @@
 		color: coral;
 		line-height: 60px;
 		text-align: center;
+		border: none;
+		padding: 0;
+		margin: 0;
 	}
 
 	.spa_img {
@@ -261,4 +346,5 @@
 		width: 25px;
 		height: 30px;
 	}
+}
 </style>

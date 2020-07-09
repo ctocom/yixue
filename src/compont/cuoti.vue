@@ -77,7 +77,7 @@
 
 <style> 
 .mask {
-	  background-color: #000;
+	  background-color: rgba(70, 70, 70, 0.6);
 	  opacity: 0.3;
 	  position: fixed;
 	  top: 0;
@@ -87,7 +87,7 @@
 	  z-index: 1
 	}
 	.pop {
-	  background-color: #fff; 
+	  background-color: #e8e8e8; 
 	  position: fixed;
 	  top: 100px;
 	  left: 5%;
@@ -107,10 +107,10 @@
 		background-color: #55aaff; 
 		border: 1px solid #5555ff; 
 		border-radius: 4px;
-		padding: 2px 5px;
+		/* padding: 2px 5px; */
 		position: absolute;
 		right: 10px;
-		bottom: 10px; 
+		top: 0px; 
 	} 
 	.btns{
 		width: 90%;
