@@ -160,7 +160,7 @@
 	.bi_max{
 		height: auto;
 		position: relative;
-		padding-top: 40px;
+		padding:15px 0 70px ;
 	}
 	
 	.bi_cent_img{

@@ -65,8 +65,8 @@
 		position: fixed;
 		top: 0;
 		box-shadow: 0 0 2px 2px #e2e2e2;
-		z-index: 3;
-		background-color: white;
+		z-index: 4;
+		background-color: white; 
 	} 
 	* {
 		padding: 0;
@@ -120,6 +120,7 @@
 			 box-shadow: none;
 			 position: absolute;
 			 bottom: 0;
+			 z-index: 3;
 		 }
 		.nav_ul {
 			width: 80%;

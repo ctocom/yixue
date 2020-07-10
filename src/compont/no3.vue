@@ -124,7 +124,7 @@
 	.no3_nav {
 		width: 80%;
 		height: 50px;
-		margin: 0 auto;
+		margin: 25px auto;
 	}
 
 	.no3_active {
@@ -227,6 +227,7 @@
 			height: 100%;
 			float: left;
 			background-color: #e2e2e2;
+			margin: 0;
 		}
 
 		.no3_active {

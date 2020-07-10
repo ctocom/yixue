@@ -288,10 +288,7 @@
 	}
 	.tab_one_le{
 		display: none;
-	}
-	.xue_max{
-		height: 100vh;
-	}
+	} 
 	.tab_bot_ri p{
 		display: none;
 	}
@@ -350,6 +347,7 @@
 	}
 	.xue_max{
 		height: auto;
+		padding: 0 0 50px;
 	}
 	.clear{clear: both;}
 	
@@ -432,6 +430,7 @@
 			padding-bottom: 50px;
 			z-index: 3;
 			background-color: white;
+			padding: 0;
 		}
 
 		.xue_hear {

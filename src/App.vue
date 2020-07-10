@@ -93,6 +93,10 @@
 		background:rgba(24,40,55,1);
 		display: block;
 	}
+	.tanbar{
+		height: 50px;
+		margin-bottom: 15px;
+	}
 @media screen and (max-width: 980px) {
 	.conter{
 		padding-top: 0px;
@@ -105,6 +109,7 @@
 		height: 50px;
 		display: block;
 		z-index: 3;
+		margin-bottom: 0px;
 	}
 	.footer{
 		display: none;

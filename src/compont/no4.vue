@@ -255,7 +255,7 @@
 
 	.no4_max {
 		width: 100%;
-		margin: 20px auto;
+		margin: 60px auto;
 		margin-bottom: 103px;
 	}
 
