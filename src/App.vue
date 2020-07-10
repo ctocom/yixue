@@ -54,10 +54,6 @@
 
 
 <style>  
-	.conter{
-		padding-top: 40px;
-		padding-bottom: 53px;
-	}
 	#app{
 		/* max-width: 1024px; */
 		height: 100vh;
@@ -97,21 +93,18 @@
 		background:rgba(24,40,55,1);
 		display: block;
 	}
-	.conter{
-		padding-top: 50px;
-		padding-bottom: 53px;
-	}
 @media screen and (max-width: 980px) {
 	.conter{
 		padding-top: 0px;
-		padding-bottom: 53px;
+		/* padding-bottom: 53px; */
 	}
 	.tanbar{
 		width:100%;
-		position: absolute;
+		position: fixed;
 		bottom: 0; 
 		height: 50px;
-		display: block
+		display: block;
+		z-index: 3;
 	}
 	.footer{
 		display: none;

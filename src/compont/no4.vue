@@ -450,6 +450,11 @@
 		font-size: 16px;
 	}
 	@media screen and (max-width: 980px) {
+		.no4_max {
+			width: 100%;
+			margin: 0px auto;
+			margin-bottom: 83px;
+		}
 		.no4_cont {
 			width: 100%; 
 		}

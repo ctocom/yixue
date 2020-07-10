@@ -165,6 +165,9 @@
 		width: 48%;
 		height: 50%;
 		float: left;
+		font-size: 16px;
+		font-weight: bold;
+		color: white;
 		margin-left: 1%;
 		background-color: salmon;
 		border: 1px solid salmon;
@@ -181,8 +184,8 @@
 		height: 100vh;
 		/* height: 100%; */
 		background-color: #ffffff;
-		position: position;
-		z-index: 3;
+		position: relative;
+		z-index: 4;
 		padding-bottom: 80px;
 	}
 

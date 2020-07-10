@@ -169,4 +169,11 @@
 	overflow:hidden;  
 	text-overflow:ellipsis; 
 }
+@media screen and (max-width: 980px) {
+	.ji_max{
+		width: 100%;
+		padding-bottom: 70px;
+		margin: 0px 0;
+	}
+}
 </style>

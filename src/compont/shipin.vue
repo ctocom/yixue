@@ -254,9 +254,7 @@
 		width: 100%;
 		height: 100%;
 	}
-	.conter{
-		padding-top: 0;
-	}
+	
 	.divTat{
 		width: 60%;
 		height: 50vh;
@@ -557,20 +555,21 @@
 			font-size: 12px;
 		} 
 		.span-sp {
-			width: 163px;
+			width: 50%;
 			height: 50px;
 			padding: 0;  
 			position: absolute; 
 			top: 60px;
 			right: 50px;
-		}
-		
+		} 
 		.span-sp span {
-			padding: 5px 15px;
+			font-size: 14px;
+			padding: 5px 10px;
 			border: 1px solid black;
-			border-radius: 15px;
+			border-radius: 10px;
 			color: black;
 			background-color: transparent;
+			overflow: hidden;
 		}
 
 		/* 音频 */

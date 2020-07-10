@@ -230,11 +230,13 @@
 		position: absolute;
 		background-color: white;
 		z-index: 3;
+		padding-top: 0;
 	}
 
 	.bi_top {
 		width: 100%;
 		height: 22vh; 
+		float: none;
 	}
 
 	.bi_tet {
@@ -254,12 +256,12 @@
 
 	.bi_banner {
 		width: 100%;
-		height: 160px;
+		height: 100%;
 		margin: 10px 0; 
 		background-size: 100% 100%;
 	}
 
-	.bi_banner img {
+	img {
 		width: 100%;
 		height: 100%;
 	}
@@ -267,11 +269,12 @@
 	.bi_cent {
 		width: 88%;
 		height: 80px;
-		padding: 10px 10px;
+		padding: 10px 0px;
 		margin: 10px auto;
 		border-radius: 10px;
 		border-bottom: 1px solid skyblue;
 		position: relative;
+		float: none;
 	}
 
 	.bi_cent_img {
@@ -301,9 +304,9 @@
 	}
 
 	.bi_cent_ri span {
-		font-size: 14px;
+		font-size: 12px;
 		color: royalblue;
-		padding: 3px 20px;
+		padding: 3px 10px;
 		border-radius: 15px;
 		border: 1px solid royalblue;
 		line-height: 40px;

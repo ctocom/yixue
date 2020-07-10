@@ -193,6 +193,7 @@
 @media screen and (max-width: 980px) {
 	.no2_max{
 			 margin: 0px ;
+			 padding-bottom: 50px;
 	}
 	.tanbar{
 		width:100%;
@@ -204,11 +205,7 @@
 	
 	.log_lop{ 
 		display: block;
-	}
-	.conter{
-		height: auto;
-		padding-top: 0;
-	}
+	} 
 	.clear{
 		clear: both;
 	}

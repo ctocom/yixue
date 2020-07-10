@@ -127,12 +127,13 @@
 		float: left;
 	}
 		.dayin_max{
+			width: 100%;
 			height: auto;
 			line-height: 30px;
 			padding-bottom: 80px;
 			background-color: white;
-			position: relative;
-			z-index: 3;
+			position: absolute;
+			z-index: 4;
 		}
 		#printDiv{
 			width: 85%;
@@ -162,6 +163,9 @@
 		}
 		.tihao_le{
 			padding-top:10px ;
+		}
+		.conter{
+			padding-bottom: none;
 		}
 	/* } */
 </style>

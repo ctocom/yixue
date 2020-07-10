@@ -400,7 +400,7 @@
 		height: 100%;
 	}
 	.el-carousel__container{
-		height: 56vh;
+		height: 42vw;
 	}
 	.xunhuan,
 	.neirong {
@@ -432,7 +432,7 @@
 	}
 
 	.xun_cont_bot {
-		width: 60%;
+		width: 70%;
 		height: 5vh;
 		float: right;
 		display: flex;
@@ -479,7 +479,7 @@
 	}
 
 	.xun_jindu {
-		width: 57%;
+		width: 68%;
 		float: right;
 		height: 8px;
 		margin: 25px 10px 0;
@@ -734,7 +734,7 @@
 
 		.xun_cont_top {
 			height: 5vh;
-			margin: 10px 0;
+			margin: 10px 0 0;
 			line-height: 3vh;
 		}
 
