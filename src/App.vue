@@ -100,6 +100,8 @@
 	.tanbar{
 		height: 50px;
 		margin-bottom: 15px;
+		position: relative;
+		z-index: 3;
 	}
 @media screen and (max-width: 980px) {
 	.conter{
