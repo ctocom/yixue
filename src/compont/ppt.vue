@@ -1,23 +1,23 @@
 <template>
 	<div class="xue_max">
-		<div class="xue_hears">  
+		<div class="xue_hears">
 			<span>
-				<a href="javascript:history.go(-1);"> < </a>
+				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">
+					<div style="width: 10px;height: 100%;float:left;margin-right:20px ;">
+						<img src="../../images/ic.png" alt="">
+					</div>
+					知 识 回 顾
+				</a>
+
 			</span>
-			<!-- {{$route.query.type}}
-			{{$route.query.secTionId}} -->
-		</div> 
-		<div class="xue_cont" v-for="i in ptDatas">   
-			<router-link :to="{path:'/dayin',query:{unitId:i.unit_id,type:$route.query.type,}}">
-				 <div style="width: 20%;float: left;">
-				 	{{i.unit_id}}
-				 </div>
-				 <div style="width: 80%;float: right;">
-				 	{{i.name}}
-				 </div>
-			</router-link> 
 		</div>
-		
+		<div class="nei_bot" v-for="i in ptDatas">
+			<router-link :to="{path:'/dayin',query:{unitId:i.unit_id,type:$route.query.type,}}">
+				<div class="nei_bot_tet"> 
+					<p style="width: 100%;text-align: center; font-size: 2vh;">{{i.name}}</p>
+				</div>
+			</router-link>
+		</div>
 	</div>
 </template>
 
@@ -27,14 +27,14 @@
 		data() {
 			return {
 				href: gloal.userApi,
-				ptData:{
+				ptData: {
 					user_token: localStorage.getItem('user_token'),
 					user_id: localStorage.getItem('user_id'),
-					unit_id:'1',
-					section_id:'1',
-					type:'2'
+					unit_id: '1',
+					section_id: '1',
+					type: '2'
 				},
-				ptDatas:{}
+				ptDatas: {}
 			}
 		},
 		mounted() {
@@ -57,7 +57,7 @@
 							message: '登陆信息已失效！'
 						});
 					}
- 
+
 				});
 			},
 		}
@@ -65,11 +65,28 @@
 </script>
 
 <style>
-	.xue_cont{
+	.xue_cont {
 		height: 100px;
 		font-size: 20px;
 		text-align: center;
 		line-height: 100px;
+		border-bottom: 1px solid skyblue;
+		background-color: lightpink;
 	}
-	
+
+	.nei_bot {
+		height: 9vh;
+		line-height: 9vh;
+		border-radius: 30px;
+		background-color: #f3faff;
+		margin: 10px 0;
+		box-shadow: 0 0 3px 1px #e5e5e5;
+		position: relative;
+	}
+
+	.nei_bot_tet {
+		width: 90%;
+		height: 100%;
+		margin: 0 auto;
+	}
 </style>

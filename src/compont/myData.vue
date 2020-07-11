@@ -1,11 +1,15 @@
 <template>
 	<div class="myd_max">
-		<div class="myd_hear">
-			<div style="float: left;">
-				<a href="#/no4">
-					<h4 style="color: black;"> < 我的数据</h4> 
-				</a> </div>  
-			</div>
+		<div class="xue_hears">
+			<span >
+				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">  
+					<div style="width: 10px;height: 100%;float:left;margin-right:20px ;">
+						<img  src="../../images/ic.png" alt="">
+					</div> 
+					<p style="float: right;color: black;"> 我 的 数 据 </p>
+				</a> 
+			</span>  
+		</div>
 
 			<!-- 内容了 -->
 

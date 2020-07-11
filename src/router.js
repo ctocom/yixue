@@ -16,6 +16,9 @@ import dati from './compont/dati.vue'
 import xiaoxi from './compont/xiaoxi.vue'
 import jilu from './compont/jilu.vue'
 import ppt from './compont/ppt.vue'
+import dabiao from './compont/dabiao.vue'
+import dabiaos from './compont/dabiaos.vue'
+import dpData from './compont/dpData.vue'
 
 import no3 from './compont/no3.vue'
 import no3_net from './compont/no3_net.vue'
@@ -77,6 +80,21 @@ import qkong from './compont/qkong.vue'
  	path:"/ppt",
  	 name:"/ppt",
  	 component:ppt, 
+ },
+ {
+ 	path:"/dabiao",
+ 	 name:"/dabiao",
+ 	 component:dabiao, 
+ },
+ {
+ 	path:"/dabiaos",
+ 	 name:"/dabiaos",
+ 	 component:dabiaos, 
+ },
+ {
+ 	path:"/dpData",
+ 	 name:"/dpData",
+ 	 component:dpData, 
  },
  {
  	path:"/jilu",

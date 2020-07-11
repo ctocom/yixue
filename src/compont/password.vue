@@ -1,11 +1,16 @@
 <template>
 	<div class="pasMax">
-		<div class="pasHear">
-			<router-link :to="{path:'/shezhi'}">
-				<span> < </span>
-			</router-link>
-			<p>修改密码</p>
-		</div>
+		<div class="xue_hears">
+			<span >
+				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">  
+					<div style="width: 10px;height: 100%;float:left;margin-right:20px ;">
+						<img  src="../../images/ic.png" alt="">
+					</div> 
+					密 码 修 改
+				</a> 
+			</span> 
+			<p style="float: right;color: black;"> {{navName}}</p>
+		</div> 
 		<div class="pasInt">
 			<input v-model="user.old_password" id="val1" type="text" placeholder="旧密码     请输入">
 			<input v-model="user.new1_password" id="val2" type="text" placeholder="新密码     请输入">
@@ -81,7 +86,7 @@
 		}
 
 		.pasHear p {}
-	/* } */
+	
 	.pasInt{
 		width: 80%;
 		margin: 0 auto;

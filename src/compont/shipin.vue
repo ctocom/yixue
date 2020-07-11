@@ -1,13 +1,18 @@
 <template>
 	<div class="xue_max">
-		<!-- 头部 -->
+		<!-- 头部 --> 
 		<div class="xue_hears">
-			<span>
-				<a href="javascript:history.go(-1);"> < </a>
-			</span> 
-			<span style="float: right;"> 英语
-				</span> 
+			<span >
+				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">  
+					<div style="width: 10px;height: 100%;float:left;margin-right:20px ;">
+						<img  src="../../images/ic.png" alt="">
+					</div> 
+				</a> 
+			</span>  
 		</div> 
+		
+		
+		
 		<div class="cont_max">
 			<div class="cont_max_hear" @click="goHome()">
 				<ul class="tabs">
@@ -651,7 +656,7 @@
 			font-size: 14px;
 			position: absolute;
 			text-align: center;
-			top: 2vh;
+			top: 2.5vh;
 			left: 50%;
 			margin-left: -50px;
 			/* left: 50%; */

@@ -1,48 +1,47 @@
 <template>
 	<div class="dang_max">
-		<div class="dang_hear">
-			<p style="float: left;">
-				<router-link :to="{path:'/no3'}">
-					<div class="my_le">
-						< 当前学习 </div> </router-link> <!-- {{$route.query.id}} -->
-			</p>
+		<div class="xue_hears">
+			<span >
+				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">  
+					<div style="width: 10px;height: 100%;float:left;margin-right:20px ;">
+						<img  src="../../images/ic.png" alt="">
+					</div> 
+					当 前 学 习 
+				</a> 
+			</span> 
 			<p style="float: right;color: black;"> {{navName}}</p>
-		</div>
-		<div class="dang_cont">
-
-			<!-- 循环任务 -->
+		</div>  
+		<div class="dang_cont"> 
+<!-- 循环任务 -->
 
 			<div class="log_lops">
 				<div class="block">
 					<el-carousel>
 						<el-carousel-item v-for="item in bannerList" :key="item">
-							<img :src=item alt="">
-							<!-- <h3 class="small">{{ item }}</h3> -->
-							<!-- <img :src=item alt=""> -->
+							<img :src=item alt=""> 
 						</el-carousel-item>
 					</el-carousel>
 				</div>
 			</div>
 			<div class="xun_max">
-				<!-- banner图 -->
+<!-- banner图 -->
 				<div class="dang_banner" v-for="i in imgs1">
 					<img :src=i alt="">
 				</div>
-				<!-- 第一次学习 -->
+<!-- 第一次学习 -->
 				<div class="xunhuan" v-for="(item,index) of unitList">
 					<div style="height: 20px;">
 						<span style=" height: 13px; margin: 0 10px; border: 2px solid skyblue; float: left;"></span>
-						<p style="float: left;color: skyblue;">第 {{index+1}} 循环任务</p>
+						<p style="float: left;color: skyblue;">第 一 循环任务</p>
 					</div>
-					<!-- <router-link :to="{path:'/shipin',query:{id:item.id}}"> -->
 					<div class="xun_cont">
 						<div class="xun_cont_top">
 							<div class="xun_jindu">
 								<div class="nei_jindu">
 									<p>{{item.complete_rate}}</p>
 								</div>
-							</div>
-							<p class="xun_cont_top_p">{{item.name}}</p>
+							</div> 
+							<p class="xun_cont_top_p"><span style="color: sandybrown;">{{complete_rate}}</span>  {{item.name}}</p>
 						</div>
 						<div class="xun_cont_bot">
 							<div class="xun_cont_data" v-for="j in item.module" @click="li_cli(j)">
@@ -52,9 +51,8 @@
 										<div class="icon_img">
 											<img :src=j.icon alt="">
 										</div>
-									</div>
-									<!-- <router-link :to="{path:'/dangqian',query:{unitid:item.unit_id,id2:item.id}}"> -->
-									<router-link :to="{path:'/dangqian',query:{it_id:$route.query.it_id,cu_id:$route.query.cu_id,unitId:item.unit_id}}">
+									</div> 
+									<router-link :to="{path:'/dangqian',query:{it_id:$route.query.it_id,cu_id:$route.query.cu_id,unitId:item.unit_id,paperId:item.paper_id}}">
 										<div class="cont_bot_tet">
 											{{j.name}}
 										</div>
@@ -64,7 +62,11 @@
 						</div>
 					</div>
 				</div>
-				<!-- 两次复习 -->
+<!-- 两次复习 -->
+				<div style="height: 20px;">
+					<span style=" height: 13px; margin: 0 10px; border: 2px solid skyblue; float: left;"></span>
+					<p style="float: left;color: skyblue;">第 二 循环任务</p>
+				</div>
 				<div class="xun_cont">
 					<div class="xun_cont_top">
 						<div class="xun_jindu">
@@ -79,9 +81,18 @@
 							<router-link :to="{path:'/ppt',query:{unitId:this.unitId,secTionId:this.secTionId,type:'2'}}">
 								检测二
 							</router-link>
+						</div> 
+						<div>
+							<router-link :to="{path:'/dabiao',query:{unitId:this.unitId,secTionId:this.secTionId,type:'2'}}">
+								<div>达标</div>
+							</router-link>
 						</div>
-						<div>达标</div>
 					</div>
+				</div>
+				
+				<div style="height: 20px;">
+					<span style=" height: 13px; margin: 0 10px; border: 2px solid skyblue; float: left;"></span>
+					<p style="float: left;color: skyblue;">第 三 循环任务</p>
 				</div>
 				<div class="xun_cont">
 					<div class="xun_cont_top">
@@ -98,10 +109,16 @@
 								检测三
 							</router-link>
 						</div>
-						<div>达标</div>
+						<div>
+							<router-link :to="{path:'/dabiao',query:{unitId:this.unitId,secTionId:this.secTionId,type:'3'}}">
+								达标
+							</router-link>
+						</div>
+						
+						
 					</div>
 				</div>
-				<!-- 内容 -->
+<!-- 内容 -->
 				<div class="neirong">
 					<div class="nei_top" style="height: 4vh;">
 						<p>全部内容</p>
@@ -111,8 +128,7 @@
 						<div class="nei_bot_tet">
 							<p style="float: left;font-size: 2vh;">{{i.name}}</p>
 
-							<div class="box" style="float: right;">
-								<!-- {{i.complete_num}} -->
+							<div class="box" style="float: right;"> 
 								<i :class="{red: i.complete_num >= 1}">{{i.complete_num >= 1}}</i>
 								<i :class="{red: i.complete_num >= 2}">{{i.complete_num >= 2}}</i>
 								<i :class="{red: i.complete_num >= 3}">{{i.complete_num >= 3}}</i>
@@ -140,6 +156,8 @@
 					user_id: localStorage.getItem('user_id'),
 					section_id: this.$route.query.it_id
 				},
+				complete_rate:'', 
+				paperId:'',
 				navName: [],
 				navLame: [],
 				unitId: [],
@@ -157,8 +175,7 @@
 				bannerList: {}
 			}
 		},
-		created(options) {
-			// console.log(options)
+		created(options) { 
 			this.goHome(),
 				this.changeClass(1),
 				this.dqData.section_id = this.$route.query.id1
@@ -174,7 +191,8 @@
 					this.unitList = response.data.data.unit_list
 					this.unit_info = response.data.data.unit_info
 					this.navName = response.data.data.nav_name
-
+					this.complete_rate = response.data.data.complete_rate 
+					this.paperId = this.unitList[0].paper_id
 
 					this.unitId = response.data.data.unit_id
 					this.secTionId = response.data.data.section_id
@@ -198,6 +216,17 @@
 					});
 				});
 
+			},
+			
+			enClick(){
+				this.$router.push({
+					name: '/yinover',
+					query: {
+						id: this.$route.query.it_id,
+						id2: index.unit_list_id,
+						unitId: this.unitId
+					}
+				})
 			},
 
 			changeClass(num) {
@@ -290,7 +319,15 @@
 						}
 					})
 				}
-				if (index.name == '达标') {}
+				if (index.name == '达标') {
+					// console.log(this.$route.query);
+					this.$router.push({
+						name: '/yinover',
+						query: { 
+							paperId: this.$route.query.paperId
+						}
+					})
+				}
 			}
 		}
 	}
@@ -797,7 +834,7 @@
 			width: 57%;
 			float: right;
 			height: 8px;
-			margin: 20px 10px 0;
+			margin: 10px 10px 0;
 			border-radius: 10px;
 			background-color: #9c9c9c;
 
@@ -854,7 +891,7 @@
 			box-shadow: 0 0 3px 1px #e5e5e5;
 			position: relative;
 		}
-
+		
 		.nei_bot_tet {
 			width: 90%;
 			height: 100%;

@@ -65,6 +65,10 @@
   list-style: none;
   text-decoration: none;
 }   
+.xue_hears{
+	position: relative;
+	z-index: 4;
+}
 .fot_le{
 	float: left;
 	line-height: 27px;

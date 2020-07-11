@@ -1,17 +1,15 @@
 <template>
-	<div class="bi_max">
+	<div class="bi_max">  
 		<div class="xue_hears">
-			<!-- <router-link :to="{path:'/dangqian',query:{id:$route.query.id,id2:this.$route.query.id2}}"> -->
-			<span>
-				<a href="javascript:history.go(-1);">
-					< </a> </span> <!-- </router-link> -->
-						作业笔记
-						<router-link :to="{path:'/xiaoxi',query:{id:$route.query.id,id2:this.$route.query.id}}">
-							<div class="ling_ri">
-
-							</div>
-						</router-link>
-		</div>
+			<span >
+				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">  
+					<div style="width: 10px;height: 100%;float:left;margin-right:20px ;">
+						<img  src="../../images/ic.png" alt="">
+					</div> 
+				</a>
+				 <p style="float: right;color: black;"> 作 业 笔 记 </p>
+			</span>  
+		</div> 
 		<div class="bi_top">
 			<div class="bi_banner">
 				<img src="../../images/ban_03.png" alt="">

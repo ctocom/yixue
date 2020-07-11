@@ -1,22 +1,29 @@
 <template>
 	<div class="cuo_max">
-		<div class="cuo_hears">
-			<a href="#/no4">
-				<p>
-					< {{$route.query.name}}
-				</p>  
-			</a> 
-			
-			</div> 
+		<div class="xue_hears">
+			<span >
+				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">  
+					<div style="width: 10px;height: 100%;float:left;margin-right:20px ;">
+						<img  src="../../images/ic.png" alt="">
+					</div> 
+					<p style="float: right;color: black;"> {{$route.query.name}} </p>
+				</a> 
+			</span>  
+		</div>
 		<div id="cu_top" class="ti_an">
 			<div class="ti_an_a" v-for="(i,index) in cuoDatas">
-				({{index+1}})
-				<div style="text-align: left;line-height: 22px;" v-html="i.title"> </div>  
+				({{i.group_id}})
+				<div style="text-align: left;line-height: 22px;background-color: green;" v-html="i.title"> {{i.title}} </div>  
 				
+				<div style="text-align: left;line-height: 22px;" v-for="j in i.children" > 
+					({{j.group_id}})<div v-html="j.title">
+						{{j.title}}
+					</div>
+				</div>  
 				<div @click="cuJan(index)" class="btn">讲解</div>
 				<div class="mask" v-if="showModal" @click="showModal=false"></div>
 				<div class="pop" v-if="showModal"> 
-					<div @click="showModal=false" class="btns"><span style="float: left;">[视频播放]</span> × </div> 
+					<div @click="showModal=false" class="btns"><span style="float: left;">讲解</span> × </div> 
 					<video autoplay controls style="width: 100%; height: auto;" :src="teUrl"></video> 
 				</div> 
 			</div> 
@@ -91,9 +98,8 @@
 	  position: fixed;
 	  top: 100px;
 	  left: 5%;
-	  width: 90%; 
-	  height: auto;
-	  /* height:calc(100% - 300px); */
+	  width: 66%; 
+	  height: auto; 
 	  z-index: 2
 	}
 	.pop video{
@@ -101,16 +107,18 @@
 		height: 80%;
 	}
 	.btn {
-		width: 45px;
+		width: 55px;
+		height: 20px;
 		text-align: center;
 		color: white;
-		background-color: #55aaff; 
-		border: 1px solid #5555ff; 
-		border-radius: 4px;
-		/* padding: 2px 5px; */
+		line-height: 20px;
+		text-align: center;
+		background-color: #00aeff;  
+		font-size: 12px;
+		border-radius: 10px; 
 		position: absolute;
 		right: 10px;
-		top: 0px; 
+		top: 16px; 
 	} 
 	.btns{
 		width: 90%;
@@ -153,6 +161,8 @@
 	.ti_an_a {
 		height: auto; 
 		position: relative;
+		padding-top: 15px;
+		border-bottom: 1px dashed #00BFFF;
 	} 
 
 	.di_btn {
@@ -181,12 +191,11 @@
 
 	.cuo_max {
 		width: 100%;
-		height: 100vh;
-		/* height: 100%; */
+		/* height: 100vh; */
 		background-color: #ffffff;
 		position: relative;
 		z-index: 4;
-		padding-bottom: 80px;
+		padding-bottom: 40px;
 	}
 
 	.cuo_hear {
@@ -199,11 +208,7 @@
 		margin-left: 20px;
 		float: left;
 	}
-
-	.cuo_max span {
-		/* margin-right: 20px; */
-		/* float: right; */
-	}
+ 
 
 	.cuo_active {
 		border-bottom: 2px solid sandybrown;
@@ -244,13 +249,26 @@
 
 	.cuo_cont_p p {
 		float: left;
-		margin: 30px 0 0 26px;
-		/* line-height: 60px; */
+		margin: 30px 0 0 26px; 
 	}
 
 	.cuo_cont_p span {
 		margin: 30px 20px 0 0;
 	}
-	
+	@media screen and (max-width: 980px) {
+		.pop {
+		  background-color: #e8e8e8; 
+		  position: fixed;
+		  top: 100px;
+		  left: 5%;
+		  width: 90%; 
+		  height: auto; 
+		  z-index: 2
+		}
+		.pop video{
+			width: 100%;
+			height: 80%;
+		}
+	}
 		
 </style>

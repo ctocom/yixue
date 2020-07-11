@@ -1,12 +1,6 @@
 <template>
-	<div class="ji_max"> 
-		<!-- {{$route.query.id}} -->
-		<div class="xue_hears">
-			<!-- <router-link :to="{path:'/xiaoxi',query:{id:$route.query.id,id2:this.$route.query.id}}">
-				<span>
-					< 
-				</span>
-			</router-link> -->
+	<div class="ji_max">  
+		<div class="xue_hears"> 
 			<p>{{this.MyName}}</p>
 		</div>
 		<div class="ji_cont" > 
@@ -15,8 +9,7 @@
 					<div class="max_img"> 
 						<img :src=item.head alt="">
 					</div>
-					<div class="max_tet"> 
-						<!-- <h3>{{item.user_name}} : </h3> -->
+					<div class="max_tet">  
 						{{item.content}}
 					</div> 
 					<div class="clear"></div>

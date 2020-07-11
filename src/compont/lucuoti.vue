@@ -1,12 +1,16 @@
 <template>
 	<div class="dayin_max">
 		<div class="xue_hears">
-			<router-link :to="{path:'/jilei',query:{papId:$route.query.papId}}">
-				<span>
-					< </span> </router-link> <span style="float: right;">错题
-				</span>
-				<!-- {{$route.query.papId}} -->
-		</div>
+			<span >
+				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">  
+					<div style="width: 10px;height: 100%;float:left;margin-right:20px ;">
+						<img  src="../../images/ic.png" alt="">
+					</div> 
+					错 题
+					
+				</a> 
+			</span> 
+		</div>  
 
 		<div class="topic">
 			<h3>请勾选回答错误的试题</h3>

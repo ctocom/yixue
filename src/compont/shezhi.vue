@@ -1,15 +1,22 @@
 <template>
 	<div class="shu_max">
-		<div class="shu_max_top">
-			<router-link :to="{path:'/no4',query:{name:''}}">
-				<p> < 我的设置 </p>
-			</router-link>
+		<div class="xue_hears">
+			<span >
+				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">  
+					<div style="width: 10px;height: 100%;float:left;margin-right:20px ;">
+						<img  src="../../images/ic.png" alt="">
+					</div> 
+					<p style="float: right;color: black;"> 我 的 设 置 </p>
+				</a> 
+			</span>  
 		</div>
 		<div class="biaodan">
 			<div class="shu_max_tet" v-for="i in arr">
 				<router-link :to="{path:'/password',query:{name:''}}">
 					<i>{{i.icon}}</i>
-					<span> > </span>
+					<div style="width: 10px; height:30%; float: right;">
+						<img src="../../images/myri.png" alt="">
+					</div>
 					<p>{{i.t1}}</p>
 				</router-link>
 			</div>
@@ -18,7 +25,9 @@
 			<router-link :to="{path:'/cuopass',query:{name:''}}">
 				<div class="shu_max_tet"> 
 					<i></i>
-					<span>></span>
+					<div style="width: 10px; height:30%; float: right;">
+						<img src="../../images/myri.png" alt="">
+					</div>
 					<p>错题本登录密码</p>
 				</div>
 			</router-link>
@@ -82,11 +91,7 @@
 	.shu_max_tet i {
 		float: left;
 		margin: 0 13px;
-	}
-
-	.shu_max_tet span {
-		float: right;
-	}
+	} 
 
 	.biaodan {
 		margin: 15px 0 20px;

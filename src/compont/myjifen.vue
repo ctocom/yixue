@@ -1,11 +1,16 @@
 <template>
 	<div class="my_max">
-		<div class="xue_hears" style="margin-bottom:10px ;">
-			<router-link :to="{path:'/no4',query:{id:'3'}}">
-				<span> < 我的积分 </span>
-			</router-link>
+		<div class="xue_hears">
+			<span >
+				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">  
+					<div style="width: 10px;height: 100%;float:left;margin-right:20px ;">
+						<img  src="../../images/ic.png" alt="">
+					</div> 
+					<p style="float: right;color: black;"> 我 的 积 分 </p>
+				</a> 
+			</span>  
 		</div>
-		<div class="my_banner">
+		<div class="my_banner" style="margin-top: 10px;">
 			<!-- <p>当前积分：</p> -->
 		</div>
 

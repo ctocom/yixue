@@ -3,7 +3,14 @@
 		<div class="xue_hears">
 			<router-link :to="{path:'/',query:{id:''}}">
 				<span>
-					< </span> </router-link> <p> {{$route.query.name}} </p>
+				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">
+					<div style="width: 10px;height: 100%;float:left;margin-right:20px ;">
+						<img  src="../../images/ic.png" alt="">
+					</div> 
+				</a>  
+				</span> 
+			</router-link>
+			<p> {{$route.query.name}} </p>
 		</div>
 		<div class="log_lops">
 			<div class="block"> 

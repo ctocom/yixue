@@ -1,11 +1,21 @@
 <template>
 	<div class="dayin_max">
-		<div class="xue_hears">
+		<!-- <div class="xue_hears">
 			<router-link :to="{path:'/no4',query:{id:'1',papId:$route.query.papId}}">
 				<span>
 					< </span> </router-link> <router-link :to="{path:'',query:{id:$route.query.id,id2:this.$route.query.id}}"> 
 						<span style="float: right;">错题 </span>
 			</router-link>
+		</div> -->
+		<div class="xue_hears">
+			<span >
+				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">  
+					<div style="width: 10px;height: 100%;float:left;margin-right:20px ;">
+						<img  src="../../images/ic.png" alt="">
+					</div> 
+					<p style="float: right;color: black;"> 错 题 清 空 </p>
+				</a> 
+			</span>  
 		</div>
 
 		<div class="topic">
@@ -15,10 +25,11 @@
 					<span>{{index+1}}</span>
 					<input id="int" type="checkbox" :value=i.id v-model="tiData.question_str">
 				</div>  
+				<div class="clear"></div>
 			</div> 
 		</div>  
 		<div class="kongCli" @click="goClick()">
-			<p>清空试题</p>
+			<p style="margin-top: 20px;">清空试题</p>
 		</div>
 	</div>
 </template>
@@ -100,6 +111,9 @@
 
 <style>
 	/* @media screen and (max-width: 980px) { */
+	.clear{
+		clear: both;
+	}
 		.kongCli{
 			width: 70%; 
 			height: 50px;
@@ -128,8 +142,7 @@
 
 		.topic {
 			width: 90%;
-			height: auto;
-			height: 200px;
+			height: auto; 
 			margin: 0 auto;
 			text-align: center;
 			line-height: 30px;
@@ -143,7 +156,7 @@
 
 		.top_thr {
 			width: 100%;
-			height: 80px;
+			height: auto;
 			margin: 10px 0;
 		}
   
@@ -175,13 +188,14 @@
 		}
 
 		.sp_int span {  
-			width: 0px;
-			height: 10px;
-			position: absolute;
-			top: 3px;
-			left: 50%;
-			margin-left: -5px;
-			z-index: -1;
+			    width: 35px;
+			    height: 35px;
+			    position: absolute;
+			    /* top: 3px; */
+			    left: 50%;
+			    margin-left: -19px;
+			    line-height: 35px;
+			    z-index: -1;
 		}
 		.tishi{
 			height: 40px;

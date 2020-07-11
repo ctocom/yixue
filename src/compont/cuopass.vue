@@ -1,11 +1,16 @@
 <template>
 	<div class="pasMax">
-		<div class="pasHear">
-			<router-link :to="{path:'/shezhi'}">
-				<span> < </span>
-			</router-link>
-			<p>设置密码</p>
-		</div>
+		<div class="xue_hears">
+			<span >
+				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">  
+					<div style="width: 10px;height: 100%;float:left;margin-right:20px ;">
+						<img  src="../../images/ic.png" alt="">
+					</div> 
+					错 题 密 码 修 改
+				</a> 
+			</span> 
+			<p style="float: right;color: black;"> {{navName}}</p>
+		</div> 
 		<div class="pasInt">
 			<input v-model="user.second1_password" id="val2" type="password" placeholder="新密码     请输入">
 			<input v-model="user.second2_password" id="val3" type="password" placeholder="确认新密码     请输入">
@@ -26,14 +31,12 @@
 					user_token: localStorage.getItem('user_token'),
 					user_id: localStorage.getItem('user_id'),
 					second1_password: '',
-					second2_password: '',
-					// 111111
+					second2_password: '', 
 				}
 			}
 		},
 
-		mounted() {
-			// this.goHome()
+		mounted() { 
 		},
 		methods: {
 			goHome() {
@@ -63,8 +66,7 @@
 	.pasMax {
 		background-color: white;
 	}
-
-	/* @media screen and (max-width: 980px) { */
+ 
 
 		.pasHear {
 			height: 50px;
@@ -78,8 +80,7 @@
 			margin-left: 10px;
 		}
 
-		.pasHear p {}
-	/* } */
+		.pasHear p {} 
 
 	.pasInt input {
 		width: 96%;
@@ -117,7 +118,7 @@
 		width: 70%;margin: 0 auto;
 	}
 	@media screen and (max-width: 980px) {
-		.shu_max{
+		.pasMax{
 			width: 100%;
 		}
 	}

@@ -1,7 +1,13 @@
 <template>
 	<div class="dayin_max">
 		<div class="xue_hears"> 
-				<span @click="$router.go(-1)"> < </span> 
+			<span @click="$router.go(-1)"> 
+				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">
+					<div style="width: 10px;height: 100%;float:left;margin-right:20px ;">
+						<img  src="../../images/ic.png" alt="">
+					</div> 
+				</a> 
+			</span> 
 			<router-link :to="{path:'/xiaoxi',query:{id:$route.query.id,id2:this.$route.query.id}}">
 				<div class="ling_ri"> 
 				</div>
@@ -18,8 +24,7 @@
 
 				 </div>
 				 <div class="tihao_ri" v-html="i.title">
-					 {{i.title}}
-
+					 {{i.title}} 
 				 </div>
 			 </div>
 		</div>
@@ -69,6 +74,7 @@
 				this.$http.post(this.href + '/userPaperAction', daData).then(response => {
 					console.log(response.data.data)
 					this.paperId = response.data.data.paper_id
+					localStorage.setItem('paperId',response.data.data.paper_id)
 					this.papUrl = response.data.data.paper_url
 
 					// this.zjData = response.data.data.paper_data
