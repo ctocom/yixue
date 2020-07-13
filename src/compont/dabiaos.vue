@@ -13,7 +13,7 @@
 		<div id="cu_top" class="ti_an">
 			<div class="ti_an_a" v-for="(i,index) in cuoDatas">
 				({{i.group_id}})
-				<div style="background-color: green;" v-html="i.title">
+				<div v-html="i.title">
 					{{i.title}}
 				</div>
 				
@@ -42,7 +42,9 @@
 		</div>
 		<div @click="dabtn()" style="width: 80%;height:50px;background-color: coral;margin: 0 auto;font-size: 16px;color: white;text-align: center;line-height: 50px;">
 			<p>
+				<a href="javascript:history.go(-2);" style="font-size: 2vh; ">  
 				全部完成
+				</a>
 			</p>
 		</div>
 	</div>
@@ -79,17 +81,25 @@
 				this.cuoData.user_err = this.$route.query.id 
 				var cuoData = this.cuoData
 				cuoData.course_id = this.$route.query.course_id
-				this.$http.post(this.href + '/standardErrorQuestion', cuoData).then(response => { 
+				this.$http.post(this.href + '/standardErrorQuestion', cuoData).then(response => {
 					console.log(response.data.data.err_data)
 					this.cuoDatas = response.data.data.err_data 
 					this.cuUrl = response.data.data.err_url  
+					
+					if(response.data.code == '100'){
+						this.$notify.info({
+						  title: '提示',
+						  message: response.data.msg
+						});  
+					}  
+					if(response.data.code == '0'){
+						this.$notify.info({
+						  title: '提示',
+						  message: response.data.msg
+						});  
+					}  
 				});   
-				if(response.data.code == 0){
-					this.$notify.info({
-					  title: '提示',
-					  message: response.data.msg
-					});  
-				} 
+				
 			},
 			dabtn() { 
 				var daBtn = this.daBtn 
@@ -98,7 +108,7 @@
 					  	this.$notify.info({
 					  	  title: '提示',
 					  	  message: response.data.msg
-					  	});  
+					  	});   
 					  }  
 					  if(response.data.code == 0){
 					  	this.$notify.info({

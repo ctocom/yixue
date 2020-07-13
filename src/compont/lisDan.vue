@@ -16,9 +16,12 @@
 			确定
 		</div> 
 		<div id="lisDan">
-			<div v-for="i in lisDatas" v-html="i.keyword">
-				<!-- {{i.keyword}} -->
+			<div v-for="i in lisDatas" v-html="i.keyword"> </div>
+			<div v-for="i in lisDatas" v-html="i.options"> </div>
+			<div v-for="i in lisDatas">
+				<div v-for="j in i.children" v-html="j.keyword">{{j.keyword}} </div>
 			</div>
+			<!-- <div v-for="i in lisDatas" v-html="i.keyword"> </div> -->
 		</div>
 		
 		<div class="lisBtn">
@@ -59,7 +62,7 @@
 				this.lisData.user_err = this.$route.query.name
 				var lisData = JSON.stringify(this.lisData); 
 				this.$http.post(this.href + '/userErr', lisData).then(response => {
-					console.log(response.data.data)     
+					console.log(response.data.data.err_data)     
 					this.lisDatas = response.data.data.err_data
 					if(response.data.code == '0'){
 						this.$notify.info({

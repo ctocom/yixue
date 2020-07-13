@@ -13,7 +13,7 @@
 		<div id="cu_top" class="ti_an">
 			<div class="ti_an_a" v-for="(i,index) in cuoDatas">
 				({{i.group_id}})
-				<div style="text-align: left;line-height: 22px;background-color: green;" v-html="i.title"> {{i.title}} </div>  
+				<div style="text-align: left;line-height: 22px ;" v-html="i.title"> {{i.title}} </div>  
 				
 				<div style="text-align: left;line-height: 22px;" v-for="j in i.children" > 
 					({{j.group_id}})<div v-html="j.title">

@@ -8,8 +8,7 @@
 					</div> 
 					答案
 				</a> 
-			</span> 
-			<p style="float: right;color: black;"> {{navName}}</p>
+			</span>  
 		</div> 
 		 <div class="paName">
 			 <p>提示：请输入二级密码，获取答案</p> 
@@ -19,8 +18,10 @@
 			确定
 		</div> 
 		<div id="lisDan">
-			<div v-for="i in dpDatas" v-html="i.keyword"> 
+			<div v-if="">
+				
 			</div>
+			<div v-for="i in dpDatas" v-html="i.keyword"> </div>
 		</div>
 		
 		<div class="lisBtn">
@@ -59,10 +60,15 @@
 				var dpData = JSON.stringify(this.dpData); 
 				this.$http.post(this.href + '/standardErrorQuestion', dpData).then(response => {
 					console.log(response.data.data)     
-					this.dpDatas = response.data.data
-					this.cuUrl = response.data.data.err_url 
-					
+					this.dpDatas = response.data.data.err_data
+					this.cuUrl = response.data.data.err_url  
 					if(response.data.code == '100'){
+						this.$notify.info({
+						  title: '提示',
+						  message: response.data.msg
+						});  
+					}  
+					if(response.data.code == '0'){
 						this.$notify.info({
 						  title: '提示',
 						  message: response.data.msg

@@ -48,10 +48,11 @@
 						alert('登录信息已失效，请重新登录')
 					} 
 					if (JSON.stringify(response.data.code, null, 4) == 200) {
-						 this.$notify.error({
+						 this.$notify.info({
 						 	title: '提示',
-						 	message: '密码设置成功'
+						 	message: '密码设置成功', 
 						 }); 
+						 location.href = "#/no4"
 					} else {
 						alert(response.data.msg)
 					}
@@ -64,7 +65,9 @@
 </script>
 <style>
 	.pasMax {
-		background-color: white;
+		background-color: white; 
+		position: relative;
+		z-index: 4;
 	}
  
 

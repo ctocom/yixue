@@ -16,7 +16,10 @@
 			确定
 		</div>
 		<div class="div_p" id="div-p" v-for="i in danDatas">
-			{{i.keyword}} 
+			<div v-html="i.keyword">
+				{{i.keyword}} 
+			</div>
+			
 		</div>
 		<div class="erJi">
 			<a :href="da_fil">
@@ -49,7 +52,7 @@
 				this.danData.paper_id = this.$route.query.papId
 				var danData = JSON.stringify(this.danData);
 				this.$http.post(this.href + '/paperQuestion', danData).then(response => {
-					// console.log(response.data.data.paper_question_list)
+					console.log(response.data.data.paper_question_list)
 					this.danDatas = response.data.data.paper_question_list
 					this.da_fil = response.data.data.answer_url
 					if (JSON.stringify(response.data.code, null, 4) == 200) {

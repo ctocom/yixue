@@ -67,6 +67,8 @@
 	.shu_max {
 		width: 100%;
 		background-color: #f6f6f6;
+		position: relative;
+		z-index: 4;
 	}
 
 	.el-page-header__left {
