@@ -162,12 +162,7 @@
       },
 			goHome(id) {
 				console.log(this.href)
-				var cuoData = this.cuoData
-				// this.$http.post(this.href + '/userErr', cuoData).then(response => {
-				// 	console.log(response)
-				// 	this.cuoDatas = response
-				// });
-				// 获取错题数
+				var cuoData = this.cuoData 
 				var Numsan = this.Numsan
         Numsan.course_id = id
 				this.$http.post(this.href + '/errCount', Numsan).then(response => {
@@ -453,8 +448,7 @@
 		.no4_max {
 			width: 100%;
 			margin: 0px auto;
-			margin-bottom: 83px; 
-			position: relative; 
+			padding-bottom: 83px; 
 		}
 		.no4_cont {
 			width: 100%; 
