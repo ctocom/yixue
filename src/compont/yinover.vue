@@ -2,6 +2,7 @@
 	<div class="cuo_max">
 		<div class="xue_hears">
 			<span >
+				<!-- {{$route.query.paperId}} -->
 				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">  
 					<div style="width: 10px;height: 100%;float:left;margin-right:20px ;">
 						<img  src="../../images/ic.png" alt="">
@@ -11,6 +12,7 @@
 			</span>  
 		</div>
 		<div id="cu_top" class="ti_an">
+<<<<<<< HEAD
 			<div class="ti_an_a" v-for="(i,index) in cuoDatas"> 
 				
 				({{i.group_id}})
@@ -24,6 +26,11 @@
 						{{j.title}} 
 					</div> 
 				</div>   
+=======
+			<div class="ti_an_a" v-for="(i,index) in yinDatas">
+				({{index+1}})
+				<div style="text-align: left;line-height: 22px;" v-html="i"> </div>  
+>>>>>>> 4cc676e3b94db493e3e86ca68097244901021e84
 				
 				<div @click="cuJan(index)" class="btn">讲解</div>
 				<div class="mask" v-if="showModal" @click="showModal=false"></div>
@@ -42,6 +49,7 @@
 		<div class="db_over">
 			达标完成
 		</div>
+		
 	</div>
 </template>
 <script>
@@ -50,15 +58,22 @@
 		data() {
 			return {
 				href: gloal.userApi,
-				cuoData: {
+				yinData: {
 					user_token: localStorage.getItem('user_token'),
 					user_id: localStorage.getItem('user_id'),
+<<<<<<< HEAD
 					paper_id:localStorage.getItem('paperId'),
 					type:'1',
 					seconds_password:''
 				},
 				cuoDatas: {}, 
 				   
+=======
+					paper_id: localStorage.getItem('paperId'),
+					// paper_id:'2'
+				},
+				yinDatas: {},  
+>>>>>>> 4cc676e3b94db493e3e86ca68097244901021e84
 				showModal: false,
 				cuUrl:'',
 				teUrl:''
@@ -68,6 +83,7 @@
 			this.goHome()
 		},
 		methods: {
+<<<<<<< HEAD
 			goHome() {
 				 var cuoData = this.cuoData
 				 this.$http.post(this.href + '/standardErrorQuestion', cuoData).then(response => {
@@ -80,6 +96,32 @@
 				 	 			}); 
 				 	 		}  
 				 }); 
+=======
+			goHome() { 
+				// this.cuoData.paper_id = this.$route.query.paperId
+				var yinData = JSON.stringify(this.yinData);
+				this.$http.post(this.href + '/completeStandard', yinData).then(response => {
+					console.log(response.data.data)
+					this.yinDatas = response.data.data  
+					// console.log(this.yinData.paper_id)
+					
+					
+					if (response.body.code == '0') {
+						this.$notify.error({
+							title: '提示',
+							message: '请完成检测后再次进入'
+						});  
+					}else{
+						this.$notify.info({
+							title: '提示',
+							message: response.data.msg
+						}); 
+					}
+					if (response.body.code == '300') {
+						alert('登录信息已失效，请重新登录')
+					} 
+				}); 
+>>>>>>> 4cc676e3b94db493e3e86ca68097244901021e84
 			},
 			 
 			

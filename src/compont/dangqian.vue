@@ -2,6 +2,7 @@
 	<div class="dang_max">
 		<div class="xue_hears">
 			<span >
+				<!-- {{$route.query.paperId}} -->
 				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">  
 					<div style="width: 10px;height: 100%;float:left;margin-right:20px ;">
 						<img  src="../../images/ic.png" alt="">
@@ -320,6 +321,7 @@
 					})
 				}
 				if (index.name == '达标') {
+<<<<<<< HEAD
 					// console.log(this.$route.query);
 					if((index).is_top_complete==1){
 						this.$router.push({
@@ -334,6 +336,15 @@
 						  message: '清完成检测后点击！'
 						});
 					}
+=======
+					console.log(this.$route.query.paperId);
+					this.$router.push({
+						name: '/yinover',
+						query: { 
+							paperId: this.$route.query.paperId
+						}
+					})
+>>>>>>> 4cc676e3b94db493e3e86ca68097244901021e84
 				}
 			}
 		}

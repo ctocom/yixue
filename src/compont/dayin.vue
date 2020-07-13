@@ -74,12 +74,12 @@
 				this.$http.post(this.href + '/userPaperAction', daData).then(response => {
 					console.log(response.data.data)
 					this.paperId = response.data.data.paper_id
-					localStorage.setItem('paperId',response.data.data.paper_id)
 					this.papUrl = response.data.data.paper_url
 
 					// this.zjData = response.data.data.paper_data
 					if(response.data && response.data.data.paper_id ){
 					      this.zjData = response.data.data.paper_data
+						 localStorage.setItem('paperId',response.data.data.paper_id)
 					     }
 					if(response.body.code == '300'){
 						this.$notify.error({
