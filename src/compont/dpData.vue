@@ -18,10 +18,11 @@
 			确定
 		</div> 
 		<div id="lisDan">
-			<div v-if="">
-				
-			</div>
 			<div v-for="i in dpDatas" v-html="i.keyword"> </div>
+			<div v-for="i in dpDatas" v-html="i.options"> </div>
+			<div v-for="i in dpDatas">
+				<div v-for="j in i.children" v-html="j.keyword">{{j.keyword}} </div>
+			</div> 
 		</div>
 		
 		<div class="lisBtn">

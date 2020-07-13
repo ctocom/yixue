@@ -32,6 +32,7 @@
 			<div class="no3_cont_nav">
 				<div class="cont_nav_str" v-for="(item,index) of fromData " :key="index" @click="toNo3(item)">
 					<!-- <router-link :to="{path:'/dangqian',query:{it_id:item.id,cu_id:item.course_id}}"> -->
+					<!-- {{item.qx_status}} -->
 					<div class="cont_nav_str_icon">
 						<img :src=item.icon alt="">
 					</div>
@@ -80,7 +81,11 @@
 				});
 				var fromData = JSON.stringify(this.zjData);
 				this.$http.post(this.href + '/section', fromData).then(response => {
-					this.fromData = response.data.data
+					this.fromData = response.data.data 
+					
+					if(response.data.data.qx_status == '2'){
+						location.href = '#/no3'
+					}
 				})
 
 				var img1 = JSON.stringify(this.img1);
@@ -90,13 +95,21 @@
 				});
 			},
 			toNo3(item) {
-				this.$router.push({
-					path: '/dangqian',
-					query: {
-						it_id: item.id,
-						cu_id: item.course_id
-					}
-				})
+				if(item.qx_status == '2'){
+					this.$notify.error({
+						title: '提示',
+						message: '您没有权限查看'
+					});
+				}else{
+					this.$router.push({
+						path: '/dangqian',
+						query: {
+							it_id: item.id,
+							cu_id: item.course_id
+						}
+					})
+				}
+				
 			},
 			goClick() {
 				this.zjData.course_id = this.$route.query.id

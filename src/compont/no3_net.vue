@@ -24,9 +24,9 @@
 			</div>
 		</div>
 		<div class="no3_net_max_bot">
-			<div class="no3_net_max_text" v-for="(item,index) of noData">
-				<router-link :to="{path:'/dangqian',query:{it_id:item.id,cu_id:item.course_id}}">
-					<div class="no3_div">
+			<div class="no3_net_max_text" v-for="(item,index) of noData"  @click="toNo3(item)">
+				<!-- <router-link :to="{path:'/dangqian',query:{}}"> -->
+					<div class="no3_div" >
 						<p style="color: black;">{{item.name}}</p>
 						<div class="net_tet">
 							<span style="float: left;">英语{{item.course_id}}</span>
@@ -37,7 +37,7 @@
 						</div>
 						
 					</div>
-				</router-link>
+				<!-- </router-link> -->
 			</div>
 		</div>
 	</div>
@@ -50,6 +50,7 @@
 				href: gloal.userApi,
 				noData: {
 					user_token: localStorage.getItem('user_token'),
+					user_id: localStorage.getItem('user_id'),
 					course_id: ''
 				},
 				img1:{ type:'1' },
@@ -62,6 +63,23 @@
 		},
 
 		methods: {
+			
+			toNo3(item) {
+				if(item.qx_status == '2'){
+					this.$notify.error({
+						title: '提示',
+						message: '您没有权限查看'
+					});
+				}else{
+					this.$router.push({
+						path: '/dangqian',
+						query: {
+							it_id:item.id,
+							cu_id:item.course_id 
+						}
+					})
+				} 
+			},
 			goHome() {
 				this.noData.course_id = this.$route.query.id
 				var noData = JSON.stringify(this.noData);
