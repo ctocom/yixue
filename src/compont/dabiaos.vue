@@ -84,30 +84,24 @@
 				this.$http.post(this.href + '/standardErrorQuestion', cuoData).then(response => { 
 					console.log(response.data.code)
 					this.cuoDatas = response.data.data.err_data 
-					this.cuUrl = response.data.data.err_url 
-<<<<<<< HEAD
+					this.cuUrl = response.data.data.err_url  
 					 if(response.data.code == '0'){
 					 	this.$notify.info({
 					 	  title: '提示',
 					 	  message: response.data.msg
 					 	});  
-					 }  
-=======
-					if(response.data.code == '0'){
-						this.$notify.info({
-						  title: '提示',
-						  // message: response.data.msg
-						  message:'请完成检测后再试'
-						});  
-					} 
-					 
->>>>>>> 4cc676e3b94db493e3e86ca68097244901021e84
+					 }else{
+						 this.$notify.info({
+						   title: '提示',
+						   message: response.data.msg
+						 }); 
+					 }
 				}); 
 			},
 			dabtn() { 
 				var daBtn = this.daBtn 
 				this.$http.post(this.href + '/completeStandard', daBtn).then(response => { 
-					  if(response.data.code == '200'){
+					  if(response.data.code == '0'){
 					  	this.$notify.info({
 					  	  title: '提示',
 					  	  message: response.data.msg

@@ -320,8 +320,7 @@
 						}
 					})
 				}
-				if (index.name == '达标') {
-<<<<<<< HEAD
+				if (index.name == '达标') { 
 					// console.log(this.$route.query);
 					if((index).is_top_complete==1){
 						this.$router.push({
@@ -335,16 +334,7 @@
 						  title: '提示',
 						  message: '清完成检测后点击！'
 						});
-					}
-=======
-					console.log(this.$route.query.paperId);
-					this.$router.push({
-						name: '/yinover',
-						query: { 
-							paperId: this.$route.query.paperId
-						}
-					})
->>>>>>> 4cc676e3b94db493e3e86ca68097244901021e84
+					} 
 				}
 			}
 		}
