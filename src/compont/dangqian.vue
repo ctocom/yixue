@@ -52,11 +52,11 @@
 											<img :src=j.icon alt="">
 										</div>
 									</div> 
-									<router-link :to="{path:'/dangqian',query:{it_id:$route.query.it_id,cu_id:$route.query.cu_id,unitId:item.unit_id,paperId:item.paper_id}}">
+									<!-- <router-link :to="{path:'/dangqian',query:{it_id:$route.query.it_id,cu_id:$route.query.cu_id,unitId:item.unit_id,paperId:item.paper_id}}"> -->
 										<div class="cont_bot_tet">
 											{{j.name}}
 										</div>
-									</router-link>
+									<!-- </router-link> -->
 								</div>
 							</div>
 						</div>
@@ -266,7 +266,7 @@
 						$(this).css("background", "#ffdd57");
 					}
 					if ($(this).text() == 0) {
-						$(this).css("background", "##9c9c9c");
+						$(this).css("background", "#9c9c9c");
 					}
 				});
 				// console.log($('.net_span i').text())
@@ -321,12 +321,19 @@
 				}
 				if (index.name == '达标') {
 					// console.log(this.$route.query);
-					this.$router.push({
-						name: '/yinover',
-						query: { 
-							paperId: this.$route.query.paperId
-						}
-					})
+					if((index).is_top_complete==1){
+						this.$router.push({
+							name: '/dabiaos',
+							query: { 
+								// paperId: this.$route.query.paperId
+							}
+						})
+					}else{
+						this.$notify.info({
+						  title: '提示',
+						  message: '清完成检测后点击！'
+						});
+					}
 				}
 			}
 		}

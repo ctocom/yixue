@@ -453,7 +453,8 @@
 		.no4_max {
 			width: 100%;
 			margin: 0px auto;
-			margin-bottom: 83px;
+			margin-bottom: 83px; 
+			position: relative; 
 		}
 		.no4_cont {
 			width: 100%; 

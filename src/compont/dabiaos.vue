@@ -21,10 +21,7 @@
 					({{j.group_id}})
 					<div v-html="j.title">
 						{{j.title}} 
-					</div>
-					<!-- <div style="width: 20px; height: 10px;background-color: red;position: absolute;top: 0;right: 0;">
-						{{j.teach_url}}
-					</div> -->
+					</div> 
 				</div> 
 				
 				
@@ -87,7 +84,12 @@
 				this.$http.post(this.href + '/standardErrorQuestion', cuoData).then(response => { 
 					this.cuoDatas = response.data.data.err_data 
 					this.cuUrl = response.data.data.err_url 
-					 
+					 if(response.data.code == '0'){
+					 	this.$notify.info({
+					 	  title: '提示',
+					 	  message: response.data.msg
+					 	});  
+					 }  
 				}); 
 			},
 			dabtn() { 

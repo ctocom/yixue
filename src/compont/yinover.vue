@@ -11,9 +11,19 @@
 			</span>  
 		</div>
 		<div id="cu_top" class="ti_an">
-			<div class="ti_an_a" v-for="(i,index) in cuoDatas">
-				({{index+1}})
-				<div style="text-align: left;line-height: 22px;" v-html="i"> </div>  
+			<div class="ti_an_a" v-for="(i,index) in cuoDatas"> 
+				
+				({{i.group_id}})
+				<div style="background-color: green;" v-html="i.title">
+					{{i.title}}
+				</div>
+				
+				<div style="text-align: left;line-height: 22px;position: relative;" v-for="j in i.children" > 
+					({{j.group_id}})
+					<div v-html="j.title">
+						{{j.title}} 
+					</div> 
+				</div>   
 				
 				<div @click="cuJan(index)" class="btn">讲解</div>
 				<div class="mask" v-if="showModal" @click="showModal=false"></div>
@@ -27,7 +37,10 @@
 			<a :href="this.cuUrl"> <button >打印</button> </a>  
 			<router-link :to="{path:'/lisDan',query:{name:$route.query.id,courseId:this.$route.query.course_id}}">
 				<button>答案</button>
-			</router-link>
+			</router-link> 
+		</div>
+		<div class="db_over">
+			达标完成
 		</div>
 	</div>
 </template>
@@ -40,9 +53,12 @@
 				cuoData: {
 					user_token: localStorage.getItem('user_token'),
 					user_id: localStorage.getItem('user_id'),
-					paper_id:'23'
+					paper_id:localStorage.getItem('paperId'),
+					type:'1',
+					seconds_password:''
 				},
-				cuoDatas: {},  
+				cuoDatas: {}, 
+				   
 				showModal: false,
 				cuUrl:'',
 				teUrl:''
@@ -52,28 +68,27 @@
 			this.goHome()
 		},
 		methods: {
-			goHome() { 
-				
-				var cuoData = this.cuoData
-				// this.cuoData.paper_id = this.$route.query.paperId
-				this.$http.post(this.href + '/completeStandard', cuoData).then(response => {
-					console.log(response.data.data)
-					this.cuoDatas = response.data.data  
-					if (response.body.code == '0') {
-						this.$notify.error({
-							title: '提示',
-							message: '请完成检测后再次进入'
-						}); 
-					} 
-					if (response.body.code == '300') {
-						alert('登录信息已失效，请重新登录')
-					} 
-				}); 
+			goHome() {
+				 var cuoData = this.cuoData
+				 this.$http.post(this.href + '/standardErrorQuestion', cuoData).then(response => {
+				 	console.log(response.data.data)
+				 	this.cuoDatas = response.data.data.err_data
+				 	 if (response.body.code == '0') {
+				 	 			this.$notify.info({
+				 	 				title: '提示',
+				 	 				message: response.data.msg
+				 	 			}); 
+				 	 		}  
+				 }); 
 			},
+			 
+			
+			 
+			 
 			cuJan:function(int){
 				this.showModal = true
 				console.log(int)
-				this.teUrl = this.cuoDatas[int].teach_url
+				this.teUrl = this.dpLongs[int].teach_url
 				console.log(this.teUrl)
 			}
 		}
@@ -81,6 +96,15 @@
 </script>
 
 <style> 
+.db_over{
+	width: 70%;
+	height: 50px;
+	margin: 0 auto;
+	line-height: 50px;
+	text-align: center;
+	background-color: darkgreen;
+	color: white;
+}
 .mask {
 	  background-color: rgba(70, 70, 70, 0.6);
 	  opacity: 0.3;
@@ -165,13 +189,13 @@
 
 	.di_btn {
 		width: 90%;
-		height: 100px;
+		height: 50px;
 		margin: 20px auto;
 	}
 
 	button {
 		width: 48%;
-		height: 50%;
+		height: 100%;
 		float: left;
 		font-size: 16px;
 		font-weight: bold;
