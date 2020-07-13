@@ -22,10 +22,9 @@
 					<div v-html="j.title">
 						{{j.title}} 
 					</div> 
+					{{j.err_url}}
+					
 				</div> 
-				
-				
-				
 				
 				<div @click="cuJan(index)" class="btn">讲解</div>
 				<div class="mask" v-if="showModal" @click="showModal=false"></div>
@@ -77,15 +76,20 @@
 		},
 		methods: {
 			goHome() {
-				this.cuoData.user_err = this.$route.query.id
-				// this.cuoData.type = this.$route.query.id
+				this.cuoData.user_err = this.$route.query.id 
 				var cuoData = this.cuoData
 				cuoData.course_id = this.$route.query.course_id
 				this.$http.post(this.href + '/standardErrorQuestion', cuoData).then(response => { 
-					console.log(response.data.code)
+					console.log(response.data.data.err_data)
 					this.cuoDatas = response.data.data.err_data 
 					this.cuUrl = response.data.data.err_url  
-				}); 
+				});   
+				if(response.data.code == 0){
+					this.$notify.info({
+					  title: '提示',
+					  message: response.data.msg
+					});  
+				} 
 			},
 			dabtn() { 
 				var daBtn = this.daBtn 

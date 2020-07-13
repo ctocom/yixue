@@ -32,7 +32,8 @@
 					user_id: localStorage.getItem('user_id'),
 					unit_id: '1',
 					section_id: '1',
-					type: '2'
+					type: '2',
+					check:'1'
 				},
 				ptDatas: {}
 			}
