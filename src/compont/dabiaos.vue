@@ -85,8 +85,16 @@
 				var cuoData = this.cuoData
 				cuoData.course_id = this.$route.query.course_id
 				this.$http.post(this.href + '/standardErrorQuestion', cuoData).then(response => { 
+					console.log(response.data.code)
 					this.cuoDatas = response.data.data.err_data 
 					this.cuUrl = response.data.data.err_url 
+					if(response.data.code == '0'){
+						this.$notify.info({
+						  title: '提示',
+						  // message: response.data.msg
+						  message:'请完成检测后再试'
+						});  
+					} 
 					 
 				}); 
 			},

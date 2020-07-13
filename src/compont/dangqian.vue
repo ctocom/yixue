@@ -2,6 +2,7 @@
 	<div class="dang_max">
 		<div class="xue_hears">
 			<span >
+				<!-- {{$route.query.paperId}} -->
 				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">  
 					<div style="width: 10px;height: 100%;float:left;margin-right:20px ;">
 						<img  src="../../images/ic.png" alt="">
@@ -320,7 +321,7 @@
 					})
 				}
 				if (index.name == '达标') {
-					// console.log(this.$route.query);
+					console.log(this.$route.query.paperId);
 					this.$router.push({
 						name: '/yinover',
 						query: { 

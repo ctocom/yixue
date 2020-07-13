@@ -1,5 +1,5 @@
 <template>
-	<div class="xue_max">
+	<div class="ppt_max">
 		<div class="xue_hears">
 			<span>
 				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">
@@ -88,5 +88,10 @@
 		width: 90%;
 		height: 100%;
 		margin: 0 auto;
+	}
+	.ppt_max{
+		background-color: white;
+		position: relative;
+		z-index: 4;
 	}
 </style>

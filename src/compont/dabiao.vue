@@ -1,5 +1,5 @@
 <template>
-	<div class="xue_max">
+	<div class="da_max">
 		<div class="xue_hears">
 			<span>
 				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">
@@ -93,8 +93,9 @@
 		height: 100%;
 		margin: 0 auto;
 	}
-	.xue_max{
+	.da_max{
 		position: relative;
+		background-color: white;
 		z-index: 4;
 	}
 </style>

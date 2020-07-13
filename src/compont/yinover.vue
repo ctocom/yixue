@@ -2,6 +2,7 @@
 	<div class="cuo_max">
 		<div class="xue_hears">
 			<span >
+				<!-- {{$route.query.paperId}} -->
 				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">  
 					<div style="width: 10px;height: 100%;float:left;margin-right:20px ;">
 						<img  src="../../images/ic.png" alt="">
@@ -11,7 +12,7 @@
 			</span>  
 		</div>
 		<div id="cu_top" class="ti_an">
-			<div class="ti_an_a" v-for="(i,index) in cuoDatas">
+			<div class="ti_an_a" v-for="(i,index) in yinDatas">
 				({{index+1}})
 				<div style="text-align: left;line-height: 22px;" v-html="i"> </div>  
 				
@@ -29,6 +30,7 @@
 				<button>答案</button>
 			</router-link>
 		</div>
+		
 	</div>
 </template>
 <script>
@@ -37,12 +39,13 @@
 		data() {
 			return {
 				href: gloal.userApi,
-				cuoData: {
+				yinData: {
 					user_token: localStorage.getItem('user_token'),
 					user_id: localStorage.getItem('user_id'),
-					paper_id:'23'
+					paper_id: localStorage.getItem('paperId'),
+					// paper_id:'2'
 				},
-				cuoDatas: {},  
+				yinDatas: {},  
 				showModal: false,
 				cuUrl:'',
 				teUrl:''
@@ -53,18 +56,25 @@
 		},
 		methods: {
 			goHome() { 
-				
-				var cuoData = this.cuoData
 				// this.cuoData.paper_id = this.$route.query.paperId
-				this.$http.post(this.href + '/completeStandard', cuoData).then(response => {
+				var yinData = JSON.stringify(this.yinData);
+				this.$http.post(this.href + '/completeStandard', yinData).then(response => {
 					console.log(response.data.data)
-					this.cuoDatas = response.data.data  
+					this.yinDatas = response.data.data  
+					// console.log(this.yinData.paper_id)
+					
+					
 					if (response.body.code == '0') {
 						this.$notify.error({
 							title: '提示',
 							message: '请完成检测后再次进入'
+						});  
+					}else{
+						this.$notify.info({
+							title: '提示',
+							message: response.data.msg
 						}); 
-					} 
+					}
 					if (response.body.code == '300') {
 						alert('登录信息已失效，请重新登录')
 					} 
