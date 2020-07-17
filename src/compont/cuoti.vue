@@ -11,15 +11,10 @@
 			</span>  
 		</div>
 		<div id="cu_top" class="ti_an">
-			<div class="ti_an_a" v-for="(i,index) in cuoDatas">
-				({{i.group_id}})
+			<div class="ti_an_a" v-for="(i,index) in cuoDatas"> 
+				({{index+1}})
 				<div style="text-align: left;line-height: 22px ;" v-html="i.title"> {{i.title}} </div>  
 				
-				<div style="text-align: left;line-height: 22px;" v-for="j in i.children" > 
-					({{j.group_id}})<div v-html="j.title">
-						{{j.title}}
-					</div>
-				</div>  
 				<div @click="cuJan(index)" class="btn">讲解</div>
 				<div class="mask" v-if="showModal" @click="showModal=false"></div>
 				<div class="pop" v-if="showModal"> 
