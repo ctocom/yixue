@@ -6,8 +6,9 @@
 				<!-- <img src="../assets/logo.png" alt=""> -->
 			</div>
 			<p>易学优</p>
-			<p>{{userName}}</p>
 			<!-- {{userImg}} -->
+			<p>{{userName}}</p>
+			
 		</div>
 		<!-- 内容 -->
 		<div class="no4_cont">
@@ -274,8 +275,6 @@
 		border: 4px solid #fcefbb;
 		border-radius: 50%;
 		overflow: hidden;
-		background-image: url('https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=144939704,3087253252&fm=26&gp=0.jpg');
-		background-size: 100% 100%;
 	}
 
 	.no4_tou img{

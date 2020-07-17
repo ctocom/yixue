@@ -17,12 +17,18 @@
 		<div class="erJi" @click="goHome()">
 			确定
 		</div> 
-		<div id="lisDan">
-			<div v-for="i in dpDatas" v-html="i.keyword"> </div>
-			<div v-for="i in dpDatas" v-html="i.options"> </div>
-			<div v-for="i in dpDatas">
-				<div v-for="j in i.children" v-html="j.keyword">{{j.keyword}} </div>
-			</div> 
+		<div id="lisDan" v-for="i in dpDatas">
+			({{i.group_id}})
+			 <div style="text-align: left;line-height: 22px ;"  v-html="i.keyword"> {{i.keyword}} </div>
+			 <div style="text-align: left;line-height: 22px ;"  v-html="i.options"> {{i.options}} </div>
+			 <div style="text-align: left;line-height: 22px ;"  v-html="i.answer"> {{i.answer}} </div>
+			  
+			<div style="text-align: left;line-height: 22px;" v-for="j in i.children" > 
+				({{j.group_id}})
+				<div v-html="j.keyword">
+					{{j.keyword}}
+				</div>
+			</div>  
 		</div>
 		
 		<div class="lisBtn">

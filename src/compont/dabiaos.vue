@@ -22,9 +22,9 @@
 					<div v-html="j.title">
 						{{j.title}} 
 					</div> 
-					{{j.err_url}}
-					
-				</div> 
+					{{j.err_url}} 
+				</div>
+				 
 				
 				<div @click="cuJan(index)" class="btn">讲解</div>
 				<div class="mask" v-if="showModal" @click="showModal=false"></div>
