@@ -18,9 +18,9 @@
 				<div class="cont_top_atl">
 					<!-- <el-progress :percentage="80"></el-progress> -->
 					<p>学习进度</p>
-					<el-progress :percentage="nam2" :format="format"></el-progress>
-					<p>错误率</p>
 					<el-progress :percentage="nam1" :format="format"></el-progress>
+					<p>正确率</p>
+					<el-progress :percentage="nam2" :format="format"></el-progress>
 					<!-- <el-progress :percentage="100" status="warning"></el-progress>
 					<el-progress :percentage="50" status="exception"></el-progress> -->
 				</div>
