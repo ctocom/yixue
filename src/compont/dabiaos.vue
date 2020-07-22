@@ -22,7 +22,7 @@
 					<div v-html="j.title">
 						{{j.title}} 
 					</div> 
-					{{j.err_url}} 
+					<!-- {{j.err_url}} -->
 				</div>
 				 
 				
@@ -58,14 +58,14 @@
 				cuoData: {
 					user_token: localStorage.getItem('user_token'),
 					user_id: localStorage.getItem('user_id'), 
-					paper_id: localStorage.getItem('paperId'),
+					paper_id:'',
 					type: '1', 
 					seconds_password:''
 				},
 				daBtn:{
 					user_token: localStorage.getItem('user_token'),
 					user_id: localStorage.getItem('user_id'),
-					paper_id: localStorage.getItem('paperId')
+					paper_id: ''
 				},
 				cuoDatas: {},  
 				showModal: false,
@@ -79,8 +79,8 @@
 		methods: {
 			goHome() {
 				this.cuoData.user_err = this.$route.query.id 
+				this.cuoData.paper_id = this.$route.query.paperId
 				var cuoData = this.cuoData
-				cuoData.course_id = this.$route.query.course_id
 				this.$http.post(this.href + '/standardErrorQuestion', cuoData).then(response => {
 					console.log(response.data.data.err_data)
 					this.cuoDatas = response.data.data.err_data 
@@ -103,6 +103,7 @@
 			},
 			dabtn() { 
 				var daBtn = this.daBtn 
+				this.daBtn.paper_id = this.$route.query.paperId
 				this.$http.post(this.href + '/completeStandard', daBtn).then(response => {
 					  if(response.data.code == '200'){
 					  	this.$notify.info({

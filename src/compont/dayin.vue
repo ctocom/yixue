@@ -78,6 +78,7 @@
 
 					// this.zjData = response.data.data.paper_data
 					if(response.data && response.data.data.paper_id ){
+						console.log(this.paperId)
 					      this.zjData = response.data.data.paper_data
 						 localStorage.setItem('paperId',response.data.data.paper_id)
 					     }

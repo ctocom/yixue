@@ -38,7 +38,7 @@
 					<div class="xun_cont">
 						<div class="xun_cont_top">
 							<div class="xun_jindu">
-								<div class="nei_jindu">
+								<div class="nei_jindu" style="transition: 1.5s;">
 									<p>{{item.complete_rate}}</p>
 								</div>
 							</div> 
@@ -71,21 +71,21 @@
 				<div class="xun_cont">
 					<div class="xun_cont_top">
 						<div class="xun_jindu">
-							<div class="nei_jindu">
-								<p>0</p>
+							<div class="nei_jindu" style="transition: 1.5s;">
+								<p>{{this.data1}}</p>
 							</div>
 						</div>
 						<p class="xun_cont_top_p">循环复习</p>
 					</div>
 					<div class="gu_tet">
-						<div>
+						<div class="gu_one">
 							<router-link :to="{path:'/ppt',query:{unitId:this.unitId,secTionId:this.secTionId,type:'2'}}">
 								检测二
 							</router-link>
 						</div> 
-						<div>
+						<div class="gu_two">
 							<router-link :to="{path:'/dabiao',query:{unitId:this.unitId,secTionId:this.secTionId,type:'2'}}">
-								<div>达标</div>
+								达标
 							</router-link>
 						</div>
 					</div>
@@ -98,19 +98,19 @@
 				<div class="xun_cont">
 					<div class="xun_cont_top">
 						<div class="xun_jindu">
-							<div class="nei_jindu">
-								<p>0</p>
+							<div class="nei_jindu" style="transition: 1.5s;">
+								<p>{{this.data2}}</p>
 							</div>
 						</div>
 						<p class="xun_cont_top_p">循环复习</p>
 					</div>
 					<div class="gu_tet">
-						<div>
+						<div class="tu_one">
 							<router-link :to="{path:'/ppt',query:{unitId:this.unitId,secTionId:this.secTionId,type:'3'}}">
 								检测三
 							</router-link>
 						</div>
-						<div>
+						<div class="tu_two">
 							<router-link :to="{path:'/dabiao',query:{unitId:this.unitId,secTionId:this.secTionId,type:'3'}}">
 								达标
 							</router-link>
@@ -173,7 +173,9 @@
 				img2: {
 					type: '1'
 				},
-				bannerList: {}
+				bannerList: {},
+				data1:'',
+				data2:''
 			}
 		},
 		created(options) { 
@@ -182,7 +184,10 @@
 				this.dqData.section_id = this.$route.query.id1
 			$(".nav_ul a").eq(1).addClass("add").siblings().removeClass("add")
 		},
-
+		
+		mounted(){
+			
+		},
 
 		methods: {
 			goHome() {
@@ -193,14 +198,18 @@
 					this.unit_info = response.data.data.unit_info
 					this.navName = response.data.data.nav_name
 					this.complete_rate = response.data.data.complete_rate 
-					this.paperId = this.unitList[0].paper_id
+					this.paperId = response.data.data.paper_id
 
 					this.unitId = response.data.data.unit_id
 					this.secTionId = response.data.data.section_id
+					this.data1 = response.data.data.list_rate2
+					this.data2 = response.data.data.list_rate3
 
+// console.log(this.data1,this.data2)
 
 					this.$nextTick(() => {
 						this.newClick()
+						
 					});
 
 					if (response.body.code == '300') {
@@ -215,6 +224,25 @@
 					this.$http.post(this.href + '/imagesInfo', img2).then(response => {
 						this.bannerList = response.data.data
 					});
+				
+				if(this.data1 > 49){
+					$('.gu_one').css('background','rgb(255, 221, 87)')
+				}
+				if(this.data1 == 100){
+					// $('.gu_one').css('background','rgb(255, 221, 87)'),
+					$('.gu_two').css('background','rgb(255, 221, 87)')
+				}
+				if(this.data2 > 49){
+					$('.tu_one').css('background','rgb(255, 221, 87)')
+				}
+				if(this.data2 == 100){
+					// $('.gu_one').css('background','rgb(255, 221, 87)'),
+					$('.tu_two').css('background','rgb(255, 221, 87)')
+				}
+				
+				
+				
+				
 				});
 
 			},
@@ -238,29 +266,18 @@
 				}
 			},
 
-
-			newClick() {
-
+			newClick() { 
 				// console.log('123')
 				$('.nei_jindu').each(function() {
 					// console.log($(this).html())
-					if ($(this).text() == 0) {
-						$(this).css('width', '0%')
+					for(var i=0;i<=100;i++){
+						if ($(this).text() == i) {
+							var ii = i+'%'
+							$(this).css('width',ii)
+						}
 					}
-					if ($(this).text() == 25) {
-						$(this).css('width', '25%')
-					}
-					if ($(this).text() == 50) {
-						$(this).css('width', '50%')
-					}
-					if ($(this).text() == 75) {
-						$(this).css('width', '75%')
-					}
-					if ($(this).text() == 100) {
-						$(this).css('width', '100%')
-						// console.log('123')
-					}
-				})
+				}),
+				 
 				$('.xun_cont_data p').each(function() {
 					// console.log($(this).text())
 					if ($(this).text() == 1) {
@@ -270,6 +287,7 @@
 						$(this).css("background", "#9c9c9c");
 					}
 				});
+				
 				// console.log($('.net_span i').text())
 
 				$('.net_span').each(function() {
@@ -287,6 +305,7 @@
 					}
 				})
 			},
+			
 			li_cli(index) {
 				console.log(index.name)
 				if (index.name == '学习') {
@@ -326,7 +345,7 @@
 						this.$router.push({
 							name: '/dabiaos',
 							query: { 
-								// paperId: this.$route.query.paperId
+								paperId: this.paperId
 							}
 						})
 					}else{
@@ -470,11 +489,7 @@
 		line-height: 3vh;
 	}
 
-	.xun_cont_top_p {
-		line-height: 15vh;
-		margin-left: 20px;
-		font-size: 2.5vh;
-	}
+	
 
 	.xun_cont_bot {
 		width: 70%;
@@ -538,7 +553,7 @@
 		transition: .7s;
 		height: 100%;
 		color: white;
-		border-radius: 10px;
+		border-radius: 20px;
 		background: repeating-linear-gradient(120deg, #ff8102, #ff8102 7px, #ff9d3a -1px, #ff9d3a 14px);
 		position: relative;
 	}
@@ -697,10 +712,14 @@
 			background-color: #9c9c9c;
 			color: white;
 			font-size: 2vh;
+			overflow: hidden;
 		}
 
 		.gu_tet div a {
 			color: white;
+			width: 100%;
+			height: 100%;
+			display: block;
 		}
 
 		.gu_tet {
@@ -770,7 +789,7 @@
 
 		.xun_cont {
 			width: 100%;
-			height: 13vh;
+			height: 17vh;
 			border-radius: 30px;
 			background-color: #f3faff;
 			margin: 10px 0;
@@ -778,7 +797,7 @@
 		}
 
 		.xun_cont_top {
-			height: 5vh;
+			height: 8vh;
 			margin: 10px 0 0;
 			line-height: 3vh;
 		}
@@ -786,11 +805,10 @@
 		.xun_cont_top_p {
 			padding: 10px 0 0 20px;
 			float: left;
-			font-size: 2vh;
-
-			line-height: 2vh;
+			font-size: 1vh; 
+			line-height: 6vh;
 			margin-left: 0px;
-		}
+		} 
 
 		.xun_cont_bot {
 			width: 100%;
@@ -842,35 +860,32 @@
 			width: 57%;
 			float: right;
 			height: 8px;
-			margin: 10px 10px 0;
+			margin: 27px 15px 0 0;
 			border-radius: 10px;
 			background-color: #9c9c9c;
 
 		}
 
-		.nei_jindu {
-			width: 0;
-			transition: .7s;
+		.nei_jindu { 
 			height: 100%;
 			color: white;
-			border-radius: 10px;
+			border-radius: 20px;
 			background: repeating-linear-gradient(120deg, #ff8102, #ff8102 7px, #ff9d3a -1px, #ff9d3a 14px);
 			position: relative;
 		}
 
 		.nei_jindu p {
-			color: white;
-			height: 18px;
-			width: 18px;
-			font-size: 10px;
-			text-align: center;
-			line-height: 15px;
-			border-radius: 50%;
-			background-image: url(../../images/ic_top.png);
-			background-size: 100% 100%;
-			position: absolute;
-			right: -6px;
-			bottom: 6px;
+			    color: white;
+			    height: 28px;
+			    width: 23px; 
+			    text-align: center;
+			    line-height: 23px;
+			    border-radius: 50%;
+			    background-image: url(/dist/ic_top.png?f0d62a3…);
+			    background-size: 100% 100%;
+			    position: absolute;
+			    right: -12px;
+			    bottom: 9px;
 		}
 
 		.nei_top {

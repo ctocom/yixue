@@ -12,8 +12,9 @@
 			</span>
 		</div>
 		<div class="nei_bot" v-for="i in ptDatas">
-			<router-link :to="{path:'/dabiaos',query:{unitId:i.unit_id,type:$route.query.type,}}">
+			<router-link :to="{path:'/dabiaos',query:{unitId:i.unit_id,type:$route.query.type,paperId:i.paper_id}}">
 				<div class="nei_bot_tet"> 
+					<!-- {{i.paper_id}} -->
 					<p style="width: 100%;text-align: center; font-size: 2vh;">{{i.name}}</p>
 				</div>
 			</router-link>

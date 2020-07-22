@@ -19,6 +19,7 @@
 					<span>{{index+1}}</span>
 					<input id="int" type="checkbox" :value=i.question_id v-model="names">
 				</div>
+				<div class="clear"></div>
 			</div>
 		</div>
 		<!-- <p>您选中的题号有：{{names}}</p> -->
@@ -111,6 +112,9 @@
 			z-index: 4;
 			background-color: white;
 		}
+		.clear{
+			clear: both;
+		}
 
 		.yin_btn {
 			width: 90%;
@@ -123,8 +127,7 @@
 
 		.topic {
 			width: 90%;
-			height: auto;
-			height: 200px;
+			height: auto; 
 			margin: 0 auto;
 			text-align: center;
 			line-height: 30px;
@@ -139,7 +142,7 @@
 
 		.top_thr {
 			width: 100%;
-			height: 80px;
+			/* height: 80px; */
 			margin: 10px 0;
 		}
 
@@ -171,13 +174,12 @@
 		}
 
 		.sp_int span {
-			width: 0px;
-			height: 10px;
-			position: absolute;
-			top: 3px;
-			left: 50%;
-			margin-left: -5px;
-			z-index: -1;
+			    width: 35px;
+			    height: 10px;
+			    text-align: center;
+			    position: absolute;
+			    top: 3px; 
+			    z-index: -1;
 		}
 
 		.tishi {
