@@ -48,7 +48,10 @@
 						// this.$router.push("#/")
 						location.href = "#/"
 					} else {
-						alert(response.data.msg)
+						this.$notify.info({
+						  title: '提示',
+						  message: response.data.msg
+						}); 
 					}
 				});
 

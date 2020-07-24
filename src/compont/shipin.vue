@@ -9,6 +9,7 @@
 					</div> 
 				</a> 
 			</span>  
+			<p>{{$route.query.navName}}</p>
 		</div> 
 		
 		
@@ -41,10 +42,7 @@
 						</div> 
 					</div> 
 					<div class="span-sp">   
-						<span @click="guankan(index)">点击观看</span> 
-						<router-link :to="{path:'/shipin',query:{material_id:i.id,id:$route.query.id,id2:$route.query.id2,unitId:$route.query.unitId}}">
-							<span @click="spJang()">讲解</span>
-						</router-link> 
+						<span @click="guankan(index)">点击观看</span>  
 					</div>
 				</div>
 			</div>
@@ -72,9 +70,6 @@
 							<p>时间：{{i.create_time}}</p>
 							<div class="span-sp">
 								<span @click="guankan(index)">点击播放</span> 
-								<router-link :to="{path:'/shipin',query:{material_id:i.id,id:$route.query.id,id2:$route.query.id2,unitId:$route.query.unitId}}">
-									<span @click="spJang()">讲解</span>
-								</router-link>
 							</div>
 						</div>
 					</div>
@@ -101,9 +96,7 @@
 							<p>时间：{{i.create_time}}</p>
 							<div class="span-sp">  
 								<a target="_blank" :href="'https://view.officeapps.live.com/op/view.aspx?src='+i.file_url"><span>点击观看</span></a> 
-								<router-link :to="{path:'/shipin',query:{material_id:i.id,id:$route.query.id,id2:$route.query.id2,unitId:$route.query.unitId}}">
-									<span @click="spJang()">讲解</span>
-								</router-link> 
+							
 							</div>
 						</div>
 					</div>
@@ -111,11 +104,15 @@
 			</div>
 			<div class="clear"></div>
 		</div>
-		<div class="foot_two">
+		<div class="foot_two" v-for="(i,index) in spDatas">
 			<p @click="Comp()">全部完成</p>
-			<router-link :to="{path:'/dayin',query:{id:$route.query.id,id2:this.$route.query.id2,unitId:this.$route.query.unitId}}">
-				<p> 打印试题 </p>
-			</router-link>
+			<router-link :to="{path:'/shipin',query:{material_id:i.id,id:$route.query.id,id2:$route.query.id2,unitId:$route.query.unitId}}">
+				<p style="border-left: 1px solid #000;box-sizing: border-box;border-radius: 0;" @click="spJang()"> 讲解 </p>
+			</router-link> 
+			
+			<!-- <router-link :to="{path:'/dayin',query:{id:$route.query.id,id2:this.$route.query.id2,unitId:this.$route.query.unitId}}">
+				
+			</router-link> -->
 		</div>
 	</div>
 </template>
@@ -251,11 +248,11 @@
 </script>
 
 <style>
-	img{
+	audio{
 		width: 100%;
 		height: 100%;
 	}
-	audio{
+	.aud_imgs img, .aud_img img{
 		width: 100%;
 		height: 100%;
 	}
@@ -335,6 +332,7 @@
 		color: cornflowerblue;
 		
 	}
+	
 	.foot_two p{
 		padding: 3px 10px;
 		border : 1px solid skyblue;
@@ -712,11 +710,15 @@
 			width: 100%;
 			height: 70%;
 		} 
+		.aud_img img{
+			width: 100%;
+			height: 100%;
+		}
 		.aud_imgs {
 			width: 100%;
 			height: 90%;
 		}
-		img {
+		.aud_imgs img{
 			width: 100%;
 			height: 100%;
 		}

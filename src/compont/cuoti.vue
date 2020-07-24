@@ -84,6 +84,16 @@
 </script>
 
 <style> 
+strong{
+	position: relative;
+}
+.kfformula{
+	/* background-color: red; */
+	position: absolute;
+	bottom:-6px;
+	width: 30px;
+	height: 35px;
+}
 .mask {
 	  background-color: rgba(70, 70, 70, 0.6);
 	  opacity: 0.3;

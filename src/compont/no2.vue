@@ -2,14 +2,14 @@
 	<div class="no2_max">
 		<!-- 头部搜索栏 -->
 		<div class="no2_ban">
-			<div class="no2_top">
+			<!-- <div class="no2_top">
 				<div style="float: left;width: 10%;line-height: 6vh; font-size: 4vh;" class="el-icon-cloudy"></div>
 				<div class="top_int">
 					<input type="text"> 
 				</div>
 				<div style=" width: 10%; line-height: 6vh; font-size: 4vh;"> + </div>
-			</div>
-			<!-- 侧边导航栏 -->
+			</div> -->
+		<!-- 轮播图 -->
 			<div class="log_lop">
 				<div class="block"> 
 				    <el-carousel >
@@ -227,7 +227,8 @@
 	   }
 	   .no2_ban{
 		   width: 100%;
-		   height: 37vh;
+		   height: 28vh;
+		   padding-top: 10px;
 		   background-image: url(../../images/banner.png); 
 		   background-size: 100% 125%;
 	   }
@@ -274,7 +275,7 @@
 
 		.log_lop {
 			width: 95%;
-			height: 68%;
+			height: 89%;
 			margin: 0 auto; 
 			padding:0 0 14px ;
 			overflow: hidden;

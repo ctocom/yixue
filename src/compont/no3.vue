@@ -125,10 +125,6 @@
 </script>
 
 <style>
-	img {
-		width: 100%;
-		height: 100%;
-	}
 
 	.no3_top {
 		display: none;
@@ -276,7 +272,7 @@
 			margin: 0px auto;
 		}
 
-		img {
+		.no3_cont_ban img {
 			width: 100%;
 			height: 100%;
 		}
@@ -335,9 +331,5 @@
 			background-color: saddlebrown;
 		}
 
-		img {
-			width: 100%;
-			height: 100%;
-		}
 	}
 </style>

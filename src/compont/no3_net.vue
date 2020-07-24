@@ -4,7 +4,7 @@
 			<router-link :to="{path:'/',query:{id:''}}">
 				<span>
 				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">
-					<div style="width: 10px;height: 100%;float:left;margin-right:20px ;">
+					<div style="width: 10px;height: 100%;float:left;margin-right:20px;">
 						<img  src="../../images/ic.png" alt="">
 					</div> 
 				</a>  
@@ -29,8 +29,8 @@
 					<div class="no3_div" >
 						<p style="color: black;">{{item.name}}</p>
 						<div class="net_tet">
-							<span style="float: left;">英语{{item.course_id}}</span>
-							<span style="float: left;">new{{item.id}}</span>
+							<span style="float: left;">英语</span>
+							<span style="float: left;">new</span>
 							<div class="net_tets">
 								  查看课程 
 							</div>

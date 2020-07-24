@@ -26,9 +26,7 @@
 			</div>
 			<div class="xun_max">
 <!-- banner图 -->
-				<div class="dang_banner" v-for="i in imgs1">
-					<img :src=i alt="">
-				</div>
+				
 <!-- 第一次学习 -->
 				<div class="xunhuan" v-for="(item,index) of unitList">
 					<div style="height: 20px;">
@@ -314,7 +312,8 @@
 						query: {
 							id: this.$route.query.it_id,
 							id2: index.unit_list_id,
-							unitId: this.unitId
+							unitId: this.unitId,
+							navName:this.navName
 						}
 					})
 				}
@@ -325,6 +324,7 @@
 							id: this.$route.query.it_id,
 							id2: index.unit_list_id,
 							unitId: this.unitId
+							
 						}
 					})
 				}
@@ -430,10 +430,7 @@
 		margin-right: 10px;
 	}
 
-	img {
-		width: 100%;
-		height: 100%;
-	}
+	
 
 	.dang_max {
 		width: 100%;
@@ -451,18 +448,6 @@
 		margin: 0 auto;
 	}
 
-	.dang_banner {
-		height: 22vh;
-		width: 100%;
-		border-radius: 10px;
-		margin: 20px auto;
-		overflow: hidden;
-	}
-
-	img {
-		width: 100%;
-		height: 100%;
-	}
 	.el-carousel__container{
 		height: 42vw;
 	}
@@ -624,6 +609,9 @@
 		width: 100%;
 		height: 100%;
 	}
+	.el-carousel--horizontal{
+		width: 100%;
+	}
 
 
 
@@ -739,7 +727,7 @@
 			margin-right: 10px;
 		}
 
-		img {
+		.dang_banner img {
 			width: 100%;
 			height: 100%;
 		}
@@ -765,21 +753,7 @@
 		.dang_cont {
 			width: 100%;
 			margin: 0 auto;
-		}
-
-		.dang_banner {
-			height: 12vh;
-			width: 100%;
-			border-radius: 10px;
-			margin: 10px auto;
-			overflow: hidden;
-		}
-
-		img {
-			width: 100%;
-			height: 100%;
-		}
-
+		} 
 		.xunhuan,
 		.neirong {
 			height: 220px;
@@ -789,7 +763,7 @@
 
 		.xun_cont {
 			width: 100%;
-			height: 17vh;
+			height: 8rem;
 			border-radius: 30px;
 			background-color: #f3faff;
 			margin: 10px 0;
@@ -797,17 +771,21 @@
 		}
 
 		.xun_cont_top {
-			height: 8vh;
+			height: 4rem;
 			margin: 10px 0 0;
 			line-height: 3vh;
 		}
 
 		.xun_cont_top_p {
+			width: 95px;
 			padding: 10px 0 0 20px;
 			float: left;
-			font-size: 1vh; 
+			font-size: 14px; 
 			line-height: 6vh;
 			margin-left: 0px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
 		} 
 
 		.xun_cont_bot {

@@ -259,7 +259,7 @@
 		background-size: 100% 100%;
 	}
 
-	img {
+	.bi_banner img {
 		width: 100%;
 		height: 100%;
 	}
