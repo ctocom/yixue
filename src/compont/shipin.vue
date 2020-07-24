@@ -183,7 +183,7 @@
 				
 			},
 			goHome() {
-				this.spData.unit_id = this.$route.query.id
+				this.spData.unit_id = this.$route.query.unitId
 				var spDatas = JSON.stringify(this.spData);
 				this.$http.post(this.href + '/studyMaterialList', spDatas).then(response => { 
 					this.spDatas = response.data.data
