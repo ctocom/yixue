@@ -85,14 +85,12 @@
 
 <style> 
 strong{
-	position: relative;
+	height: 100%;
 }
 .kfformula{
-	/* background-color: red; */
-	position: absolute;
-	bottom:-6px;
-	width: 30px;
-	height: 35px;
+	display: inline-block;
+	wdith:30px;
+	margin-bottom: -10px;
 }
 .mask {
 	  background-color: rgba(70, 70, 70, 0.6);
