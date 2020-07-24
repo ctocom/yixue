@@ -89,7 +89,7 @@ strong{
 }
 .kfformula{
 	display: inline-block;
-	wdith:30px;
+	width:30px;
 	margin-bottom: -10px;
 }
 .mask {

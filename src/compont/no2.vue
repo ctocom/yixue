@@ -2,14 +2,6 @@
 	<div class="no2_max">
 		<!-- 头部搜索栏 -->
 		<div class="no2_ban">
-			<!-- <div class="no2_top">
-				<div style="float: left;width: 10%;line-height: 6vh; font-size: 4vh;" class="el-icon-cloudy"></div>
-				<div class="top_int">
-					<input type="text"> 
-				</div>
-				<div style=" width: 10%; line-height: 6vh; font-size: 4vh;"> + </div>
-			</div> -->
-		<!-- 轮播图 -->
 			<div class="log_lop">
 				<div class="block"> 
 				    <el-carousel >
@@ -306,10 +298,10 @@
 			position: relative;
 		}
    
-		img {
+		/* img {
 			width: 100%;
 			height: 100%;
-		}
+		} */
 		
 		.block{
 			border-radius: 15px;
