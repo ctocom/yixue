@@ -86,6 +86,10 @@
 	background:rgba(249,247,248,1);
 	margin-bottom: 15px;
 }
+.fot_ri_img img{
+	width: 100%;
+	height: 100%;
+}
 .for_cen{
 	width: 78%;
 	height: 100%;
@@ -113,6 +117,10 @@
 		margin-left: -150px;
 	}
 	.jter a{color: #C0C0C0;font-size: 12px;}
+	.logo img{
+		width: 100%;
+		height: 100%;
+	}
 @media screen and (max-width: 980px) {
 	.conter{
 		padding-top: 0px;

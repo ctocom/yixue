@@ -351,7 +351,7 @@
 					}else{
 						this.$notify.info({
 						  title: '提示',
-						  message: '清完成检测后点击！'
+						  message: '请完成检测后点击！'
 						});
 					} 
 				}

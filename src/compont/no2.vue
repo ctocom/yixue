@@ -1,7 +1,13 @@
 <template>
-	<div class="no2_max">
+	<div class="no2_max"> 
 		<!-- 头部搜索栏 -->
 		<div class="no2_ban">
+			<div class="logos">
+				<div class="logo_min">
+					<img src="../../images/logo.png" alt="">
+				</div>
+			</div>
+			
 			<div class="log_lop">
 				<div class="block"> 
 				    <el-carousel >
@@ -105,6 +111,9 @@
 		margin: 0;
 		list-style: none;
 	}
+	.logos{
+		display: none;
+	}
 	.no2_ban{
 		height:auto; 
 	}
@@ -183,6 +192,23 @@
 	 }
 	
 @media screen and (max-width: 980px) {
+	.logos{
+		display: block;
+		width: 100%;
+		height: auto;
+		margin-bottom: 10px;
+		box-shadow: 0 2px 3px 1px #ccc;
+	}
+	.logo_min{
+		margin: 0 auto;
+		width: 6rem;
+		height: 2.5rem;
+	}
+	.logo_min img{
+		width: 100%;
+		height: 100%;
+	}
+	
 	.no2_max{
 			 margin: 0px ;
 			 padding-bottom: 50px;
@@ -192,10 +218,6 @@
 		position: absolute;
 		bottom: 0; 
 		height: 50px;
-		display: block;
-	}
-	
-	.log_lop{ 
 		display: block;
 	} 
 	.clear{
@@ -219,10 +241,10 @@
 	   }
 	   .no2_ban{
 		   width: 100%;
-		   height: 28vh;
+		   height: auto;
 		   padding-top: 10px;
-		   background-image: url(../../images/banner.png); 
-		   background-size: 100% 125%;
+		  /* background-image: url(../../images/banner.png); 
+		   background-size: 100% 125%; */
 	   }
 	 
 	   .el-carousel__item:nth-child(2n) {
@@ -266,10 +288,10 @@
 		}
 
 		.log_lop {
+			display: block;
 			width: 95%;
-			height: 89%;
-			margin: 0 auto; 
-			padding:0 0 14px ;
+			height: 11rem;
+			margin: 15px auto; 
 			overflow: hidden;
 		}
 		.log_lop div{

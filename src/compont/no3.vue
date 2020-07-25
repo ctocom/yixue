@@ -161,6 +161,10 @@
 		height: 53vh;
 		margin-bottom: 50px;
 	}
+	.no3_img img{
+		width: 100%;
+		height: 100%;
+	}
 
 	.no3_content {
 		width: 80%;
@@ -189,6 +193,10 @@
 		margin: 5px 5px;
 		height: 80%;
 		background-color: #CCCCCC;
+	}
+	.cont_nav_str_icon img{
+		width: 100%;
+		height: 100%;
 	}
 	.no3_max {
 	    margin: 20px 0;

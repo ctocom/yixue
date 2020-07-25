@@ -56,6 +56,7 @@
 							<img src="../../images/ban_03.png" alt="">
 						</div>
 						<div class="audio">
+							
 							<audio autoplay controls :src='Myauto'> </audio>
 						</div>
 					</div>
@@ -107,7 +108,7 @@
 		<div class="foot_two" v-for="(i,index) in spDatas">
 			<p @click="Comp()">全部完成</p>
 			<router-link :to="{path:'/shipin',query:{material_id:i.id,id:$route.query.id,id2:$route.query.id2,unitId:$route.query.unitId}}">
-				<p style="border-left: 1px solid #000;box-sizing: border-box;border-radius: 0;" @click="spJang()"> 讲解 </p>
+				<p @click="spJang()"> 讲解 </p>
 			</router-link> 
 			
 			<!-- <router-link :to="{path:'/dayin',query:{id:$route.query.id,id2:this.$route.query.id2,unitId:this.$route.query.unitId}}">
@@ -160,6 +161,7 @@
 			
 		},
 		methods: {
+			 
 			guankan:function(idx){
 				console.log(idx)
 				this.Myauto = this.spDatas[idx].file_url
