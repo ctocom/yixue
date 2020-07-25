@@ -10,7 +10,6 @@
 			<!-- </keep-alive> -->
 		</div>
 		<div class="footer">
-			<!-- <foot></foot> -->
 			<div class="for_cen">
 				<div class="fot_le">
 					<ul v-for="i in liData">
@@ -19,11 +18,13 @@
 				</div>
 				<div class="fot_ri">
 					<div class="fot_ri_img">
-						<img src="" alt="">
+						<img src="../images/iwaer.png" alt="">
 					</div>
-					
 					<p>扫描二维码</p>
 					<p>了解更多</p>
+				</div>
+				<div class="jter">
+					<a href="http://www.baixingvip.cn">技术支持 百姓科技</a> 
 				</div>
 			</div>
 		</div>
@@ -34,7 +35,7 @@
 	export default {
 		data() {
 			return { 
-				liData:['联系我们','咨询电话：010-214124875','联系邮箱：12324325@163.com','联系地址：河北省石家庄市桥西区']
+				liData:['联系我们','咨询电话：13785137371','联系邮箱：1095617139@qq.com','联系地址：石家庄市长安区广安大街']
 			};
 		},
 		mounted() {
@@ -103,6 +104,15 @@
 		position: relative;
 		z-index: 3;
 	}
+	.jter{
+		width: 300px;
+		text-align: center;
+		position: absolute;
+		bottom: 30px;
+		left: 50%;
+		margin-left: -150px;
+	}
+	.jter a{color: #C0C0C0;font-size: 12px;}
 @media screen and (max-width: 980px) {
 	.conter{
 		padding-top: 0px;

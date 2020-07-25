@@ -9,7 +9,7 @@
 					</div> 
 				</a> 
 			</span>  
-			<p>{{$route.query.navName}}</p>
+			<p v-for="i in spDatas">{{i.introduction}}</p>
 		</div> 
 		
 		
@@ -27,7 +27,7 @@
 				<p class="max_p">视频教程</p>
 				<div class="divTat">
 					<div class="video-wrap">
-						<video width="100%" height="100%" controls  :src="Myauto"> </video>
+						<video autoplay width="100%" height="100%" controls  :src="Myauto"> </video>
 						<!-- {{Myauto}} -->
 					</div>
 				</div>
@@ -56,7 +56,7 @@
 							<img src="../../images/ban_03.png" alt="">
 						</div>
 						<div class="audio">
-							<audio controls :src='Myauto'> </audio>
+							<audio autoplay controls :src='Myauto'> </audio>
 						</div>
 					</div>
 				</div>
