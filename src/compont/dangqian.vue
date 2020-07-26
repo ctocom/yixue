@@ -612,6 +612,7 @@
 	.el-carousel--horizontal{
 		width: 100%;
 	}
+	
 
 
 

@@ -16,8 +16,6 @@
 			<div class="block"> 
 			    <el-carousel >
 			      <el-carousel-item v-for="item in bannerList" :key="item">
-					  <img :src=item alt="">
-			        <h3 class="small">{{ item }}</h3>
 					<img :src=item alt="">
 			      </el-carousel-item>
 			    </el-carousel>
@@ -29,7 +27,7 @@
 					<div class="no3_div" >
 						<p style="color: black;">{{item.name}}</p>
 						<div class="net_tet">
-							<span style="float: left;">英语</span>
+							<span style="float: left;">{{$route.query.name}}</span>
 							<span style="float: left;">new</span>
 							<div class="net_tets">
 								  查看课程 
@@ -102,7 +100,7 @@
 </script>
 
 <style>
-	.img{
+	img{
 		width: 100%;
 		height: 100%;
 	}

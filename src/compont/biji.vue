@@ -14,10 +14,6 @@
 			<div class="bi_banner">
 				<img src="../../images/ban_03.png" alt="">
 			</div>
-			<!-- <div class="bi_tet">
-				<h3>马老四和将讲语文</h3>
-				<p>攘臂快乐的快熟及语文</p> 
-			</div> -->
 		</div>
 
 		<div class="bi_cent" v-for="i in biData">
@@ -76,7 +72,7 @@
 		},
 		methods: {
 			Comp() {
-				this.comData.unit_id = this.$route.query.id
+				this.comData.unit_id = this.$route.query.unitId
 				var comData = JSON.stringify(this.comData);
 				this.$http.post(this.href + '/studyMaterialList', comData).then(response => {
 					console.log(response.data.data)
