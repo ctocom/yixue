@@ -361,6 +361,18 @@
 </script>
 
 <style>
+	.log_lops{ 
+		height: 56vh;
+		margin: 0 auto;
+	}  
+	.block{
+		width: 100%;
+		height: 100%;
+	}
+	img{
+		width: 100%;
+		height: 100%;
+	}
 	.xun_max {
 		width: 80%;
 		margin: 0 auto;
@@ -446,10 +458,6 @@
 	.dang_cont {
 		width: 100%;
 		margin: 0 auto;
-	}
-
-	.el-carousel__container{
-		height: 42vw;
 	}
 	.xunhuan,
 	.neirong {
@@ -604,10 +612,8 @@
 		margin: 0 auto;
 		padding-top: 0.6vh;
 	}
-
-	img {
-		width: 100%;
-		height: 100%;
+	.el-carousel__item is-animating img{
+		width:100%;height: 100%;
 	}
 	.el-carousel--horizontal{
 		width: 100%;

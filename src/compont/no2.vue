@@ -11,9 +11,9 @@
 			<div class="log_lop">
 				<div class="block"> 
 				    <el-carousel >
-				      <el-carousel-item v-for="item in bannerList" :key="item">
-						  <img :src=item alt="">
-				      </el-carousel-item>
+						  <el-carousel-item v-for="item in bannerList" :key="item">
+							  <img :src=item alt="">
+						  </el-carousel-item>
 				    </el-carousel>
 				</div>
 			</div>
