@@ -605,7 +605,7 @@
 		padding-top: 0.6vh;
 	}
 
-	.icon_img img {
+	img {
 		width: 100%;
 		height: 100%;
 	}

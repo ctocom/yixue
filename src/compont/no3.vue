@@ -31,8 +31,6 @@
 			</div>
 			<div class="no3_cont_nav">
 				<div class="cont_nav_str" v-for="(item,index) of fromData " :key="index" @click="toNo3(item)">
-					<!-- <router-link :to="{path:'/dangqian',query:{it_id:item.id,cu_id:item.course_id}}"> -->
-					<!-- {{item.qx_status}} -->
 					<div class="cont_nav_str_icon">
 						<img :src=item.icon alt="">
 					</div>
