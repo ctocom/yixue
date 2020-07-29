@@ -24,7 +24,7 @@
 			</div> 
 				<!-- 视频 -->
 			<div class="divTab" v-if="nowIndex===0">
-				<p class="max_p">视频教程</p>
+				<!-- <p class="max_p">视频教程</p> -->
 				<div class="divTat">
 					<div class="video-wrap">
 						<video autoplay width="100%" height="100%" controls  :src="Myauto"> </video>
@@ -49,14 +49,13 @@
 
 			<!-- 音频 -->
 			<div class="divTab" v-if="nowIndex===1">
-				<p class="max_p">音频教程</p>
+				<!-- <p class="max_p">音频教程</p> -->
 				<div class="divTat">
 					<div class="video-wrap">
 						<div class="aud_img">
 							<img src="../../images/ban_03.png" alt="">
 						</div>
 						<div class="audio">
-							
 							<audio autoplay controls :src='Myauto'> </audio>
 						</div>
 					</div>
@@ -78,7 +77,7 @@
 			</div>
 			<!-- PPT -->
 			<div class="divTab" v-if="nowIndex===2">
-				<p class="max_p">PPT教程</p>
+				<!-- <p class="max_p">PPT教程</p> -->
 				<div class="divTat">
 					<div class="video-wrap">
 						<div class="aud_imgs"  >
@@ -250,6 +249,9 @@
 </script>
 
 <style>
+	.audio{
+		height: 60px;
+	}
 	audio{
 		width: 100%;
 		height: 100%;

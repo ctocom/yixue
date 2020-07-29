@@ -197,7 +197,7 @@
 		width: 100%;
 		height: auto;
 		margin-bottom: 10px;
-		box-shadow: 0 2px 3px 1px #ccc;
+		box-shadow: 0 3px 3px 1px #ccc;
 	}
 	.logo_min{
 		margin: 0 auto;

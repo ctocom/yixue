@@ -20,13 +20,15 @@
     					{{j.title}} 
     				</div> 
 				</div>
-				 
-				<div @click="cuJan(index)" class="btn">讲解</div>
-				<div class="mask" v-if="showModal" @click="showModal=false"></div>
-				<div class="pop" v-if="showModal"> 
-					<div @click="showModal=false" class="btns"><span style="float: left;">讲解</span> × </div> 
-					<video autoplay controls style="width: 100%; height: auto;" :src="teUrl"></video> 
-				</div> 
+				  <div @click="cuJan(index)" class="btn">讲解</div>
+			</div> 
+		</div> 
+		
+		<div class="mask" v-if="showModal" @click="showModal=false"></div>
+		<div class="pop" v-if="showModal"> 
+			<div @click="showModal=false" class="btns"><span style="float: left;">讲解</span> × </div> 
+			<div class="brVio">
+				<video controls  :src="teUrl"></video>
 			</div> 
 		</div> 
 		<div class="di_btn"> 
@@ -93,8 +95,7 @@ strong{
 	margin-bottom: -10px;
 }
 .mask {
-	  background-color: rgba(70, 70, 70, 0.6);
-	  opacity: 0.3;
+	  background-color: rgba(45, 45, 45, 0.6);
 	  position: fixed;
 	  top: 0;
 	  left: 0;
@@ -192,7 +193,16 @@ strong{
 		border: 1px solid salmon;
 		box-sizing: border-box;
 	}
-
+	
+	.brVio{
+		width: 100%; 
+		height: auto;
+		max-height: 30vh;
+	}
+	.brVio video{
+		width: 100%;
+		height: 100%;
+	}
 	.cu_top {
 		height: 50px;
 		margin: 10px 0;
@@ -276,7 +286,7 @@ strong{
 		}
 		.pop video{
 			width: 100%;
-			height: 80%;
+			height: 100%;
 		}
 	}
 		
