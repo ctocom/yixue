@@ -262,13 +262,13 @@
 	}
 	
 	.divTat{
-		width: 60%;
-		height: 50vh;
+		width: 62%; 
 		float: left;
 	}
 	.video-wrap{
-		width: 100%;
+		width: 80%;
 		height: 100%;
+		margin: 0 auto;
 	}
 	.cont_max{
 		margin-top: 30px;
