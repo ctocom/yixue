@@ -16,19 +16,19 @@
 			确定
 		</div>
 		<div class="div_p" id="div-p" v-for="i in danDatas">
-			
+
 			({{i.group_id}})
 			 <div style="text-align: left;line-height: 22px ;"  v-html="i.keyword"> {{i.keyword}} </div>
 			 <div style="text-align: left;line-height: 22px ;"  v-html="i.options"> {{i.options}} </div>
 			 <div style="text-align: left;line-height: 22px ;"  v-html="i.answer"> {{i.answer}} </div>
-			  
-			<div style="text-align: left;line-height: 22px;" v-for="j in i.children" > 
+
+			<div style="text-align: left;line-height: 22px;" v-for="j in i.children" >
 				({{j.group_id}})
 				<div v-html="j.keyword">
 					{{j.keyword}}
 				</div>
-			</div>   
-			
+			</div>
+
 		</div>
 		<div class="erJi">
 			<a :href="da_fil">
@@ -55,7 +55,18 @@
 		},
 		mounted() {
 			// this.goHome()
-		},
+    },
+    watch: {
+        //监听prop传的value，如果父级有变化了，将子组件的myValue也跟着变，达到父变子变的效果
+        danDatas(value) {
+            this.$nextTick(function () { //这里要注意，使用$nextTick等组件数据渲染完之后再调用MathJax渲染方法，要不然会获取不到数据
+                if(this.commonsVariable.isMathjaxConfig){//判断是否初始配置，若无则配置。
+                    this.commonsVariable.initMathjaxConfig();
+                }
+                this.commonsVariable.MathQueue("div-p");//传入组件id，让组件被MathJax渲染
+            })
+        }
+    },
 		methods: {
 			goHome() {
 				this.danData.paper_id = this.$route.query.papId
@@ -102,7 +113,7 @@
 		margin: 20px auto;
 		text-align: center;
 		background-color: sandybrown;
-		line-height: 40px;  
+		line-height: 40px;
 		color: white;
 		font-size: 20px;
 	}

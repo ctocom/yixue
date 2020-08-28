@@ -11,6 +11,9 @@ import VueResource from 'vue-resource'
 
 import App from './App.vue'
 
+import globalVariable from './globalVariable.js'
+Vue.prototype.commonsVariable = globalVariable
+
 
 Vue.use(ElementUI);
 Vue.use(index);

@@ -2,13 +2,13 @@
 	<div class="cuo_max">
 		<div class="xue_hears">
 			<span >
-				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">  
+				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">
 					<div style="width: 10px;height: 100%;float:left;margin-right:20px ;">
 						<img  src="../../images/ic.png" alt="">
-					</div> 
+					</div>
 					<p style="float: right;color: black;"> {{$route.query.name}} </p>
-				</a> 
-			</span>  
+				</a>
+			</span>
 		</div>
 		<div id="cu_top" class="ti_an">
 			<div class="ti_an_a" v-for="(i,index) in cuoDatas">
@@ -16,33 +16,33 @@
 				<div v-html="i.title">
 					{{i.title}}
 				</div>
-				
-				<div style="text-align: left;line-height: 22px;position: relative;" v-for="j in i.children" > 
+
+				<div style="text-align: left;line-height: 22px;position: relative;" v-for="j in i.children" >
 					({{j.group_id}})
 					<div v-html="j.title">
-						{{j.title}} 
-					</div> 
+						{{j.title}}
+					</div>
 					<!-- {{j.err_url}} -->
 				</div>
-				 
-				
+
+
 				<div @click="cuJan(index)" class="btn">讲解</div>
 				<div class="mask" v-if="showModal" @click="showModal=false"></div>
-				<div class="pop" v-if="showModal"> 
-					<div @click="showModal=false" class="btns"><span style="float: left;">讲解</span> × </div> 
-					<video autoplay controls style="width: 100%; height: auto;" :src="teUrl"></video> 
-				</div> 
-			</div> 
-		</div> 
-		<div class="di_btn"> 
-			<a :href="this.cuUrl"> <button >打印</button> </a>  
+				<div class="pop" v-if="showModal">
+					<div @click="showModal=false" class="btns"><span style="float: left;">讲解</span> × </div>
+					<video autoplay controls style="width: 100%; height: auto;" :src="teUrl"></video>
+				</div>
+			</div>
+		</div>
+		<div class="di_btn">
+			<a :href="this.cuUrl"> <button >打印</button> </a>
 			<router-link :to="{path:'/dpData',query:{name:$route.query.id,courseId:this.$route.query.course_id}}">
 				<button>答案</button>
-			</router-link> 
+			</router-link>
 		</div>
 		<div @click="dabtn()" style="width: 80%;height:50px;background-color: coral;margin: 0 auto;font-size: 16px;color: white;text-align: center;line-height: 50px;">
 			<p>
-				<a href="javascript:history.go(-2);" style="font-size: 2vh; ">  
+				<a href="javascript:history.go(-2);" style="font-size: 2vh; ">
 				全部完成
 				</a>
 			</p>
@@ -57,9 +57,9 @@
 				href: gloal.userApi,
 				cuoData: {
 					user_token: localStorage.getItem('user_token'),
-					user_id: localStorage.getItem('user_id'), 
+					user_id: localStorage.getItem('user_id'),
 					paper_id:'',
-					type: '1', 
+					type: '1',
 					seconds_password:''
 				},
 				daBtn:{
@@ -67,7 +67,7 @@
 					user_id: localStorage.getItem('user_id'),
 					paper_id: ''
 				},
-				cuoDatas: {},  
+				cuoDatas: {},
 				showModal: false,
 				cuUrl:'',
 				teUrl:''
@@ -76,51 +76,62 @@
 		mounted() {
 			this.goHome()
 		},
+    watch: {
+        //监听prop传的value，如果父级有变化了，将子组件的myValue也跟着变，达到父变子变的效果
+        cuoDatas(value) {
+            this.$nextTick(function () { //这里要注意，使用$nextTick等组件数据渲染完之后再调用MathJax渲染方法，要不然会获取不到数据
+              if(this.commonsVariable.isMathjaxConfig){//判断是否初始配置，若无则配置。
+                  this.commonsVariable.initMathjaxConfig();
+              }
+              this.commonsVariable.MathQueue("cu_top");//传入组件id，让组件被MathJax渲染
+            })
+        }
+    },
 		methods: {
 			goHome() {
-				this.cuoData.user_err = this.$route.query.id 
+				this.cuoData.user_err = this.$route.query.id
 				this.cuoData.paper_id = this.$route.query.paperId
 				var cuoData = this.cuoData
 				this.$http.post(this.href + '/standardErrorQuestion', cuoData).then(response => {
 					console.log(response.data.data.err_data)
-					this.cuoDatas = response.data.data.err_data 
-					this.cuUrl = response.data.data.err_url  
-					
+					this.cuoDatas = response.data.data.err_data
+					this.cuUrl = response.data.data.err_url
+
 					if(response.data.code == '100'){
 						this.$notify.info({
 						  title: '提示',
 						  message: response.data.msg
-						});  
-					}  
+						});
+					}
 					if(response.data.code == '0'){
 						this.$notify.info({
 						  title: '提示',
 						  message: response.data.msg
-						});  
-					}  
-				});   
-				
+						});
+					}
+				});
+
 			},
-			dabtn() { 
-				var daBtn = this.daBtn 
+			dabtn() {
+				var daBtn = this.daBtn
 				this.daBtn.paper_id = this.$route.query.paperId
 				this.$http.post(this.href + '/completeStandard', daBtn).then(response => {
 					  if(response.data.code == '200'){
 					  	this.$notify.info({
 					  	  title: '提示',
 					  	  message: response.data.msg
-					  	});   
-					  }  
+					  	});
+					  }
 					  if(response.data.code == 0){
 					  	this.$notify.info({
 					  	  title: '提示',
 					  	  message: response.data.msg
-					  	});  
-					  } 
+					  	});
+					  }
 					localStorage.setItem('paperId', null)
-				}); 
+				});
 			},
-			
+
 			cuJan:function(int){
 				this.showModal = true
 				console.log(int)
@@ -131,7 +142,7 @@
 	};
 </script>
 
-<style> 
+<style>
 .mask {
 	  background-color: rgba(70, 70, 70, 0.6);
 	  opacity: 0.3;
@@ -143,12 +154,12 @@
 	  z-index: 1
 	}
 	.pop {
-	  background-color: #e8e8e8; 
+	  background-color: #e8e8e8;
 	  position: fixed;
 	  top: 100px;
 	  left: 5%;
-	  width: 66%; 
-	  height: auto; 
+	  width: 66%;
+	  height: auto;
 	  z-index: 2
 	}
 	.pop video{
@@ -162,13 +173,13 @@
 		color: white;
 		line-height: 20px;
 		text-align: center;
-		background-color: #00aeff;  
+		background-color: #00aeff;
 		font-size: 12px;
-		border-radius: 10px; 
+		border-radius: 10px;
 		position: absolute;
 		right: 10px;
-		top: 16px; 
-	} 
+		top: 16px;
+	}
 	.btns{
 		width: 90%;
 		height: 35px;
@@ -176,7 +187,7 @@
 		text-align: right;
 		line-height: 35px;
 		font-size: 18px;
-		font-weight: bold; 
+		font-weight: bold;
 		background: #ccc;
 		margin-bottom: 10px;
 	}
@@ -208,16 +219,16 @@
 	}
 
 	.ti_an_a {
-		height: auto; 
+		height: auto;
 		position: relative;
 		padding-top: 15px;
 		border-bottom: 1px dashed #00BFFF;
-	} 
+	}
 
 	.di_btn {
 		width: 90%;
 		height: 60px;
-		margin: 20px auto; 
+		margin: 20px auto;
 	}
 	.di_btn a{
 		height: 100%;
@@ -260,7 +271,7 @@
 		margin-left: 20px;
 		float: left;
 	}
- 
+
 
 	.cuo_active {
 		border-bottom: 2px solid sandybrown;
@@ -301,7 +312,7 @@
 
 	.cuo_cont_p p {
 		float: left;
-		margin: 30px 0 0 26px; 
+		margin: 30px 0 0 26px;
 	}
 
 	.cuo_cont_p span {
@@ -309,12 +320,12 @@
 	}
 	@media screen and (max-width: 980px) {
 		.pop {
-		  background-color: #e8e8e8; 
+		  background-color: #e8e8e8;
 		  position: fixed;
 		  top: 100px;
 		  left: 5%;
-		  width: 90%; 
-		  height: auto; 
+		  width: 90%;
+		  height: auto;
 		  z-index: 2
 		}
 		.pop video{
@@ -322,5 +333,5 @@
 			height: 80%;
 		}
 	}
-		
+
 </style>

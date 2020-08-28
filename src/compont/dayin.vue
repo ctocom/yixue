@@ -1,15 +1,15 @@
 <template>
 	<div class="dayin_max">
-		<div class="xue_hears"> 
-			<span @click="$router.go(-1)"> 
+		<div class="xue_hears">
+			<span @click="$router.go(-1)">
 				<a href="javascript:history.go(-1);" style="font-size: 2vh; ">
 					<div style="width: 10px;height: 100%;float:left;margin-right:20px ;">
 						<img  src="../../images/ic.png" alt="">
-					</div> 
-				</a> 
-			</span> 
+					</div>
+				</a>
+			</span>
 			<router-link :to="{path:'/xiaoxi',query:{id:$route.query.id,id2:this.$route.query.id}}">
-				<div class="ling_ri"> 
+				<div class="ling_ri">
 				</div>
 			</router-link>
 		</div>
@@ -24,7 +24,7 @@
 
 				 </div>
 				 <div class="tihao_ri" v-html="i.title">
-					 {{i.title}} 
+					 {{i.title}}
 				 </div>
 			 </div>
 		</div>
@@ -63,7 +63,18 @@
 		mounted() {
       console.log(this.$route.query);
 			this.goHome()
-		},
+    },
+    watch: {
+        //监听prop传的value，如果父级有变化了，将子组件的myValue也跟着变，达到父变子变的效果
+        zjData(value) {
+            this.$nextTick(function () { //这里要注意，使用$nextTick等组件数据渲染完之后再调用MathJax渲染方法，要不然会获取不到数据
+                if(this.commonsVariable.isMathjaxConfig){//判断是否初始配置，若无则配置。
+                    this.commonsVariable.initMathjaxConfig();
+                }
+                this.commonsVariable.MathQueue("printDiv");//传入组件id，让组件被MathJax渲染
+            })
+        }
+    },
 		methods: {
 			goHome() {
 				this.daData.type = this.$route.query.type
